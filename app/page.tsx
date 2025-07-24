@@ -84,6 +84,12 @@ export default function NeuropsicologiaClinic() {
               >
                 Entre Em Contato
               </button>
+              <button
+                onClick={() => scrollToSection("testes-gratuitos")}
+                className="text-emerald-700 hover:text-orange-500 transition-colors font-medium"
+              >
+                Testes Gratuitos
+              </button>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -125,6 +131,12 @@ export default function NeuropsicologiaClinic() {
                   className="text-left text-emerald-700 hover:text-orange-500 transition-colors font-medium"
                 >
                   Entre Em Contato
+                </button>
+                <button
+                  onClick={() => scrollToSection("testes-gratuitos")}
+                  className="text-left text-emerald-700 hover:text-orange-500 transition-colors font-medium"
+                >
+                  Testes Gratuitos
                 </button>
               </div>
             </nav>
@@ -484,6 +496,30 @@ export default function NeuropsicologiaClinic() {
         </div>
       </section>
 
+      {/* Testes Gratuitos Section */}
+      <section id="testes-gratuitos" className="py-20 bg-gradient-to-br from-emerald-800 to-teal-800 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6">Teste gratuito de rastreio para autismo em adultos</h2>
+            <p className="text-xl mb-10 leading-relaxed" style={{ color: "#f4f2ef" }}>
+              Identifique possíveis traços do espectro autista com um teste rápido, online e gratuito.
+            </p>
+
+            <Button
+              size="lg"
+              className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-medium rounded-md shadow-2xl hover:shadow-3xl transition-all"
+              onClick={() => (window.location.href = "/teste-tea-adulto")}
+            >
+              Fazer o teste
+            </Button>
+
+            <p className="text-sm mt-6 opacity-80" style={{ color: "#f4f2ef" }}>
+              * Este é um teste de triagem e não substitui uma avaliação clínica profissional
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Entre em Contato Section */}
       <section
         id="contato"
@@ -533,10 +569,12 @@ export default function NeuropsicologiaClinic() {
                   <div className="space-y-3">
                     <Button
                       className="w-full bg-green-600 hover:bg-green-700 font-semibold"
-                      onClick={() => window.open(
-                        "https://wa.me/5541984599063?text=Olá! Gostaria de agendar uma consulta para avaliação neuropsicológica.",
-                        "_blank",
-                        )}
+                      onClick={() =>
+                        window.open(
+                          "https://wa.me/5541984599063?text=Olá! Gostaria de agendar uma consulta para avaliação neuropsicológica.",
+                          "_blank",
+                        )
+                      }
                     >
                       <Phone className="h-4 w-4 mr-2" />
                       WhatsApp: 41 98459-9063
