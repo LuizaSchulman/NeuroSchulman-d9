@@ -64,25 +64,25 @@ export default function NeuropsicologiaClinic() {
                 onClick={() => scrollToSection("como-funciona")}
                 className="text-emerald-700 hover:text-orange-500 transition-colors font-medium"
               >
-                Como funciona
+                Como Funciona
               </button>
               <button
                 onClick={() => scrollToSection("quem-somos")}
                 className="text-emerald-700 hover:text-orange-500 transition-colors font-medium"
               >
-                Quem somos
+                Quem Vai Te Atender
               </button>
               <button
                 onClick={() => scrollToSection("duvidas")}
                 className="text-emerald-700 hover:text-orange-500 transition-colors font-medium"
               >
-                Dúvidas frequentes
+                Dúvidas Frequentes
               </button>
               <button
                 onClick={() => scrollToSection("contato")}
                 className="text-emerald-700 hover:text-orange-500 transition-colors font-medium"
               >
-                Entre em contato
+                Entre Em Contato
               </button>
             </nav>
 
@@ -106,25 +106,25 @@ export default function NeuropsicologiaClinic() {
                   onClick={() => scrollToSection("como-funciona")}
                   className="text-left text-emerald-700 hover:text-orange-500 transition-colors font-medium"
                 >
-                  Como funciona
+                  Como Funciona
                 </button>
                 <button
                   onClick={() => scrollToSection("quem-somos")}
                   className="text-left text-emerald-700 hover:text-orange-500 transition-colors font-medium"
                 >
-                  Quem somos
+                  Quem Vai Te Atender
                 </button>
                 <button
                   onClick={() => scrollToSection("duvidas")}
                   className="text-left text-emerald-700 hover:text-orange-500 transition-colors font-medium"
                 >
-                  Dúvidas frequentes
+                  Dúvidas Frequentes
                 </button>
                 <button
                   onClick={() => scrollToSection("contato")}
                   className="text-left text-emerald-700 hover:text-orange-500 transition-colors font-medium"
                 >
-                  Entre em contato
+                  Entre Em Contato
                 </button>
               </div>
             </nav>
@@ -154,7 +154,12 @@ export default function NeuropsicologiaClinic() {
             <Button
               size="lg"
               className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-4 text-sm font-medium uppercase rounded-md shadow-2xl hover:shadow-3xl transition-all tracking-wide"
-              onClick={() => scrollToSection("contato")}
+              onClick={() =>
+                window.open(
+                  "https://wa.me/5541984599063?text=Olá! Gostaria de agendar uma consulta para avaliação neuropsicológica.",
+                  "_blank",
+                )
+              }
             >
               Marque agora sua consulta
             </Button>
@@ -193,7 +198,7 @@ export default function NeuropsicologiaClinic() {
       <section id="como-funciona" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-bold text-emerald-800 text-center mb-4">Como funciona</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-emerald-800 text-center mb-4">Como Funciona</h2>
             <p className="text-lg text-emerald-600 text-center mb-16">
               Entenda as etapas da avaliação neuropsicológica:
             </p>
@@ -286,7 +291,7 @@ export default function NeuropsicologiaClinic() {
       <section className="py-20" style={{ background: "linear-gradient(to bottom right, #f4f2ef, #f0fdfa)" }}>
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold text-emerald-800 mb-4">Nosso espaço</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-emerald-800 mb-4">Nosso Espaço</h2>
             <p className="text-lg text-emerald-600 mb-12">
               Um ambiente acolhedor e profissional, pensado para seu bem-estar
             </p>
@@ -318,7 +323,7 @@ export default function NeuropsicologiaClinic() {
       <section id="quem-somos" className="py-20 bg-gradient-to-br from-emerald-800 to-teal-800 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-bold text-center mb-16">Quem vai te atender</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-center mb-16">Quem Vai Te Atender</h2>
 
             <div className="grid lg:grid-cols-2 gap-8 items-stretch">
               <div className="flex flex-col justify-center">
@@ -361,7 +366,7 @@ export default function NeuropsicologiaClinic() {
       <section id="duvidas" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-bold text-emerald-800 text-center mb-16">Dúvidas frequentes</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-emerald-800 text-center mb-16">Dúvidas Frequentes</h2>
 
             <Accordion type="single" collapsible className="space-y-4">
               <AccordionItem value="item-1">
@@ -487,7 +492,7 @@ export default function NeuropsicologiaClinic() {
       >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-bold text-emerald-800 text-center mb-4">Entre em contato</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-emerald-800 text-center mb-4">Entre Em Contato</h2>
             <p className="text-lg text-emerald-600 text-center mb-16">
               Ficou com dúvidas ou quer agendar sua avaliação?
             </p>
@@ -528,7 +533,10 @@ export default function NeuropsicologiaClinic() {
                   <div className="space-y-3">
                     <Button
                       className="w-full bg-green-600 hover:bg-green-700 font-semibold"
-                      onClick={() => window.open("https://wa.me/5541984599063", "_blank")}
+                      onClick={() => window.open(
+                        "https://wa.me/5541984599063?text=Olá! Gostaria de agendar uma consulta para avaliação neuropsicológica.",
+                        "_blank",
+                        )}
                     >
                       <Phone className="h-4 w-4 mr-2" />
                       WhatsApp: 41 98459-9063
