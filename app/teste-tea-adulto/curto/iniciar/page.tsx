@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
@@ -38,18 +38,8 @@ export default function IniciarTesteAQ10() {
   const [responses, setResponses] = useState<string[]>([])
   const [selectedResponse, setSelectedResponse] = useState("")
   const [showResults, setShowResults] = useState(false)
-  const [userData, setUserData] = useState<any>(null)
-
-  useEffect(() => {
-    // Get user data from localStorage
-    const storedData = localStorage.getItem("aq10-user-data")
-    if (storedData) {
-      setUserData(JSON.parse(storedData))
-    } else {
-      // Redirect back if no user data
-      window.location.href = "/teste-tea-adulto/curto"
-    }
-  }, [])
+  const [score, setScore] = useState(0)
+  const [interpretation, setInterpretation] = useState<any>(null)
 
   const handleResponseSelect = (response: string) => {
     setSelectedResponse(response)
@@ -71,7 +61,7 @@ export default function IniciarTesteAQ10() {
   }
 
   const calculateResults = (allResponses: string[]) => {
-    let score = 0
+    let calculatedScore = 0
 
     allResponses.forEach((response, index) => {
       const questionNumber = index + 1
@@ -80,22 +70,14 @@ export default function IniciarTesteAQ10() {
 
       // Score logic based on AQ-10 scoring rules
       if (CONCORDO_ITEMS.includes(questionNumber) && isConcordoResponse) {
-        score += 1
+        calculatedScore += 1
       } else if (DISCORDO_ITEMS.includes(questionNumber) && isDiscordoResponse) {
-        score += 1
+        calculatedScore += 1
       }
     })
 
-    // Store results and show them
-    const results = {
-      userData,
-      responses: allResponses,
-      score,
-      interpretation: getInterpretation(score),
-    }
-
-    // Store in localStorage for results page
-    localStorage.setItem("aq10-results", JSON.stringify(results))
+    setScore(calculatedScore)
+    setInterpretation(getInterpretation(calculatedScore))
     setShowResults(true)
   }
 
@@ -125,13 +107,11 @@ export default function IniciarTesteAQ10() {
   const progress = ((currentQuestion + 1) / AQ10_QUESTIONS.length) * 100
 
   if (showResults) {
-    const results = JSON.parse(localStorage.getItem("aq10-results") || "{}")
-
     return (
-      <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-50">
+      <div className="min-h-screen" style={{ background: "linear-gradient(to bottom right, #f4f2ef, #f0fdfa)" }}>
         {/* Header */}
-        <header className="bg-white/95 backdrop-blur-sm border-b">
-          <div className="container mx-auto px-4 py-4">
+        <header className="bg-white/95 backdrop-blur-sm border-b" style={{ borderColor: "#f4f2ef" }}>
+          <div className="container mx-auto px-4 py-2">
             <div className="flex items-center justify-between">
               <Link href="/" className="flex items-center space-x-3">
                 <Image
@@ -139,7 +119,7 @@ export default function IniciarTesteAQ10() {
                   alt="Luiza Schulman - Neuropsicologia"
                   width={180}
                   height={60}
-                  className="h-12 w-auto"
+                  className="h-10 w-auto"
                 />
               </Link>
             </div>
@@ -160,13 +140,13 @@ export default function IniciarTesteAQ10() {
               </CardHeader>
               <CardContent className="text-center space-y-6">
                 <div>
-                  <div className="text-4xl font-bold text-emerald-800 mb-2">{results.score}/10</div>
+                  <div className="text-4xl font-bold text-emerald-800 mb-2">{score}/10</div>
                   <p className="text-emerald-600">Pontuação Total</p>
                 </div>
 
-                <div className={`p-4 rounded-lg bg-gray-50 ${results.interpretation.color}`}>
-                  <h3 className="font-semibold text-lg mb-2">{results.interpretation.level}</h3>
-                  <p className="leading-relaxed">{results.interpretation.description}</p>
+                <div className={`p-4 rounded-lg bg-gray-50 ${interpretation.color}`}>
+                  <h3 className="font-semibold text-lg mb-2">{interpretation.level}</h3>
+                  <p className="leading-relaxed">{interpretation.description}</p>
                 </div>
 
                 <div className="text-sm text-gray-600 p-4 bg-gray-50 rounded-lg">
@@ -201,10 +181,10 @@ export default function IniciarTesteAQ10() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-50">
+    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom right, #f4f2ef, #f0fdfa)" }}>
       {/* Header */}
-      <header className="bg-white/95 backdrop-blur-sm border-b">
-        <div className="container mx-auto px-4 py-4">
+      <header className="bg-white/95 backdrop-blur-sm border-b" style={{ borderColor: "#f4f2ef" }}>
+        <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-3">
               <Image
@@ -212,7 +192,7 @@ export default function IniciarTesteAQ10() {
                 alt="Luiza Schulman - Neuropsicologia"
                 width={180}
                 height={60}
-                className="h-12 w-auto"
+                className="h-10 w-auto"
               />
             </Link>
             <Link href="/teste-tea-adulto/curto">

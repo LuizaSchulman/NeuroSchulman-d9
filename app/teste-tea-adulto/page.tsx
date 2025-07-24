@@ -8,10 +8,10 @@ import Link from "next/link"
 
 export default function TesteTeaAdulto() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-50">
+    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom right, #f4f2ef, #f0fdfa)" }}>
       {/* Header */}
-      <header className="bg-white/95 backdrop-blur-sm border-b">
-        <div className="container mx-auto px-4 py-4">
+      <header className="bg-white/95 backdrop-blur-sm border-b" style={{ borderColor: "#f4f2ef" }}>
+        <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-3">
               <Image
@@ -19,7 +19,7 @@ export default function TesteTeaAdulto() {
                 alt="Luiza Schulman - Neuropsicologia"
                 width={180}
                 height={60}
-                className="h-12 w-auto"
+                className="h-10 w-auto"
               />
             </Link>
             <Link href="/">
@@ -50,14 +50,11 @@ export default function TesteTeaAdulto() {
                 <p className="text-orange-600 font-semibold text-lg">Versão Curta</p>
               </CardHeader>
               <CardContent className="text-center">
-                <div className="flex items-center justify-center mb-4">
+                <div className="flex items-center justify-center mb-6">
                   <Clock className="h-5 w-5 text-emerald-600 mr-2" />
                   <span className="text-emerald-700">Leva cerca de 2 minutos para ser respondido</span>
                 </div>
-                <p className="text-emerald-600 mb-6 text-sm">
-                  Questionário rápido com 10 perguntas essenciais para triagem inicial.
-                </p>
-                <Link href="/teste-tea-adulto/curto">
+                <Link href="/teste-tea-adulto/curto/iniciar">
                   <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3">
                     Iniciar versão curta
                   </Button>
@@ -72,14 +69,11 @@ export default function TesteTeaAdulto() {
                 <p className="text-orange-600 font-semibold text-lg">Versão Completa</p>
               </CardHeader>
               <CardContent className="text-center">
-                <div className="flex items-center justify-center mb-4">
+                <div className="flex items-center justify-center mb-6">
                   <Clock className="h-5 w-5 text-emerald-600 mr-2" />
                   <span className="text-emerald-700">Leva cerca de 10 minutos para ser respondido</span>
                 </div>
-                <p className="text-emerald-600 mb-6 text-sm">
-                  Questionário completo com 50 perguntas para avaliação mais detalhada.
-                </p>
-                <Link href="/teste-tea-adulto/longo">
+                <Link href="/teste-tea-adulto/longo/iniciar">
                   <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white py-3">
                     Iniciar versão completa
                   </Button>
@@ -90,10 +84,10 @@ export default function TesteTeaAdulto() {
 
           {/* Disclaimer */}
           <div className="mt-12 max-w-3xl mx-auto">
-            <Card className="bg-orange-50 border-orange-200">
+            <Card className="bg-blue-50 border-blue-200">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-orange-800 mb-2">Importante:</h3>
-                <p className="text-orange-700 text-sm leading-relaxed">
+                <h3 className="font-semibold text-blue-800 mb-2">Importante:</h3>
+                <p className="text-blue-700 text-sm leading-relaxed">
                   Este teste é uma ferramenta de triagem e não constitui um diagnóstico. Os resultados devem ser
                   interpretados por um profissional qualificado. Se você tem preocupações sobre autismo, recomendamos
                   buscar uma avaliação neuropsicológica completa.

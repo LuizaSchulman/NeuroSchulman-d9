@@ -1,45 +1,17 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { ArrowLeft, Info, Clock } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
 export default function TesteAQ50() {
-  const [formData, setFormData] = useState({
-    nome: "",
-    idade: "",
-    genero: "",
-    email: "",
-  })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-
-    if (!formData.idade || !formData.genero || !formData.email) {
-      alert("Por favor, preencha todos os campos obrigatórios.")
-      return
-    }
-
-    // Store form data in localStorage for the test
-    localStorage.setItem("aq50-user-data", JSON.stringify(formData))
-
-    // Redirect to test
-    window.location.href = "/teste-tea-adulto/longo/iniciar"
-  }
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-50">
+    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom right, #f4f2ef, #f0fdfa)" }}>
       {/* Header */}
-      <header className="bg-white/95 backdrop-blur-sm border-b">
-        <div className="container mx-auto px-4 py-4">
+      <header className="bg-white/95 backdrop-blur-sm border-b" style={{ borderColor: "#f4f2ef" }}>
+        <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-3">
               <Image
@@ -47,7 +19,7 @@ export default function TesteAQ50() {
                 alt="Luiza Schulman - Neuropsicologia"
                 width={180}
                 height={60}
-                className="h-12 w-auto"
+                className="h-10 w-auto"
               />
             </Link>
             <Link href="/teste-tea-adulto">
@@ -88,74 +60,20 @@ export default function TesteAQ50() {
             </CardContent>
           </Card>
 
-          {/* Form Card */}
+          {/* Start Test Card */}
           <Card className="bg-white shadow-lg">
             <CardHeader>
-              <CardTitle className="text-emerald-800">Informações Pessoais</CardTitle>
-              <p className="text-emerald-600">Preencha os dados abaixo para iniciar o teste:</p>
+              <CardTitle className="text-emerald-800 text-center">Pronto para começar?</CardTitle>
+              <p className="text-emerald-600 text-center">
+                O teste contém 50 perguntas e leva aproximadamente 10 minutos para ser concluído.
+              </p>
             </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <Label htmlFor="nome">Nome (opcional)</Label>
-                  <Input
-                    id="nome"
-                    type="text"
-                    value={formData.nome}
-                    onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
-                    placeholder="Seu nome"
-                    className="mt-1"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="idade">Idade *</Label>
-                  <Input
-                    id="idade"
-                    type="number"
-                    min="18"
-                    max="100"
-                    value={formData.idade}
-                    onChange={(e) => setFormData({ ...formData, idade: e.target.value })}
-                    placeholder="Sua idade"
-                    className="mt-1"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="genero">Gênero *</Label>
-                  <Select onValueChange={(value) => setFormData({ ...formData, genero: value })}>
-                    <SelectTrigger className="mt-1">
-                      <SelectValue placeholder="Selecione seu gênero" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="mulher">Mulher</SelectItem>
-                      <SelectItem value="homem">Homem</SelectItem>
-                      <SelectItem value="outro">Outro</SelectItem>
-                      <SelectItem value="nao-comentar">Prefiro não comentar</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <Label htmlFor="email">E-mail *</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="seu@email.com"
-                    className="mt-1"
-                    required
-                  />
-                  <p className="text-sm text-emerald-600 mt-1">Para receber os resultados, se desejado</p>
-                </div>
-
-                <Button type="submit" className="w-full bg-teal-600 hover:bg-teal-700 text-white py-3">
-                  Iniciar Teste
+            <CardContent className="text-center">
+              <Link href="/teste-tea-adulto/longo/iniciar">
+                <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white py-3 text-lg">
+                  Iniciar Teste AQ-50
                 </Button>
-              </form>
+              </Link>
             </CardContent>
           </Card>
 
@@ -163,9 +81,8 @@ export default function TesteAQ50() {
           <Card className="mt-6 bg-gray-50 border-gray-200">
             <CardContent className="p-4">
               <p className="text-sm text-gray-600">
-                <strong>Política de Privacidade:</strong> Suas informações serão utilizadas apenas para fins de pesquisa
-                e melhoria do serviço. Não compartilhamos dados pessoais com terceiros. Os resultados podem ser enviados
-                para o e-mail informado, se solicitado.
+                <strong>Política de Privacidade:</strong> Este teste é anônimo e não coleta informações pessoais. Os
+                resultados são exibidos apenas para você e não são armazenados em nossos servidores.
               </p>
             </CardContent>
           </Card>
