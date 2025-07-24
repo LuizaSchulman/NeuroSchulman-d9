@@ -4,9 +4,12 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: 'Clínica de Neuropsicologia - Dra. Luiza Schulman',
+  description: 'Avaliação e reabilitação neuropsicológica especializada. Cuidado personalizado para crianças, adolescentes e adultos.',
+  icons: {
+    icon: '/favicon.png',
+  },
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -15,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <style>{`
 html {
