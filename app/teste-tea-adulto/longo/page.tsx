@@ -70,7 +70,7 @@ export default function TesteAQ50() {
             </CardHeader>
             <CardContent className="text-center">
               <Link href="/teste-tea-adulto/longo/iniciar">
-                <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white py-3 text-lg">
+                <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 text-lg">
                   Iniciar Teste AQ-50
                 </Button>
               </Link>

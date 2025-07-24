@@ -86,14 +86,14 @@ export default function TesteTeaAdulto() {
             </Card>
           </div>
 
-          {/* Collapsible Info Section */}
+          {/* Collapsible Information */}
           <div className="mt-12 max-w-3xl mx-auto">
             <Collapsible open={isOpen} onOpenChange={setIsOpen}>
               <CollapsibleTrigger asChild>
-                <Card className="bg-white border-emerald-200 cursor-pointer hover:shadow-md transition-all">
+                <Card className="cursor-pointer hover:shadow-md transition-shadow bg-white border-emerald-200">
                   <CardContent className="p-4">
                     <div className="flex items-center justify-between">
-                      <h3 className="font-semibold text-emerald-800 text-lg">Saiba mais sobre os testes</h3>
+                      <h3 className="font-semibold text-emerald-800">Saiba mais sobre os testes</h3>
                       <ChevronDown
                         className={`h-5 w-5 text-emerald-600 transition-transform ${isOpen ? "rotate-180" : ""}`}
                       />
@@ -101,45 +101,56 @@ export default function TesteTeaAdulto() {
                   </CardContent>
                 </Card>
               </CollapsibleTrigger>
-
               <CollapsibleContent>
-                <Card className="bg-white border-emerald-200 mt-2">
-                  <CardContent className="p-6 space-y-6">
+                <Card className="mt-2 bg-white border-emerald-200">
+                  <CardContent className="p-6 space-y-4">
                     <div>
-                      <h4 className="font-semibold text-emerald-800 text-lg mb-3">Sobre os testes AQ-10 e AQ-50</h4>
-                      <p className="text-emerald-700 leading-relaxed mb-4">
+                      <h4 className="font-semibold text-emerald-800 mb-2">Sobre os testes AQ-10 e AQ-50</h4>
+                      <p className="text-emerald-700 text-sm leading-relaxed">
                         O AQ-10 e o AQ-50 são instrumentos de triagem desenvolvidos por pesquisadores da Universidade de
-                        Cambridge para avaliar a presença de traços do espectro autista em adultos com inteligência
-                        média ou acima da média.
+                        Cambridge para avaliar a presença de traços do espectro autista em adultos sem deficit
+                        intelectual. O AQ-50 é a versão original, composta por 50 afirmações sobre preferências,
+                        comportamentos e formas de pensar, desenvolvida por Baron-Cohen et al. (2001).
                       </p>
-                      <p className="text-emerald-700 leading-relaxed mb-4">
-                        O AQ-50 é a versão original, composta por 50 afirmações sobre preferências, comportamentos e
-                        formas de pensar, desenvolvida por Baron-Cohen et al. (2001).
-                      </p>
-                      <div className="flex items-center text-emerald-600 mb-4">
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        <span className="text-sm">Estudo original – Journal of Autism and Developmental Disorders</span>
-                      </div>
-                      <p className="text-emerald-700 leading-relaxed mb-4">
+                    </div>
+
+                    <div>
+                      <a
+                        href="https://pubmed.ncbi.nlm.nih.gov/11439754/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-emerald-600 hover:text-emerald-800 font-medium text-sm"
+                      >
+                        Estudo original – Journal of Autism and Developmental Disorders
+                        <ExternalLink className="h-3 w-3 ml-1" />
+                      </a>
+                    </div>
+
+                    <div>
+                      <p className="text-emerald-700 text-sm leading-relaxed mb-2">
                         O AQ-10 é uma versão reduzida, validada para uso como triagem rápida em contextos clínicos e de
                         pesquisa.
                       </p>
-                      <div className="flex items-center text-emerald-600 mb-6">
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        <span className="text-sm">
-                          Estudo de validação – Journal of the American Academy of Child & Adolescent Psychiatry
-                        </span>
-                      </div>
+                      <a
+                        href="https://docs.autismresearchcentre.com/papers/2012_Allisonetal_JAACAP_RedFlags.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-emerald-600 hover:text-emerald-800 font-medium text-sm"
+                      >
+                        Referência: Toward Brief "Red Flags" for Autism Screening: The Short Autism Spectrum Quotient
+                        and the Short Quantitative Checklist in 1,000 Cases and 3,000 Controls
+                        <ExternalLink className="h-3 w-3 ml-1" />
+                      </a>
                     </div>
 
-                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-                      <h4 className="font-semibold text-amber-800 mb-2 flex items-center">⚠️ Aviso importante</h4>
-                      <p className="text-amber-700 text-sm leading-relaxed">
+                    <div className="border-t pt-4">
+                      <h4 className="font-semibold text-orange-800 mb-2">Aviso importante:</h4>
+                      <p className="text-orange-700 text-sm leading-relaxed">
                         Estes testes têm caráter exclusivamente informativo e não substituem uma avaliação clínica
                         completa. Um escore elevado pode indicar a necessidade de investigação mais aprofundada, mas não
                         configura, por si só, um diagnóstico de autismo.
                       </p>
-                      <p className="text-amber-700 text-sm leading-relaxed mt-2">
+                      <p className="text-orange-700 text-sm leading-relaxed mt-2">
                         Para uma avaliação precisa, é fundamental consultar um profissional qualificado, como um
                         neuropsicólogo ou psiquiatra, que poderá integrar os resultados desses instrumentos com dados
                         clínicos, observações comportamentais e outras escalas padronizadas.
@@ -149,29 +160,6 @@ export default function TesteTeaAdulto() {
                 </Card>
               </CollapsibleContent>
             </Collapsible>
-          </div>
-
-          {/* References Section */}
-          <div className="mt-8 max-w-3xl mx-auto">
-            <Card className="bg-gray-50 border-gray-200">
-              <CardContent className="p-6">
-                <h3 className="font-semibold text-gray-800 mb-4">Referências</h3>
-                <div className="space-y-3 text-sm text-gray-700">
-                  <p>
-                    <strong>AQ-50:</strong> Baron-Cohen, S., Wheelwright, S., Skinner, R., Martin, J., & Clubley, E.
-                    (2001). The autism-spectrum quotient (AQ): Evidence from Asperger syndrome/high-functioning autism,
-                    males and females, scientists and mathematicians.{" "}
-                    <em>Journal of Autism and Developmental Disorders</em>, 31(1), 5-17.
-                  </p>
-                  <p>
-                    <strong>AQ-10:</strong> Allison, C., Auyeung, B., & Baron-Cohen, S. (2012). Toward brief "red flags"
-                    for autism screening: the short autism spectrum quotient and the short quantitative checklist in
-                    1,000 cases and 3,000 controls.
-                    <em>Journal of the American Academy of Child & Adolescent Psychiatry</em>, 51(2), 202-212.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </main>

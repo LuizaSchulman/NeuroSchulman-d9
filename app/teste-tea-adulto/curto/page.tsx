@@ -53,10 +53,6 @@ export default function TesteAQ10() {
                 O AQ-10 não é um instrumento diagnóstico, mas uma ferramenta de triagem reconhecida e validada
                 cientificamente.
               </p>
-              <p className="text-sm">
-                <strong>Referência:</strong> Allison et al. (2012), Baron-Cohen et al. (2001). Versão brasileira
-                validada por Morais et al. (2020).
-              </p>
             </CardContent>
           </Card>
 
