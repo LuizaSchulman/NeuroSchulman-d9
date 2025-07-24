@@ -4,8 +4,8 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Clínica de Neuropsicologia - Dra. Luiza Schulman',
-  description: 'Avaliação e reabilitação neuropsicológica especializada. Cuidado personalizado para crianças, adolescentes e adultos.',
+  title: 'Neuropsicologia - Luiza Schulman',
+  description: 'Avaliação neuropsicológica especializada.',
   icons: {
     icon: '/favicon.png',
   },
