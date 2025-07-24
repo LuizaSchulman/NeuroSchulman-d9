@@ -66,7 +66,7 @@ export default function TesteTeaAdulto() {
             </Card>
 
             {/* AQ-50 Card */}
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all bg-white opacity-75">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all bg-white">
               <CardHeader className="text-center pb-4">
                 <CardTitle className="text-2xl text-emerald-800 mb-2">AQ-50</CardTitle>
                 <p className="text-orange-600 font-semibold text-lg">Versão Completa</p>
@@ -79,9 +79,11 @@ export default function TesteTeaAdulto() {
                 <p className="text-emerald-600 mb-6 text-sm">
                   Questionário completo com 50 perguntas para avaliação mais detalhada.
                 </p>
-                <Button disabled className="w-full bg-gray-400 text-white py-3">
-                  Em breve
-                </Button>
+                <Link href="/teste-tea-adulto/longo">
+                  <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white py-3">
+                    Iniciar versão completa
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           </div>

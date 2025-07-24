@@ -18,6 +18,7 @@ export interface TestResults {
     color: string
   }
   timestamp: string
+  testType: "AQ-10" | "AQ-50"
 }
 
 export const saveTestResults = async (results: TestResults) => {
@@ -50,6 +51,26 @@ export const getTestResults = () => {
     return JSON.parse(localStorage.getItem("all-test-results") || "[]")
   } catch (error) {
     console.error("Error getting test results:", error)
+    return []
+  }
+}
+
+export const getAQ10Results = () => {
+  try {
+    const allResults = getTestResults()
+    return allResults.filter((result: TestResults) => result.testType === "AQ-10")
+  } catch (error) {
+    console.error("Error getting AQ-10 results:", error)
+    return []
+  }
+}
+
+export const getAQ50Results = () => {
+  try {
+    const allResults = getTestResults()
+    return allResults.filter((result: TestResults) => result.testType === "AQ-50")
+  } catch (error) {
+    console.error("Error getting AQ-50 results:", error)
     return []
   }
 }
