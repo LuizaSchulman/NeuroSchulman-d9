@@ -58,7 +58,7 @@ export default function NeuropsicologiaClinic() {
                 onClick={() => scrollToSection("home")}
                 className="text-emerald-700 hover:text-orange-500 transition-colors font-medium"
               >
-                Home
+                Início
               </button>
               <button
                 onClick={() => scrollToSection("como-funciona")}
@@ -100,7 +100,7 @@ export default function NeuropsicologiaClinic() {
                   onClick={() => scrollToSection("home")}
                   className="text-left text-emerald-700 hover:text-orange-500 transition-colors font-medium"
                 >
-                  Home
+                  Início
                 </button>
                 <button
                   onClick={() => scrollToSection("como-funciona")}
