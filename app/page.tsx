@@ -22,6 +22,7 @@ import Image from "next/image"
 
 export default function NeuropsicologiaClinic() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [showDuck, setShowDuck] = useState(false)
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -156,9 +157,161 @@ export default function NeuropsicologiaClinic() {
         {/* Content */}
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
-              Avaliação neuropsicológica <span className="text-orange-400">atenta e individualizada</span>
+            <h1
+              className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg cursor-pointer"
+              onClick={() => setShowDuck(!showDuck)}
+            >
+              <span className="inline-block animate-bounce" style={{ animationDelay: "0s" }}>
+                A
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "0.1s" }}>
+                v
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "0.2s" }}>
+                a
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "0.3s" }}>
+                l
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "0.4s" }}>
+                i
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "0.5s" }}>
+                a
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "0.6s" }}>
+                ç
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "0.7s" }}>
+                ã
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "0.8s" }}>
+                o
+              </span>
+              <span className="inline-block mx-2"></span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "0.9s" }}>
+                n
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "1s" }}>
+                e
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "1.1s" }}>
+                u
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "1.2s" }}>
+                r
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "1.3s" }}>
+                o
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "1.4s" }}>
+                p
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "1.5s" }}>
+                s
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "1.6s" }}>
+                i
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "1.7s" }}>
+                c
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "1.8s" }}>
+                o
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "1.9s" }}>
+                l
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "2s" }}>
+                ó
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "2.1s" }}>
+                g
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "2.2s" }}>
+                i
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "2.3s" }}>
+                c
+              </span>
+              <span className="inline-block animate-bounce" style={{ animationDelay: "2.4s" }}>
+                a
+              </span>
+              <span className="inline-block mx-2"></span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "2.5s" }}>
+                a
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "2.6s" }}>
+                t
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "2.7s" }}>
+                e
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "2.8s" }}>
+                n
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "2.9s" }}>
+                t
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "3s" }}>
+                a
+              </span>
+              <span className="inline-block mx-2"></span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "3.1s" }}>
+                e
+              </span>
+              <span className="inline-block mx-2"></span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "3.2s" }}>
+                i
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "3.3s" }}>
+                n
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "3.4s" }}>
+                d
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "3.5s" }}>
+                i
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "3.6s" }}>
+                v
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "3.7s" }}>
+                i
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "3.8s" }}>
+                d
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "3.9s" }}>
+                u
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "4s" }}>
+                a
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "4.1s" }}>
+                l
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "4.2s" }}>
+                i
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "4.3s" }}>
+                z
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "4.4s" }}>
+                a
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "4.5s" }}>
+                d
+              </span>
+              <span className="text-orange-400 inline-block animate-bounce" style={{ animationDelay: "4.6s" }}>
+                a
+              </span>
             </h1>
+            {showDuck && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+                <div className="text-9xl animate-spin">🦆</div>
+              </div>
+            )}
             <p className="text-xl mb-10 leading-relaxed drop-shadow-md" style={{ color: "#f4f2ef" }}>
               Compreender é o primeiro passo para cuidar.
             </p>
