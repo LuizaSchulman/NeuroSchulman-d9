@@ -85,12 +85,13 @@ export default function ResultadoTeste() {
   const searchParams = useSearchParams()
   const [result, setResult] = useState<TestResult | null>(null)
   const [copied, setCopied] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const score = searchParams.get("score")
     const testType = searchParams.get("testType") as "AQ-10" | "AQ-50"
 
-    if (score && testType) {
+    if (score && testType && !result) {
       const numScore = Number.parseInt(score)
       const resultContent = getResultContent(numScore, testType)
 
@@ -103,8 +104,11 @@ export default function ResultadoTeste() {
           color: resultContent.color,
         },
       })
+      setIsLoading(false)
+    } else if (!score || !testType) {
+      setIsLoading(false)
     }
-  }, [searchParams])
+  }, [searchParams, result])
 
   const handleShare = async (platform?: string) => {
     if (!result) return
@@ -133,7 +137,7 @@ export default function ResultadoTeste() {
     }
   }
 
-  if (!result) {
+  if (isLoading || !result) {
     return (
       <div
         className="min-h-screen flex items-center justify-center"
