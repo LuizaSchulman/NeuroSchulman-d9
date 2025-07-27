@@ -28,30 +28,30 @@ const getResultContent = (score: number, testType: "AQ-10" | "AQ-50") => {
     if (score <= 3) {
       level = "baixa"
       title = "Seu resultado: Baixa probabilidade de traços autísticos"
-      color = "text-green-700"
+      color = "text-orange-600"
     } else if (score <= 6) {
       level = "moderada"
       title = "Seu resultado: Presença de alguns traços autísticos"
-      color = "text-yellow-700"
+      color = "text-orange-600"
     } else {
       level = "alta"
       title = "Seu resultado: Alta probabilidade de traços autísticos"
-      color = "text-orange-700"
+      color = "text-orange-600"
     }
   } else {
     // AQ-50
     if (score <= 25) {
       level = "baixa"
       title = "Seu resultado: Baixa probabilidade de traços autísticos"
-      color = "text-green-700"
+      color = "text-orange-600"
     } else if (score <= 31) {
       level = "moderada"
       title = "Seu resultado: Presença de alguns traços autísticos"
-      color = "text-yellow-700"
+      color = "text-orange-600"
     } else {
       level = "alta"
       title = "Seu resultado: Alta probabilidade de traços autísticos"
-      color = "text-orange-700"
+      color = "text-orange-600"
     }
   }
 
