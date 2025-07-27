@@ -4,9 +4,10 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
-import { ArrowLeft, CheckCircle } from "lucide-react"
+import { ArrowLeft } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 const AQ50_QUESTIONS = [
   "Eu prefiro fazer as coisas com os outros, em vez de sozinho.",
@@ -76,12 +77,10 @@ const DISCORDO_ITEMS = [
 ]
 
 export default function IniciarTesteAQ50() {
+  const router = useRouter()
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [responses, setResponses] = useState<string[]>([])
   const [selectedResponse, setSelectedResponse] = useState("")
-  const [showResults, setShowResults] = useState(false)
-  const [score, setScore] = useState(0)
-  const [interpretation, setInterpretation] = useState<any>(null)
 
   const handleResponseSelect = (response: string) => {
     setSelectedResponse(response)
@@ -118,109 +117,11 @@ export default function IniciarTesteAQ50() {
       }
     })
 
-    setScore(calculatedScore)
-    setInterpretation(getInterpretation(calculatedScore))
-    setShowResults(true)
-  }
-
-  const getInterpretation = (score: number) => {
-    if (score <= 25) {
-      return {
-        level: "Baixa presença",
-        description: "Baixa presença de traços autísticos.",
-        color: "text-green-700",
-      }
-    } else if (score <= 31) {
-      return {
-        level: "Zona intermediária",
-        description: "Zona intermediária (atenção). Alguns traços autísticos presentes que merecem atenção.",
-        color: "text-yellow-700",
-      }
-    } else {
-      return {
-        level: "Presença significativa",
-        description:
-          "Presença significativa de traços autísticos. Recomenda-se buscar uma avaliação neuropsicológica completa.",
-        color: "text-orange-700",
-      }
-    }
+    // Redirect to results page
+    router.push(`/teste-tea-adulto/resultado?score=${calculatedScore}&testType=AQ-50`)
   }
 
   const progress = ((currentQuestion + 1) / AQ50_QUESTIONS.length) * 100
-
-  if (showResults) {
-    return (
-      <div className="min-h-screen" style={{ background: "linear-gradient(to bottom right, #f4f2ef, #f0fdfa)" }}>
-        {/* Header */}
-        <header className="bg-white/95 backdrop-blur-sm border-b" style={{ borderColor: "#f4f2ef" }}>
-          <div className="container mx-auto px-4 py-2">
-            <div className="flex items-center justify-between">
-              <Link href="/" className="flex items-center space-x-3">
-                <Image
-                  src="/logo-final.png"
-                  alt="Luiza Schulman - Neuropsicologia"
-                  width={180}
-                  height={60}
-                  className="h-10 w-auto"
-                />
-              </Link>
-            </div>
-          </div>
-        </header>
-
-        {/* Results */}
-        <main className="container mx-auto px-4 py-16">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-8">
-              <CheckCircle className="h-16 w-16 text-green-600 mx-auto mb-4" />
-              <h1 className="text-3xl lg:text-4xl font-bold text-emerald-800 mb-4">Teste Concluído!</h1>
-            </div>
-
-            <Card className="bg-white shadow-lg mb-6">
-              <CardHeader>
-                <CardTitle className="text-emerald-800 text-center">Seus Resultados - AQ-50</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center space-y-6">
-                <div>
-                  <div className="text-4xl font-bold text-emerald-800 mb-2">{score}/50</div>
-                  <p className="text-emerald-600">Pontuação Total</p>
-                </div>
-
-                <div className={`p-4 rounded-lg bg-gray-50 ${interpretation.color}`}>
-                  <h3 className="font-semibold text-lg mb-2">{interpretation.level}</h3>
-                  <p className="leading-relaxed">{interpretation.description}</p>
-                </div>
-
-                <div className="text-sm text-gray-600 p-4 bg-gray-50 rounded-lg">
-                  <p>
-                    <strong>Lembre-se:</strong> O AQ-50 é uma ferramenta de triagem e não substitui uma avaliação
-                    clínica. Para uma avaliação completa e diagnóstico preciso, consulte um profissional especializado.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* CTA */}
-            <div className="text-center">
-              <Button
-                size="lg"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 mb-4"
-                onClick={() =>
-                  window.open(
-                    "https://wa.me/5541984599063?text=Olá, acabei de fazer o teste gratuito para TEA no site e gostaria de agendar uma consulta.",
-                    "_blank",
-                  )
-                }
-              >
-                Agende uma consulta
-              </Button>
-              <p className="text-sm text-emerald-600">Fale conosco para uma avaliação neuropsicológica completa</p>
-            </div>
-          </div>
-        </main>
-      </div>
-    )
-  }
 
   return (
     <div className="min-h-screen" style={{ background: "linear-gradient(to bottom right, #f4f2ef, #f0fdfa)" }}>
