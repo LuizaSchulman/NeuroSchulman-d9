@@ -500,21 +500,33 @@ export default function NeuropsicologiaClinic() {
       <section id="testes-gratuitos" className="py-20 bg-gradient-to-br from-emerald-800 to-teal-800 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">Teste gratuito de rastreio para autismo em adultos</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+              Testes Gratuitos de Rastreio de Autismo e TDAH em Adultos
+            </h2>
             <p className="text-xl mb-10 leading-relaxed" style={{ color: "#f4f2ef" }}>
-              Identifique possíveis traços do espectro autista com um teste rápido, online e gratuito.
+              Identifique possíveis traços de neurodivergência com testes rápidos, online e gratuitos.
             </p>
 
-            <Button
-              size="lg"
-              className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-medium rounded-md shadow-2xl hover:shadow-3xl transition-all"
-              onClick={() => (window.location.href = "/teste-tea-adulto")}
-            >
-              Fazer o teste
-            </Button>
+            <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-10">
+              <Button
+                size="lg"
+                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-medium rounded-md shadow-2xl hover:shadow-3xl transition-all"
+                onClick={() => (window.location.href = "/teste-tea-adulto")}
+              >
+                Teste Autismo Adulto
+              </Button>
 
-            <p className="text-sm mt-6 opacity-80" style={{ color: "#f4f2ef" }}>
-              * Este é um teste de triagem e não substitui uma avaliação clínica profissional
+              <Button
+                size="lg"
+                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-medium rounded-md shadow-2xl hover:shadow-3xl transition-all"
+                onClick={() => (window.location.href = "/teste-tdah-adulto")}
+              >
+                Teste TDAH Adulto
+              </Button>
+            </div>
+
+            <p className="text-sm opacity-80" style={{ color: "#f4f2ef" }}>
+              * Estes são testes de triagem e não substituem uma avaliação clínica profissional
             </p>
           </div>
         </div>

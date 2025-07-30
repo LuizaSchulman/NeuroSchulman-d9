@@ -1,76 +1,70 @@
-// Simple utility for storing test data
-// In production, replace with proper backend storage
-
-export interface UserData {
-  nome?: string
-  idade: string
-  genero: string
-  email: string
-}
-
-export interface TestResults {
-  userData: UserData
-  responses: string[]
+// Tipos para os resultados dos testes
+export interface AQResult {
+  version: "AQ-10" | "AQ-50"
   score: number
-  interpretation: {
-    level: string
-    description: string
-    color: string
-  }
-  timestamp: string
-  testType: "AQ-10" | "AQ-50"
+  maxScore: number
+  percentage: number
+  interpretation: string
+  answers: Record<number, number>
+  completedAt: string
 }
 
-export const saveTestResults = async (results: TestResults) => {
-  try {
-    // For now, just store in localStorage
-    // In production, send to your backend/database
-    const allResults = JSON.parse(localStorage.getItem("all-test-results") || "[]")
-    allResults.push({
-      ...results,
-      timestamp: new Date().toISOString(),
-    })
-    localStorage.setItem("all-test-results", JSON.stringify(allResults))
+export interface TDAHResult {
+  partAScore: number
+  partBScore: number
+  impactAreas: string[]
+  resultType: string
+  resultMessage: string
+  totalQuestions: number
+  answeredQuestions: number
+  answers: Record<number, string>
+  completedAt: string
+}
 
-    // Here you would typically send to your backend:
-    // await fetch('/api/save-test-results', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(results)
-    // })
-
-    return true
-  } catch (error) {
-    console.error("Error saving test results:", error)
-    return false
+// Funções para AQ (Autismo)
+export function saveAQResult(result: AQResult): void {
+  if (typeof window !== "undefined") {
+    localStorage.setItem("aq_test_result", JSON.stringify(result))
   }
 }
 
-export const getTestResults = () => {
-  try {
-    return JSON.parse(localStorage.getItem("all-test-results") || "[]")
-  } catch (error) {
-    console.error("Error getting test results:", error)
-    return []
+export function getAQResult(): AQResult | null {
+  if (typeof window !== "undefined") {
+    const stored = localStorage.getItem("aq_test_result")
+    return stored ? JSON.parse(stored) : null
+  }
+  return null
+}
+
+export function clearAQResult(): void {
+  if (typeof window !== "undefined") {
+    localStorage.removeItem("aq_test_result")
   }
 }
 
-export const getAQ10Results = () => {
-  try {
-    const allResults = getTestResults()
-    return allResults.filter((result: TestResults) => result.testType === "AQ-10")
-  } catch (error) {
-    console.error("Error getting AQ-10 results:", error)
-    return []
+// Funções para TDAH
+export function saveTDAHResult(result: TDAHResult): void {
+  if (typeof window !== "undefined") {
+    localStorage.setItem("tdah_test_result", JSON.stringify(result))
   }
 }
 
-export const getAQ50Results = () => {
-  try {
-    const allResults = getTestResults()
-    return allResults.filter((result: TestResults) => result.testType === "AQ-50")
-  } catch (error) {
-    console.error("Error getting AQ-50 results:", error)
-    return []
+export function getTDAHResult(): TDAHResult | null {
+  if (typeof window !== "undefined") {
+    const stored = localStorage.getItem("tdah_test_result")
+    return stored ? JSON.parse(stored) : null
   }
+  return null
+}
+
+export function clearTDAHResult(): void {
+  if (typeof window !== "undefined") {
+    localStorage.removeItem("tdah_test_result")
+  }
+}
+
+// Função para limpar todos os resultados
+export function clearAllResults(): void {
+  clearAQResult()
+  clearTDAHResult()
 }
