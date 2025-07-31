@@ -1,36 +1,39 @@
-// Tipos para os resultados dos testes
-export interface AQResult {
-  version: "AQ-10" | "AQ-50"
+// Types for test results
+export interface AQTestResult {
   score: number
-  maxScore: number
-  percentage: number
-  interpretation: string
-  answers: Record<number, number>
+  testType: "AQ-10" | "AQ-50"
+  responses: string[]
   completedAt: string
 }
 
-export interface TDAHResult {
+export interface TDAHTestResult {
+  answers: Record<number, string>
+  impactAreas: string[]
   partAScore: number
   partBScore: number
-  impactAreas: string[]
   resultType: string
   resultMessage: string
   totalQuestions: number
   answeredQuestions: number
-  answers: Record<number, string>
   completedAt: string
 }
 
-// Funções para AQ (Autismo)
-export function saveAQResult(result: AQResult): void {
+// AQ Test Storage Functions
+export function saveAQResult(result: AQTestResult): void {
   if (typeof window !== "undefined") {
-    localStorage.setItem("aq_test_result", JSON.stringify(result))
+    localStorage.setItem("aq-test-result", JSON.stringify(result))
   }
 }
 
-export function getAQResult(): AQResult | null {
+export function updateAQResult(result: AQTestResult): void {
   if (typeof window !== "undefined") {
-    const stored = localStorage.getItem("aq_test_result")
+    localStorage.setItem("aq-test-result", JSON.stringify(result))
+  }
+}
+
+export function getAQResult(): AQTestResult | null {
+  if (typeof window !== "undefined") {
+    const stored = localStorage.getItem("aq-test-result")
     return stored ? JSON.parse(stored) : null
   }
   return null
@@ -38,20 +41,20 @@ export function getAQResult(): AQResult | null {
 
 export function clearAQResult(): void {
   if (typeof window !== "undefined") {
-    localStorage.removeItem("aq_test_result")
+    localStorage.removeItem("aq-test-result")
   }
 }
 
-// Funções para TDAH
-export function saveTDAHResult(result: TDAHResult): void {
+// TDAH Test Storage Functions
+export function saveTDAHResult(result: TDAHTestResult): void {
   if (typeof window !== "undefined") {
-    localStorage.setItem("tdah_test_result", JSON.stringify(result))
+    localStorage.setItem("tdah-test-result", JSON.stringify(result))
   }
 }
 
-export function getTDAHResult(): TDAHResult | null {
+export function getTDAHResult(): TDAHTestResult | null {
   if (typeof window !== "undefined") {
-    const stored = localStorage.getItem("tdah_test_result")
+    const stored = localStorage.getItem("tdah-test-result")
     return stored ? JSON.parse(stored) : null
   }
   return null
@@ -59,12 +62,16 @@ export function getTDAHResult(): TDAHResult | null {
 
 export function clearTDAHResult(): void {
   if (typeof window !== "undefined") {
-    localStorage.removeItem("tdah_test_result")
+    localStorage.removeItem("tdah-test-result")
   }
 }
 
-// Função para limpar todos os resultados
-export function clearAllResults(): void {
+// General utility functions
+export function clearAllTestResults(): void {
   clearAQResult()
   clearTDAHResult()
+}
+
+export function hasAnyTestResults(): boolean {
+  return getAQResult() !== null || getTDAHResult() !== null
 }

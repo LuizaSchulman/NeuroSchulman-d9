@@ -3,12 +3,12 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
+import { Label } from "@/components/ui/label"
 import { Progress } from "@/components/ui/progress"
-import { ArrowLeft, AlertTriangle } from "lucide-react"
+import { ArrowLeft, AlertTriangle, Phone, Home } from "lucide-react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { saveTDAHResult } from "@/lib/test-storage"
 
 const questions = [
@@ -124,7 +124,13 @@ const questions = [
   },
 ]
 
-const responseOptions = ["Nunca", "Quase nunca", "De vez em quando", "Quase sempre", "Sempre"]
+const responseOptions = [
+  { value: "nunca", label: "Nunca" },
+  { value: "quase-nunca", label: "Quase nunca" },
+  { value: "de-vez-em-quando", label: "De vez em quando" },
+  { value: "quase-sempre", label: "Quase sempre" },
+  { value: "sempre", label: "Sempre" },
+]
 
 const impactContexts = [
   { id: "trabalho", label: "Trabalho" },
@@ -135,29 +141,38 @@ const impactContexts = [
 ]
 
 export default function TesteTDAHIniciar() {
+  const router = useRouter()
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useState<Record<number, string>>({})
   const [impactAreas, setImpactAreas] = useState<string[]>([])
   const [showImpactQuestion, setShowImpactQuestion] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const progress = ((currentQuestion + 1) / questions.length) * 100
+  const progress = showImpactQuestion ? 100 : ((currentQuestion + 1) / questions.length) * 100
 
   const handleAnswer = (questionId: number, answer: string) => {
-    setAnswers((prev) => ({ ...prev, [questionId]: answer }))
-  }
+    const newAnswers = { ...answers, [questionId]: answer }
+    setAnswers(newAnswers)
 
-  const handleNext = () => {
+    // Auto-advance to next question
     if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion((prev) => prev + 1)
+      setTimeout(() => {
+        setCurrentQuestion(currentQuestion + 1)
+      }, 300)
     } else {
-      setShowImpactQuestion(true)
+      // Move to impact question
+      setTimeout(() => {
+        setShowImpactQuestion(true)
+      }, 300)
     }
   }
 
   const handlePrevious = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion((prev) => prev - 1)
+    if (showImpactQuestion) {
+      setShowImpactQuestion(false)
+      setCurrentQuestion(questions.length - 1)
+    } else if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1)
     }
   }
 
@@ -185,7 +200,10 @@ export default function TesteTDAHIniciar() {
     let partAScore = 0
     questions.slice(0, 6).forEach((question) => {
       const answer = answers[question.id]
-      if (answer && question.scoringCriteria.includes(answer)) {
+      if (
+        answer &&
+        question.scoringCriteria.some((criteria) => answer.includes(criteria.toLowerCase().replace(/\s+/g, "-")))
+      ) {
         partAScore++
       }
     })
@@ -194,7 +212,10 @@ export default function TesteTDAHIniciar() {
     let partBScore = 0
     questions.slice(6).forEach((question) => {
       const answer = answers[question.id]
-      if (answer && question.scoringCriteria.includes(answer)) {
+      if (
+        answer &&
+        question.scoringCriteria.some((criteria) => answer.includes(criteria.toLowerCase().replace(/\s+/g, "-")))
+      ) {
         partBScore++
       }
     })
@@ -248,18 +269,42 @@ export default function TesteTDAHIniciar() {
     })
 
     // Redirecionar para página de resultado
-    window.location.href = "/teste-tdah-adulto/resultado"
+    router.push("/teste-tdah-adulto/resultado")
   }
-
-  const currentQuestionData = questions[currentQuestion]
-  const currentAnswer = answers[currentQuestionData?.id]
-  const canProceed = currentAnswer !== undefined
 
   if (showImpactQuestion) {
     return (
       <div className="min-h-screen" style={{ background: "linear-gradient(to bottom right, #f4f2ef, #f0fdfa)" }}>
+        {/* Fixed Top Bar */}
+        <div className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200 py-2">
+          <div className="container mx-auto px-4">
+            <div className="flex justify-center space-x-6">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-emerald-700 hover:text-emerald-800"
+                onClick={() =>
+                  window.open("https://wa.me/5541984599063?text=Olá, gostaria de agendar uma consulta.", "_blank")
+                }
+              >
+                <Phone className="h-4 w-4 mr-1" />
+                Marcar consulta
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-emerald-700 hover:text-emerald-800"
+                onClick={() => router.push("/")}
+              >
+                <Home className="h-4 w-4 mr-1" />
+                Voltar ao menu principal
+              </Button>
+            </div>
+          </div>
+        </div>
+
         {/* Header */}
-        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b" style={{ borderColor: "#f4f2ef" }}>
+        <header className="sticky top-12 z-40 bg-white/95 backdrop-blur-sm border-b" style={{ borderColor: "#f4f2ef" }}>
           <div className="container mx-auto px-4 py-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
@@ -271,27 +316,28 @@ export default function TesteTDAHIniciar() {
                   className="h-10 w-auto"
                 />
               </div>
-              <Button
-                variant="ghost"
-                onClick={() => setShowImpactQuestion(false)}
-                className="text-emerald-700 hover:text-orange-500"
-              >
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Voltar
-              </Button>
             </div>
           </div>
         </header>
 
         <main className="container mx-auto px-4 py-8">
-          <div className="max-w-2xl mx-auto">
-            <Card className="border-0 shadow-lg bg-white">
+          <div className="max-w-3xl mx-auto">
+            {/* Progress */}
+            <div className="mb-8">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-emerald-700 font-medium">Contextos de Impacto</span>
+                <span className="text-emerald-600 text-sm">100% concluído</span>
+              </div>
+              <Progress value={100} className="h-2" />
+            </div>
+
+            <Card className="bg-white shadow-lg">
               <CardHeader>
-                <CardTitle className="text-xl text-emerald-800 text-center">Contextos de Impacto</CardTitle>
-                <p className="text-emerald-600 text-center">
-                  Em quais contextos os comportamentos descritos nas questões anteriores impactam negativamente sua vida?
-                </p>
-                <p className="text-sm text-emerald-500 text-center">(marque todos os que se aplicam)</p>
+                <CardTitle className="text-emerald-800 text-xl leading-relaxed">
+                  Em quais contextos os comportamentos descritos nas questões anteriores impactam negativamente sua
+                  vida?
+                </CardTitle>
+                <p className="text-emerald-600 text-sm">(marque todos os que se aplicam)</p>
               </CardHeader>
               <CardContent className="space-y-4">
                 {impactContexts.map((context) => (
@@ -311,23 +357,74 @@ export default function TesteTDAHIniciar() {
                   <Button
                     onClick={handleSubmit}
                     disabled={isSubmitting || impactAreas.length === 0}
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white"
+                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3"
                   >
                     {isSubmitting ? "Processando..." : "Ver Resultado"}
                   </Button>
                 </div>
               </CardContent>
             </Card>
+
+            {/* Back Button */}
+            <div className="mt-6 flex justify-start">
+              <Button variant="ghost" onClick={handlePrevious} className="text-emerald-600 hover:text-emerald-700">
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Voltar
+              </Button>
+            </div>
           </div>
         </main>
       </div>
     )
   }
 
+  const currentQuestionData = questions[currentQuestion]
+  const currentAnswer = answers[currentQuestionData?.id]
+
   return (
     <div className="min-h-screen" style={{ background: "linear-gradient(to bottom right, #f4f2ef, #f0fdfa)" }}>
+      {/* Fixed Top Bar */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200 py-2">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-center space-x-6">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-emerald-700 hover:text-emerald-800"
+              onClick={() =>
+                window.open("https://wa.me/5541984599063?text=Olá, gostaria de agendar uma consulta.", "_blank")
+              }
+            >
+              <Phone className="h-4 w-4 mr-1" />
+              Marcar consulta
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-emerald-700 hover:text-emerald-800"
+              onClick={() => router.push("/")}
+            >
+              <Home className="h-4 w-4 mr-1" />
+              Voltar ao menu principal
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Warning Banner */}
+      <div className="bg-orange-50 border-b border-orange-200 py-3 mt-12">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center text-orange-700">
+            <AlertTriangle className="h-5 w-5 mr-2" />
+            <span className="font-medium">
+              ⚠️ Estes sintomas devem estar presentes desde antes dos 12 anos de idade.
+            </span>
+          </div>
+        </div>
+      </div>
+
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b" style={{ borderColor: "#f4f2ef" }}>
+      <header className="sticky top-12 z-40 bg-white/95 backdrop-blur-sm border-b" style={{ borderColor: "#f4f2ef" }}>
         <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -339,85 +436,57 @@ export default function TesteTDAHIniciar() {
                 className="h-10 w-auto"
               />
             </div>
-            <Button
-              variant="ghost"
-              onClick={() => (window.location.href = "/teste-tdah-adulto")}
-              className="text-emerald-700 hover:text-orange-500"
-            >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Voltar
-            </Button>
           </div>
         </div>
       </header>
 
-      {/* Warning Banner */}
-      <div className="bg-orange-50 border-b border-orange-200 py-3">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center text-orange-700">
-            <AlertTriangle className="h-5 w-5 mr-2" />
-            <span className="font-medium">
-              ⚠️ Estes sintomas devem estar presentes desde antes dos 12 anos de idade.
-            </span>
-          </div>
-        </div>
-      </div>
-
       <main className="container mx-auto px-4 py-8">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           {/* Progress */}
-          <div className="mb-6">
+          <div className="mb-8">
             <div className="flex justify-between items-center mb-2">
-              <span className="text-sm text-emerald-600">
+              <span className="text-emerald-700 font-medium">
                 Pergunta {currentQuestion + 1} de {questions.length}
               </span>
-              <span className="text-sm text-emerald-600">
-                {currentQuestionData.part === "A" ? "Parte A" : "Parte B"}
+              <span className="text-emerald-600 text-sm">
+                {currentQuestionData.part === "A" ? "Parte A" : "Parte B"} - {Math.round(progress)}% concluído
               </span>
             </div>
             <Progress value={progress} className="h-2" />
           </div>
 
           {/* Question Card */}
-          <Card className="border-0 shadow-lg bg-white mb-6">
+          <Card className="bg-white shadow-lg">
             <CardHeader>
-              <CardTitle className="text-lg text-emerald-800 leading-relaxed">{currentQuestionData.text}</CardTitle>
+              <CardTitle className="text-emerald-800 text-xl leading-relaxed">{currentQuestionData.text}</CardTitle>
             </CardHeader>
-            <CardContent>
-              <RadioGroup
-                value={currentAnswer || ""}
-                onValueChange={(value) => handleAnswer(currentQuestionData.id, value)}
-              >
-                {responseOptions.map((option) => (
-                  <div key={option} className="flex items-center space-x-2">
-                    <RadioGroupItem value={option} id={option} />
-                    <Label htmlFor={option} className="text-emerald-700 cursor-pointer">
-                      {option}
-                    </Label>
-                  </div>
-                ))}
-              </RadioGroup>
+            <CardContent className="space-y-4">
+              {responseOptions.map((option) => (
+                <Button
+                  key={option.value}
+                  variant={currentAnswer === option.value ? "default" : "outline"}
+                  className={`w-full p-4 h-auto text-left justify-start ${
+                    currentAnswer === option.value
+                      ? "bg-emerald-600 hover:bg-emerald-700 text-white"
+                      : "text-emerald-700 border-emerald-200 hover:bg-emerald-50"
+                  }`}
+                  onClick={() => handleAnswer(currentQuestionData.id, option.value)}
+                >
+                  {option.label}
+                </Button>
+              ))}
             </CardContent>
           </Card>
 
-          {/* Navigation */}
-          <div className="flex justify-between">
-            <Button
-              variant="outline"
-              onClick={handlePrevious}
-              disabled={currentQuestion === 0}
-              className="text-emerald-700 border-emerald-200 bg-transparent"
-            >
-              Anterior
-            </Button>
-            <Button
-              onClick={handleNext}
-              disabled={!canProceed}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white"
-            >
-              {currentQuestion === questions.length - 1 ? "Continuar" : "Próxima"}
-            </Button>
-          </div>
+          {/* Back Button */}
+          {currentQuestion > 0 && (
+            <div className="mt-6 flex justify-start">
+              <Button variant="ghost" onClick={handlePrevious} className="text-emerald-600 hover:text-emerald-700">
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Voltar
+              </Button>
+            </div>
+          )}
         </div>
       </main>
     </div>

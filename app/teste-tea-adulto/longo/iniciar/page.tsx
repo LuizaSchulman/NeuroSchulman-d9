@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, Phone, Home } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -79,25 +79,29 @@ const DISCORDO_ITEMS = [
 export default function IniciarTesteAQ50() {
   const router = useRouter()
   const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [responses, setResponses] = useState<string[]>([])
-  const [selectedResponse, setSelectedResponse] = useState("")
+  const [responses, setResponses] = useState<string[]>(new Array(AQ50_QUESTIONS.length).fill(""))
 
   const handleResponseSelect = (response: string) => {
-    setSelectedResponse(response)
-  }
-
-  const handleNext = () => {
-    if (!selectedResponse) return
-
-    const newResponses = [...responses, selectedResponse]
+    const newResponses = [...responses]
+    newResponses[currentQuestion] = response
     setResponses(newResponses)
-    setSelectedResponse("")
 
+    // Auto-advance to next question
     if (currentQuestion < AQ50_QUESTIONS.length - 1) {
-      setCurrentQuestion(currentQuestion + 1)
+      setTimeout(() => {
+        setCurrentQuestion(currentQuestion + 1)
+      }, 300)
     } else {
       // Test completed, calculate results
-      calculateResults(newResponses)
+      setTimeout(() => {
+        calculateResults(newResponses)
+      }, 300)
+    }
+  }
+
+  const handlePrevious = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1)
     }
   }
 
@@ -125,8 +129,36 @@ export default function IniciarTesteAQ50() {
 
   return (
     <div className="min-h-screen" style={{ background: "linear-gradient(to bottom right, #f4f2ef, #f0fdfa)" }}>
+      {/* Fixed Top Bar */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200 py-2">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-center space-x-6">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-emerald-700 hover:text-emerald-800"
+              onClick={() =>
+                window.open("https://wa.me/5541984599063?text=Olá, gostaria de agendar uma consulta.", "_blank")
+              }
+            >
+              <Phone className="h-4 w-4 mr-1" />
+              Marcar consulta
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-emerald-700 hover:text-emerald-800"
+              onClick={() => router.push("/")}
+            >
+              <Home className="h-4 w-4 mr-1" />
+              Voltar ao menu principal
+            </Button>
+          </div>
+        </div>
+      </div>
+
       {/* Header */}
-      <header className="bg-white/95 backdrop-blur-sm border-b" style={{ borderColor: "#f4f2ef" }}>
+      <header className="bg-white/95 backdrop-blur-sm border-b mt-12" style={{ borderColor: "#f4f2ef" }}>
         <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-3">
@@ -173,9 +205,9 @@ export default function IniciarTesteAQ50() {
               {RESPONSE_OPTIONS.map((option) => (
                 <Button
                   key={option.value}
-                  variant={selectedResponse === option.value ? "default" : "outline"}
+                  variant={responses[currentQuestion] === option.value ? "default" : "outline"}
                   className={`w-full p-4 h-auto text-left justify-start ${
-                    selectedResponse === option.value
+                    responses[currentQuestion] === option.value
                       ? "bg-teal-600 hover:bg-teal-700 text-white"
                       : "text-emerald-700 border-emerald-200 hover:bg-emerald-50"
                   }`}
@@ -184,18 +216,18 @@ export default function IniciarTesteAQ50() {
                   {option.label}
                 </Button>
               ))}
-
-              <div className="pt-4">
-                <Button
-                  onClick={handleNext}
-                  disabled={!selectedResponse}
-                  className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3"
-                >
-                  {currentQuestion < AQ50_QUESTIONS.length - 1 ? "Próxima" : "Finalizar Teste"}
-                </Button>
-              </div>
             </CardContent>
           </Card>
+
+          {/* Back Button */}
+          {currentQuestion > 0 && (
+            <div className="mt-6 flex justify-start">
+              <Button variant="ghost" onClick={handlePrevious} className="text-emerald-600 hover:text-emerald-700">
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Voltar
+              </Button>
+            </div>
+          )}
         </div>
       </main>
     </div>
