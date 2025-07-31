@@ -344,7 +344,7 @@ export default function ResultadoTeste() {
                       variant="outline"
                       className="text-emerald-700 border-emerald-200 hover:bg-emerald-50 bg-transparent px-8"
                     >
-                      <Share2 className="h-4 w-4 mr-2" />📤 Compartilhe seu resultado
+                      <Share2 className="h-4 w-4 mr-2" /> Compartilhe seu resultado
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-md">
