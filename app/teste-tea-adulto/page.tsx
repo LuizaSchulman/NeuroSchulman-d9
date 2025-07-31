@@ -56,7 +56,7 @@ export default function TesteTeaAdulto() {
               <CardContent className="text-center">
                 <div className="flex items-center justify-center mb-6">
                   <Clock className="h-5 w-5 text-emerald-600 mr-2" />
-                  <span className="text-emerald-700">Leva cerca de 2 minutos para ser respondido</span>
+                  <span className="text-emerald-700">Leva cerca de 2 minutos </span>
                 </div>
                 <Link href="/teste-tea-adulto/curto/iniciar">
                   <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3">
@@ -75,7 +75,7 @@ export default function TesteTeaAdulto() {
               <CardContent className="text-center">
                 <div className="flex items-center justify-center mb-6">
                   <Clock className="h-5 w-5 text-emerald-600 mr-2" />
-                  <span className="text-emerald-700">Leva cerca de 10 minutos para ser respondido</span>
+                  <span className="text-emerald-700">Leva cerca de 10 minutos</span>
                 </div>
                 <Link href="/teste-tea-adulto/longo/iniciar">
                   <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3">
