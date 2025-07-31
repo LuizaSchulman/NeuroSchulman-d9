@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Checkbox } from "@/components/ui/checkbox"
 import { ArrowLeft, Share2, RefreshCw, Home, Phone, Copy, Check, Download } from "lucide-react"
@@ -118,7 +118,7 @@ Recomendo! 🤓
 export default function ResultadoTeste() {
   const searchParams = useSearchParams()
   const [result, setResult] = useState<TestResult | null>(null)
-  const [copied, setCopied] = useState(false)
+  const [textCopied, setTextCopied] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [includeImage, setIncludeImage] = useState(true)
   const [shareDialogOpen, setShareDialogOpen] = useState(false)
@@ -173,16 +173,18 @@ export default function ResultadoTeste() {
     setShareDialogOpen(false)
   }
 
-  const handleCopyResult = async () => {
+  const handleCopyResultText = async () => {
     if (!result) return
 
     const resultContent = getResultContent(result.score, result.testType)
-    const shareText = `Acabei de fazer o teste ${result.testType} para rastreio de autismo em adultos. ${resultContent.title}. Faça você também: ${window.location.origin}/teste-tea-adulto`
+    const fullText = `${resultContent.title}
+
+${resultContent.content}`
 
     try {
-      await navigator.clipboard.writeText(shareText)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      await navigator.clipboard.writeText(fullText)
+      setTextCopied(true)
+      setTimeout(() => setTextCopied(false), 2000)
     } catch (err) {
       console.error("Failed to copy text: ", err)
     }
@@ -259,7 +261,16 @@ export default function ResultadoTeste() {
           </div>
 
           {/* Result Content */}
-          <Card className="bg-white shadow-lg mb-8">
+          <Card className="bg-white shadow-lg mb-8 relative">
+            {/* Copy Text Icon */}
+            <button
+              onClick={handleCopyResultText}
+              className="absolute top-4 right-4 p-2 text-gray-400 hover:text-emerald-600 transition-colors duration-200 rounded-md hover:bg-emerald-50"
+              title="Copiar texto do resultado"
+            >
+              {textCopied ? <Check className="h-4 w-4 text-emerald-600" /> : <Copy className="h-4 w-4" />}
+            </button>
+
             <CardContent className="p-8">
               <div className="prose prose-emerald max-w-none">
                 {resultContent.content.split("\n\n").map((paragraph, index) => (
@@ -314,111 +325,89 @@ export default function ResultadoTeste() {
                 </Button>
               </Link>
 
-              <div className="relative">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="w-full text-emerald-700 border-emerald-200 hover:bg-emerald-50 py-3 bg-transparent"
-                  onClick={handleCopyResult}
-                >
-                  {copied ? <Check className="h-4 w-4 mr-2" /> : <Copy className="h-4 w-4 mr-2" />}
-                  {copied ? "Copiado!" : "Copiar resultado"}
-                </Button>
-              </div>
+              <Dialog open={shareDialogOpen} onOpenChange={setShareDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="w-full text-emerald-700 border-emerald-200 hover:bg-emerald-50 py-3 bg-transparent"
+                  >
+                    <Share2 className="h-4 w-4 mr-2" />
+                    Compartilhe seu resultado
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md">
+                  <DialogHeader>
+                    <DialogTitle className="text-emerald-800">Compartilhar resultado</DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4">
+                    {/* Include Image Option */}
+                    <div className="flex items-center space-x-2 p-3 bg-emerald-50 rounded-lg">
+                      <Checkbox
+                        id="include-image"
+                        checked={includeImage}
+                        onCheckedChange={(checked) => setIncludeImage(checked as boolean)}
+                      />
+                      <label htmlFor="include-image" className="text-sm text-emerald-700 cursor-pointer">
+                        {"✅ Incluir imagem no compartilhamento"}
+                      </label>
+                    </div>
+
+                    {includeImage && (
+                      <div className="p-3 bg-gray-50 rounded-lg">
+                        <p className="text-xs text-gray-600 mb-2">
+                          A imagem será anexada automaticamente nos canais que permitem (WhatsApp, Instagram, Facebook)
+                        </p>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={generateShareImage}
+                          className="w-full bg-transparent"
+                        >
+                          <Download className="h-4 w-4 mr-2" />
+                          Baixar imagem
+                        </Button>
+                      </div>
+                    )}
+
+                    {/* Share Buttons */}
+                    <div className="grid grid-cols-2 gap-3">
+                      <Button
+                        variant="outline"
+                        className="text-green-600 border-green-200 hover:bg-green-50 bg-transparent"
+                        onClick={() => handleShare("whatsapp")}
+                      >
+                        WhatsApp
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="text-blue-600 border-blue-200 hover:bg-blue-50 bg-transparent"
+                        onClick={() => handleShare("twitter")}
+                      >
+                        Twitter/X
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="text-blue-800 border-blue-200 hover:bg-blue-50 bg-transparent"
+                        onClick={() => handleShare("facebook")}
+                      >
+                        Facebook
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="text-pink-600 border-pink-200 hover:bg-pink-50 bg-transparent"
+                        onClick={() => handleShare("instagram")}
+                      >
+                        Instagram
+                      </Button>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
 
-          {/* Share Options */}
-          <Card className="bg-white shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-emerald-800 text-center flex items-center justify-center">
-                <Share2 className="h-5 w-5 mr-2" />
-                Compartilhar resultado
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex justify-center">
-                <Dialog open={shareDialogOpen} onOpenChange={setShareDialogOpen}>
-                  <DialogTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className="text-emerald-700 border-emerald-200 hover:bg-emerald-50 bg-transparent px-8"
-                    >
-                      <Share2 className="h-4 w-4 mr-2" /> Compartilhe seu resultado
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="sm:max-w-md">
-                    <DialogHeader>
-                      <DialogTitle className="text-emerald-800">Compartilhar resultado</DialogTitle>
-                    </DialogHeader>
-                    <div className="space-y-4">
-                      {/* Include Image Option */}
-                      <div className="flex items-center space-x-2 p-3 bg-emerald-50 rounded-lg">
-                        <Checkbox
-                          id="include-image"
-                          checked={includeImage}
-                          onCheckedChange={(checked) => setIncludeImage(checked as boolean)}
-                        />
-                        <label htmlFor="include-image" className="text-sm text-emerald-700 cursor-pointer">
-                          {"✅ Incluir imagem no compartilhamento"}
-                        </label>
-                      </div>
-
-                      {includeImage && (
-                        <div className="p-3 bg-gray-50 rounded-lg">
-                          <p className="text-xs text-gray-600 mb-2">
-                            A imagem será anexada automaticamente nos canais que permitem (WhatsApp, Instagram,
-                            Facebook)
-                          </p>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={generateShareImage}
-                            className="w-full bg-transparent"
-                          >
-                            <Download className="h-4 w-4 mr-2" />
-                            Baixar imagem
-                          </Button>
-                        </div>
-                      )}
-
-                      {/* Share Buttons */}
-                      <div className="grid grid-cols-2 gap-3">
-                        <Button
-                          variant="outline"
-                          className="text-green-600 border-green-200 hover:bg-green-50 bg-transparent"
-                          onClick={() => handleShare("whatsapp")}
-                        >
-                          WhatsApp
-                        </Button>
-                        <Button
-                          variant="outline"
-                          className="text-blue-600 border-blue-200 hover:bg-blue-50 bg-transparent"
-                          onClick={() => handleShare("twitter")}
-                        >
-                          Twitter/X
-                        </Button>
-                        <Button
-                          variant="outline"
-                          className="text-blue-800 border-blue-200 hover:bg-blue-50 bg-transparent"
-                          onClick={() => handleShare("facebook")}
-                        >
-                          Facebook
-                        </Button>
-                        <Button
-                          variant="outline"
-                          className="text-pink-600 border-pink-200 hover:bg-pink-50 bg-transparent"
-                          onClick={() => handleShare("instagram")}
-                        >
-                          Instagram
-                        </Button>
-                      </div>
-                    </div>
-                  </DialogContent>
-                </Dialog>
-              </div>
-            </CardContent>
-          </Card>
+          {/* Share Options - Removed the old card section */}
 
           {/* Disclaimer */}
           <Card className="mt-6 bg-gray-50 border-gray-200">
