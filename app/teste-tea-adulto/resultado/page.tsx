@@ -87,7 +87,7 @@ const getShareText = (level: string, testType: "AQ-10" | "AQ-50") => {
   const testName = testType === "AQ-10" ? "AQ-10" : "AQ-50"
 
   if (level === "alta") {
-    return `Acabei de fazer o teste ${testName} para rastreio de autismo em adultos e meu resultado apontou uma **alta probabilidade de traços autísticos**. 🧠🌈
+    return `Acabei de fazer o teste ${testName} para rastreio de autismo em adultos e meu resultado apontou uma alta probabilidade de traços autísticos. 🧠🌈
 
 Esse teste é uma ferramenta rápida, online e gratuita que pode ajudar a entender melhor alguns padrões de comportamento.
 
@@ -95,7 +95,7 @@ Se você também tem dúvidas sobre o seu funcionamento, recomendo fazer: neuros
 
 #AutismoAdulto #Neurodivergência #Autoconhecimento #TriagemTEA`
   } else if (level === "moderada") {
-    return `Fiz o teste ${testName} para triagem de autismo em adultos e meu resultado indicou que apresento **alguns traços associados ao espectro autista**. 🧠✨
+    return `Fiz o teste ${testName} para triagem de autismo em adultos e meu resultado indicou que apresento alguns traços associados ao espectro autista. 🧠✨
 
 Esse tipo de teste não substitui uma avaliação clínica, mas pode ser um bom ponto de partida para quem busca entender melhor suas vivências.
 
@@ -105,7 +105,7 @@ Quer fazer também? É gratuito e leva menos de 5 minutos: neuroschulman.com.br
   } else {
     return `Acabei de fazer o teste ${testName} para rastreio de autismo em adultos!
 
-Meu resultado indicou **baixa probabilidade de traços autísticos**, mas foi super interessante refletir sobre meu jeito de pensar e perceber o mundo. 💡🧠
+Meu resultado indicou baixa probabilidade de traços autísticos, mas foi super interessante refletir sobre meu jeito de pensar e perceber o mundo. 💡🧠
 
 Você também pode fazer gratuitamente no site da NeuroSchulman: neuroschulman.com.br
 
@@ -360,7 +360,7 @@ export default function ResultadoTeste() {
                           onCheckedChange={(checked) => setIncludeImage(checked as boolean)}
                         />
                         <label htmlFor="include-image" className="text-sm text-emerald-700 cursor-pointer">
-                          ✅ Incluir imagem no compartilhamento
+                          {"✅ Incluir imagem no compartilhamento"}
                         </label>
                       </div>
 
