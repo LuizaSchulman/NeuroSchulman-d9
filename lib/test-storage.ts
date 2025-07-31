@@ -1,107 +1,70 @@
-export interface UserData {
-  name: string
-  email: string
-  age: string
-  gender: string
-  education: string
-  previousDiagnosis: string
-}
-
-export interface AQTestResult {
-  userData: UserData
-  answers: string[]
+// Tipos para os resultados dos testes
+export interface AQResult {
+  version: "AQ-10" | "AQ-50"
   score: number
-  testType: "AQ-10" | "AQ-50"
+  maxScore: number
+  percentage: number
+  interpretation: string
+  answers: Record<number, number>
   completedAt: string
-  totalQuestions: number
-  answeredQuestions: number
 }
 
-export interface TDAHTestResult {
-  answers: Record<number, string>
-  impactAreas: string[]
+export interface TDAHResult {
   partAScore: number
   partBScore: number
+  impactAreas: string[]
   resultType: string
   resultMessage: string
   totalQuestions: number
   answeredQuestions: number
+  answers: Record<number, string>
   completedAt: string
 }
 
-// AQ Test Functions
-export const saveUserData = (userData: UserData): void => {
+// Funções para AQ (Autismo)
+export function saveAQResult(result: AQResult): void {
   if (typeof window !== "undefined") {
-    localStorage.setItem("aq_user_data", JSON.stringify(userData))
+    localStorage.setItem("aq_test_result", JSON.stringify(result))
   }
 }
 
-export const getUserData = (): UserData | null => {
+export function getAQResult(): AQResult | null {
   if (typeof window !== "undefined") {
-    const data = localStorage.getItem("aq_user_data")
-    return data ? JSON.parse(data) : null
+    const stored = localStorage.getItem("aq_test_result")
+    return stored ? JSON.parse(stored) : null
   }
   return null
 }
 
-export const saveAQResult = (result: AQTestResult): void => {
+export function clearAQResult(): void {
   if (typeof window !== "undefined") {
-    const existingResults = getAQResults()
-    const updatedResults = [...existingResults, result]
-    localStorage.setItem("aq_test_results", JSON.stringify(updatedResults))
+    localStorage.removeItem("aq_test_result")
   }
 }
 
-export const getAQResults = (): AQTestResult[] => {
+// Funções para TDAH
+export function saveTDAHResult(result: TDAHResult): void {
   if (typeof window !== "undefined") {
-    const results = localStorage.getItem("aq_test_results")
-    return results ? JSON.parse(results) : []
-  }
-  return []
-}
-
-export const getLatestAQResult = (): AQTestResult | null => {
-  const results = getAQResults()
-  return results.length > 0 ? results[results.length - 1] : null
-}
-
-// TDAH Test Functions
-export const saveTDAHResult = (result: TDAHTestResult): void => {
-  if (typeof window !== "undefined") {
-    const existingResults = getTDAHResults()
-    const updatedResults = [...existingResults, result]
-    localStorage.setItem("tdah_test_results", JSON.stringify(updatedResults))
+    localStorage.setItem("tdah_test_result", JSON.stringify(result))
   }
 }
 
-export const getTDAHResults = (): TDAHTestResult[] => {
+export function getTDAHResult(): TDAHResult | null {
   if (typeof window !== "undefined") {
-    const results = localStorage.getItem("tdah_test_results")
-    return results ? JSON.parse(results) : []
+    const stored = localStorage.getItem("tdah_test_result")
+    return stored ? JSON.parse(stored) : null
   }
-  return []
+  return null
 }
 
-export const getLatestTDAHResult = (): TDAHTestResult | null => {
-  const results = getTDAHResults()
-  return results.length > 0 ? results[results.length - 1] : null
-}
-
-// Clear Functions
-export const clearAQData = (): void => {
+export function clearTDAHResult(): void {
   if (typeof window !== "undefined") {
-    localStorage.removeItem("aq_user_data")
-    localStorage.removeItem("aq_test_results")
+    localStorage.removeItem("tdah_test_result")
   }
 }
 
-export const clearTDAHData = (): void => {
-  if (typeof window !== "undefined") {
-    localStorage.removeItem("tdah_test_results")
-  }
-}
-
-export const clearAllTestData = (): void => {
-  clearAQData()
-  clearTDAHData()
+// Função para limpar todos os resultados
+export function clearAllResults(): void {
+  clearAQResult()
+  clearTDAHResult()
 }

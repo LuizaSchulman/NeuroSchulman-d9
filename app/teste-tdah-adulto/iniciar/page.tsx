@@ -289,7 +289,7 @@ export default function TesteTDAHIniciar() {
               <CardHeader>
                 <CardTitle className="text-xl text-emerald-800 text-center">Contextos de Impacto</CardTitle>
                 <p className="text-emerald-600 text-center">
-                  Em quais contextos esses sintomas impactam negativamente sua vida?
+                  Em quais contextos os comportamentos descritos nas questões anteriores impactam negativamente sua vida?
                 </p>
                 <p className="text-sm text-emerald-500 text-center">(marque todos os que se aplicam)</p>
               </CardHeader>

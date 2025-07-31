@@ -1,21 +1,20 @@
 "use client"
 
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
-import { ArrowLeft, ChevronDown, Clock, Brain, Shield } from "lucide-react"
+import { Clock, ArrowLeft, ChevronDown, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useState } from "react"
 
 export default function TesteTeaAdulto() {
-  const [isOpenCurto, setIsOpenCurto] = useState(false)
-  const [isOpenLongo, setIsOpenLongo] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div className="min-h-screen" style={{ background: "linear-gradient(to bottom right, #f4f2ef, #f0fdfa)" }}>
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b" style={{ borderColor: "#f4f2ef" }}>
+      <header className="bg-white/95 backdrop-blur-sm border-b" style={{ borderColor: "#f4f2ef" }}>
         <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-3">
@@ -28,9 +27,9 @@ export default function TesteTeaAdulto() {
               />
             </Link>
             <Link href="/">
-              <Button variant="ghost" className="text-emerald-700 hover:text-orange-500">
+              <Button variant="ghost" className="text-emerald-700">
                 <ArrowLeft className="h-4 w-4 mr-2" />
-                Voltar
+                Voltar ao site
               </Button>
             </Link>
           </div>
@@ -40,154 +39,127 @@ export default function TesteTeaAdulto() {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
-          {/* Page Title */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-emerald-800 mb-4">Teste de Triagem para Autismo em Adultos</h1>
-            <p className="text-xl text-emerald-600 max-w-2xl mx-auto">
-              Identifique possíveis traços do espectro autista através dos questionários AQ-10 e AQ-50
-            </p>
+            <h1 className="text-3xl lg:text-4xl font-bold text-emerald-800 mb-4">
+              Teste de Triagem para Autismo em Adultos
+            </h1>
+            <p className="text-lg text-emerald-600">Escolha a versão do questionário que deseja responder:</p>
           </div>
 
-          {/* Test Cards */}
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {/* AQ-10 Card */}
-            <Card className="border-0 shadow-xl bg-white hover:shadow-2xl transition-shadow duration-300">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all bg-white">
               <CardHeader className="text-center pb-4">
-                <div className="mx-auto mb-4 p-3 bg-emerald-100 rounded-full w-fit">
-                  <Brain className="h-8 w-8 text-emerald-600" />
-                </div>
-                <CardTitle className="text-2xl text-emerald-800 mb-2">AQ-10 (Versão Curta)</CardTitle>
-                <CardDescription className="text-emerald-600 text-lg">
-                  Leva cerca de 3 minutos para ser respondido.
-                </CardDescription>
+                <CardTitle className="text-2xl text-emerald-800 mb-2">AQ-10</CardTitle>
+                <p className="text-orange-600 font-semibold text-lg">Versão Curta</p>
               </CardHeader>
               <CardContent className="text-center">
-                <Link href="/teste-tea-adulto/curto">
-                  <Button
-                    size="lg"
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    <Clock className="mr-2 h-5 w-5" />
-                    Iniciar Teste Curto
+                <div className="flex items-center justify-center mb-6">
+                  <Clock className="h-5 w-5 text-emerald-600 mr-2" />
+                  <span className="text-emerald-700">Leva cerca de 2 minutos para ser respondido</span>
+                </div>
+                <Link href="/teste-tea-adulto/curto/iniciar">
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3">
+                    Iniciar versão curta
                   </Button>
                 </Link>
               </CardContent>
             </Card>
 
             {/* AQ-50 Card */}
-            <Card className="border-0 shadow-xl bg-white hover:shadow-2xl transition-shadow duration-300">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all bg-white">
               <CardHeader className="text-center pb-4">
-                <div className="mx-auto mb-4 p-3 bg-teal-100 rounded-full w-fit">
-                  <Brain className="h-8 w-8 text-teal-600" />
-                </div>
-                <CardTitle className="text-2xl text-emerald-800 mb-2">AQ-50 (Versão Completa)</CardTitle>
-                <CardDescription className="text-emerald-600 text-lg">
-                  Leva cerca de 10 minutos para ser respondido.
-                </CardDescription>
+                <CardTitle className="text-2xl text-emerald-800 mb-2">AQ-50</CardTitle>
+                <p className="text-orange-600 font-semibold text-lg">Versão Completa</p>
               </CardHeader>
               <CardContent className="text-center">
-                <Link href="/teste-tea-adulto/longo">
-                  <Button
-                    size="lg"
-                    className="w-full bg-teal-600 hover:bg-teal-700 text-white py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    <Clock className="mr-2 h-5 w-5" />
-                    Iniciar Teste Completo
+                <div className="flex items-center justify-center mb-6">
+                  <Clock className="h-5 w-5 text-emerald-600 mr-2" />
+                  <span className="text-emerald-700">Leva cerca de 10 minutos para ser respondido</span>
+                </div>
+                <Link href="/teste-tea-adulto/longo/iniciar">
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3">
+                    Iniciar versão completa
                   </Button>
                 </Link>
               </CardContent>
             </Card>
           </div>
 
-          {/* Collapsible Info Sections */}
-          <div className="space-y-4 mb-8">
-            {/* AQ-10 Info */}
-            <Collapsible open={isOpenCurto} onOpenChange={setIsOpenCurto}>
+          {/* Collapsible Information */}
+          <div className="mt-12 max-w-3xl mx-auto">
+            <Collapsible open={isOpen} onOpenChange={setIsOpen}>
               <CollapsibleTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="w-full justify-between text-emerald-700 border-emerald-200 bg-white hover:bg-emerald-50"
-                >
-                  Saiba mais sobre o AQ-10 (Versão Curta)
-                  <ChevronDown className={`h-4 w-4 transition-transform ${isOpenCurto ? "rotate-180" : ""}`} />
-                </Button>
+                <Card className="cursor-pointer hover:shadow-md transition-shadow bg-white border-emerald-200">
+                  <CardContent className="p-4">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-semibold text-emerald-800">Saiba mais sobre os testes</h3>
+                      <ChevronDown
+                        className={`h-5 w-5 text-emerald-600 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
               </CollapsibleTrigger>
-              <CollapsibleContent className="mt-4">
-                <Card className="border-emerald-200 bg-emerald-50">
-                  <CardContent className="pt-6">
-                    <div className="space-y-4 text-emerald-700">
-                      <p>
-                        O AQ-10 é uma versão reduzida do Autism Spectrum Quotient (AQ), desenvolvido para triagem rápida
-                        de traços do espectro autista em adultos.
+              <CollapsibleContent>
+                <Card className="mt-2 bg-white border-emerald-200">
+                  <CardContent className="p-6 space-y-4">
+                    <div>
+                      <h4 className="font-semibold text-emerald-800 mb-2">Sobre os testes AQ-10 e AQ-50</h4>
+                      <p className="text-emerald-700 text-sm leading-relaxed">
+                        O AQ-10 e o AQ-50 são instrumentos de triagem desenvolvidos por pesquisadores da Universidade de
+                        Cambridge para avaliar a presença de traços do espectro autista em adultos sem deficit
+                        intelectual. O AQ-50 é a versão original, composta por 50 afirmações sobre preferências,
+                        comportamentos e formas de pensar, desenvolvida por Baron-Cohen et al. (2001).
                       </p>
-                      <p>
-                        Este teste contém 10 perguntas selecionadas como as mais discriminativas do questionário
-                        original de 50 itens, oferecendo uma avaliação inicial eficiente.
+                    </div>
+
+                    <div>
+                      <a
+                        href="https://pubmed.ncbi.nlm.nih.gov/11439754/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-emerald-600 hover:text-emerald-800 font-medium text-sm"
+                      >
+                        Estudo original – Journal of Autism and Developmental Disorders
+                        <ExternalLink className="h-3 w-3 ml-1" />
+                      </a>
+                    </div>
+
+                    <div>
+                      <p className="text-emerald-700 text-sm leading-relaxed mb-2">
+                        O AQ-10 é uma versão reduzida, validada para uso como triagem rápida em contextos clínicos e de
+                        pesquisa.
                       </p>
-                      <p>
-                        É ideal para quem busca uma primeira avaliação ou tem pouco tempo disponível. Recomendamos o
-                        AQ-50 para uma análise mais detalhada.
+                      <a
+                        href="https://docs.autismresearchcentre.com/papers/2012_Allisonetal_JAACAP_RedFlags.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-emerald-600 hover:text-emerald-800 font-medium text-sm"
+                      >
+                        Referência: Toward Brief "Red Flags" for Autism Screening: The Short Autism Spectrum Quotient
+                        and the Short Quantitative Checklist in 1,000 Cases and 3,000 Controls
+                        <ExternalLink className="h-3 w-3 ml-1" />
+                      </a>
+                    </div>
+
+                    <div className="border-t pt-4">
+                      <h4 className="font-semibold text-orange-800 mb-2">Aviso importante:</h4>
+                      <p className="text-orange-700 text-sm leading-relaxed">
+                        Estes testes têm caráter exclusivamente informativo e não substituem uma avaliação clínica
+                        completa. Um escore elevado pode indicar a necessidade de investigação mais aprofundada, mas não
+                        configura, por si só, um diagnóstico de autismo.
                       </p>
-                      <p className="font-medium">Este teste não substitui uma avaliação clínica profissional.</p>
+                      <p className="text-orange-700 text-sm leading-relaxed mt-2">
+                        Para uma avaliação precisa, é fundamental consultar um profissional qualificado, como um
+                        neuropsicólogo ou psiquiatra, que poderá integrar os resultados desses instrumentos com dados
+                        clínicos, observações comportamentais e outras escalas padronizadas.
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
               </CollapsibleContent>
             </Collapsible>
-
-            {/* AQ-50 Info */}
-            <Collapsible open={isOpenLongo} onOpenChange={setIsOpenLongo}>
-              <CollapsibleTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="w-full justify-between text-emerald-700 border-emerald-200 bg-white hover:bg-emerald-50"
-                >
-                  Saiba mais sobre o AQ-50 (Versão Completa)
-                  <ChevronDown className={`h-4 w-4 transition-transform ${isOpenLongo ? "rotate-180" : ""}`} />
-                </Button>
-              </CollapsibleTrigger>
-              <CollapsibleContent className="mt-4">
-                <Card className="border-emerald-200 bg-emerald-50">
-                  <CardContent className="pt-6">
-                    <div className="space-y-4 text-emerald-700">
-                      <p>
-                        O AQ-50 é o questionário completo Autism Spectrum Quotient, desenvolvido por Simon Baron-Cohen e
-                        colegas para identificar traços do espectro autista em adultos com inteligência média ou
-                        superior.
-                      </p>
-                      <p>
-                        Este teste avalia cinco áreas principais: habilidades sociais, atenção aos detalhes,
-                        comunicação, imaginação e mudança de atenção/foco.
-                      </p>
-                      <p>
-                        Oferece uma análise mais abrangente e detalhada, sendo amplamente utilizado em pesquisas e
-                        contextos clínicos ao redor do mundo.
-                      </p>
-                      <p className="font-medium">Este teste não substitui uma avaliação clínica profissional.</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </CollapsibleContent>
-            </Collapsible>
-          </div>
-
-          {/* Privacy Notice */}
-          <div className="max-w-2xl mx-auto">
-            <Card className="border-emerald-200 bg-emerald-50">
-              <CardContent className="pt-6">
-                <div className="flex items-start space-x-3">
-                  <Shield className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                  <div className="text-sm text-emerald-700">
-                    <p className="font-medium mb-2">Privacidade e Segurança</p>
-                    <p>
-                      Seus dados são processados localmente no seu dispositivo e não são enviados para nossos
-                      servidores. As respostas ficam armazenadas apenas no seu navegador e você pode apagá-las a
-                      qualquer momento.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </main>
