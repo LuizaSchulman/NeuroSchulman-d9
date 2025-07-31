@@ -3,7 +3,9 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Share2, RefreshCw, Home, Phone, Copy, Check } from "lucide-react"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Checkbox } from "@/components/ui/checkbox"
+import { ArrowLeft, Share2, RefreshCw, Home, Phone, Copy, Check, Download } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
@@ -81,11 +83,45 @@ Receber ou não um diagnóstico é apenas parte do processo: o mais importante �
   return { title, content, color, level }
 }
 
+const getShareText = (level: string, testType: "AQ-10" | "AQ-50") => {
+  const testName = testType === "AQ-10" ? "AQ-10" : "AQ-50"
+
+  if (level === "alta") {
+    return `Acabei de fazer o teste ${testName} para rastreio de autismo em adultos e meu resultado apontou uma **alta probabilidade de traços autísticos**. 🧠🌈
+
+Esse teste é uma ferramenta rápida, online e gratuita que pode ajudar a entender melhor alguns padrões de comportamento.
+
+Se você também tem dúvidas sobre o seu funcionamento, recomendo fazer: neuroschulman.com.br
+
+#AutismoAdulto #Neurodivergência #Autoconhecimento #TriagemTEA`
+  } else if (level === "moderada") {
+    return `Fiz o teste ${testName} para triagem de autismo em adultos e meu resultado indicou que apresento **alguns traços associados ao espectro autista**. 🧠✨
+
+Esse tipo de teste não substitui uma avaliação clínica, mas pode ser um bom ponto de partida para quem busca entender melhor suas vivências.
+
+Quer fazer também? É gratuito e leva menos de 5 minutos: neuroschulman.com.br
+
+#AutismoAdulto #TriagemTEA #SaúdeMental #Neurodiversidade`
+  } else {
+    return `Acabei de fazer o teste ${testName} para rastreio de autismo em adultos!
+
+Meu resultado indicou **baixa probabilidade de traços autísticos**, mas foi super interessante refletir sobre meu jeito de pensar e perceber o mundo. 💡🧠
+
+Você também pode fazer gratuitamente no site da NeuroSchulman: neuroschulman.com.br
+
+Recomendo! 🤓
+
+#Neurodiversidade #Autoconhecimento #AutismoAdulto #TriagemTEA`
+  }
+}
+
 export default function ResultadoTeste() {
   const searchParams = useSearchParams()
   const [result, setResult] = useState<TestResult | null>(null)
   const [copied, setCopied] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [includeImage, setIncludeImage] = useState(true)
+  const [shareDialogOpen, setShareDialogOpen] = useState(false)
 
   useEffect(() => {
     const score = searchParams.get("score")
@@ -110,11 +146,10 @@ export default function ResultadoTeste() {
     }
   }, [searchParams, result])
 
-  const handleShare = async (platform?: string) => {
+  const handleShare = async (platform: string) => {
     if (!result) return
 
-    const resultContent = getResultContent(result.score, result.testType)
-    const shareText = `Acabei de fazer o teste ${result.testType} para rastreio de autismo em adultos. ${resultContent.title}. Faça você também: ${window.location.origin}/teste-tea-adulto`
+    const shareText = getShareText(result.interpretation.level, result.testType)
 
     if (platform === "whatsapp") {
       window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, "_blank")
@@ -122,19 +157,44 @@ export default function ResultadoTeste() {
       window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`, "_blank")
     } else if (platform === "facebook") {
       window.open(
-        `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.origin + "/teste-tea-adulto")}`,
+        `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.origin + "/teste-tea-adulto")}&quote=${encodeURIComponent(shareText)}`,
         "_blank",
       )
-    } else {
-      // Copy to clipboard
+    } else if (platform === "instagram") {
+      // For Instagram, we'll copy the text and show instructions
       try {
         await navigator.clipboard.writeText(shareText)
-        setCopied(true)
-        setTimeout(() => setCopied(false), 2000)
+        alert("Texto copiado! Cole no Instagram junto com a imagem.")
       } catch (err) {
         console.error("Failed to copy text: ", err)
       }
     }
+
+    setShareDialogOpen(false)
+  }
+
+  const handleCopyResult = async () => {
+    if (!result) return
+
+    const resultContent = getResultContent(result.score, result.testType)
+    const shareText = `Acabei de fazer o teste ${result.testType} para rastreio de autismo em adultos. ${resultContent.title}. Faça você também: ${window.location.origin}/teste-tea-adulto`
+
+    try {
+      await navigator.clipboard.writeText(shareText)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error("Failed to copy text: ", err)
+    }
+  }
+
+  const generateShareImage = () => {
+    // This would generate an image with the test result
+    // For now, we'll just download the brain mascot image
+    const link = document.createElement("a")
+    link.href = "/brain-mascot.png"
+    link.download = `resultado-${result?.testType}-autismo.png`
+    link.click()
   }
 
   if (isLoading || !result) {
@@ -259,7 +319,7 @@ export default function ResultadoTeste() {
                   variant="outline"
                   size="lg"
                   className="w-full text-emerald-700 border-emerald-200 hover:bg-emerald-50 py-3 bg-transparent"
-                  onClick={() => handleShare()}
+                  onClick={handleCopyResult}
                 >
                   {copied ? <Check className="h-4 w-4 mr-2" /> : <Copy className="h-4 w-4 mr-2" />}
                   {copied ? "Copiado!" : "Copiar resultado"}
@@ -273,32 +333,89 @@ export default function ResultadoTeste() {
             <CardHeader>
               <CardTitle className="text-emerald-800 text-center flex items-center justify-center">
                 <Share2 className="h-5 w-5 mr-2" />
-                Compartilhar nas redes sociais
+                Compartilhar resultado
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex justify-center space-x-4">
-                <Button
-                  variant="outline"
-                  className="text-green-600 border-green-200 hover:bg-green-50 bg-transparent"
-                  onClick={() => handleShare("whatsapp")}
-                >
-                  WhatsApp
-                </Button>
-                <Button
-                  variant="outline"
-                  className="text-blue-600 border-blue-200 hover:bg-blue-50 bg-transparent"
-                  onClick={() => handleShare("twitter")}
-                >
-                  Twitter/X
-                </Button>
-                <Button
-                  variant="outline"
-                  className="text-blue-800 border-blue-200 hover:bg-blue-50 bg-transparent"
-                  onClick={() => handleShare("facebook")}
-                >
-                  Facebook
-                </Button>
+              <div className="flex justify-center">
+                <Dialog open={shareDialogOpen} onOpenChange={setShareDialogOpen}>
+                  <DialogTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className="text-emerald-700 border-emerald-200 hover:bg-emerald-50 bg-transparent px-8"
+                    >
+                      <Share2 className="h-4 w-4 mr-2" />📤 Compartilhe seu resultado
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-md">
+                    <DialogHeader>
+                      <DialogTitle className="text-emerald-800">Compartilhar resultado</DialogTitle>
+                    </DialogHeader>
+                    <div className="space-y-4">
+                      {/* Include Image Option */}
+                      <div className="flex items-center space-x-2 p-3 bg-emerald-50 rounded-lg">
+                        <Checkbox
+                          id="include-image"
+                          checked={includeImage}
+                          onCheckedChange={(checked) => setIncludeImage(checked as boolean)}
+                        />
+                        <label htmlFor="include-image" className="text-sm text-emerald-700 cursor-pointer">
+                          ✅ Incluir imagem no compartilhamento
+                        </label>
+                      </div>
+
+                      {includeImage && (
+                        <div className="p-3 bg-gray-50 rounded-lg">
+                          <p className="text-xs text-gray-600 mb-2">
+                            A imagem será anexada automaticamente nos canais que permitem (WhatsApp, Instagram,
+                            Facebook)
+                          </p>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={generateShareImage}
+                            className="w-full bg-transparent"
+                          >
+                            <Download className="h-4 w-4 mr-2" />
+                            Baixar imagem
+                          </Button>
+                        </div>
+                      )}
+
+                      {/* Share Buttons */}
+                      <div className="grid grid-cols-2 gap-3">
+                        <Button
+                          variant="outline"
+                          className="text-green-600 border-green-200 hover:bg-green-50 bg-transparent"
+                          onClick={() => handleShare("whatsapp")}
+                        >
+                          WhatsApp
+                        </Button>
+                        <Button
+                          variant="outline"
+                          className="text-blue-600 border-blue-200 hover:bg-blue-50 bg-transparent"
+                          onClick={() => handleShare("twitter")}
+                        >
+                          Twitter/X
+                        </Button>
+                        <Button
+                          variant="outline"
+                          className="text-blue-800 border-blue-200 hover:bg-blue-50 bg-transparent"
+                          onClick={() => handleShare("facebook")}
+                        >
+                          Facebook
+                        </Button>
+                        <Button
+                          variant="outline"
+                          className="text-pink-600 border-pink-200 hover:bg-pink-50 bg-transparent"
+                          onClick={() => handleShare("instagram")}
+                        >
+                          Instagram
+                        </Button>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </div>
             </CardContent>
           </Card>
