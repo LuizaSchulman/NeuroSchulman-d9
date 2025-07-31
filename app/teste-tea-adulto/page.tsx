@@ -86,8 +86,8 @@ export default function TesteTeaAdulto() {
             </Card>
           </div>
 
-          {/* Collapsible Information */}
-          <div className="mt-12 max-w-3xl mx-auto">
+          {/* Collapsible Information and Privacy Notice */}
+          <div className="mt-12 max-w-3xl mx-auto space-y-4">
             <Collapsible open={isOpen} onOpenChange={setIsOpen}>
               <CollapsibleTrigger asChild>
                 <Card className="cursor-pointer hover:shadow-md transition-shadow bg-white border-emerald-200">
@@ -160,14 +160,14 @@ export default function TesteTeaAdulto() {
                 </Card>
               </CollapsibleContent>
             </Collapsible>
-          </div>
 
-          {/* Privacy Notice */}
-          <div className="mt-8 p-4 bg-green-50 border border-green-200 rounded-lg">
-            <p className="text-sm text-green-700">
-              🔒 <strong>Privacidade:</strong> Este teste é completamente anônimo. Não coletamos nem armazenamos
-              informações pessoais.
-            </p>
+            {/* Privacy Notice */}
+            <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+              <p className="text-sm text-green-700">
+                🔒 <strong>Privacidade:</strong> Este teste é completamente anônimo. Não coletamos nem armazenamos
+                informações pessoais.
+              </p>
+            </div>
           </div>
         </div>
       </main>
