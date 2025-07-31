@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Checkbox } from "@/components/ui/checkbox"
-import { ArrowLeft, Share2, RefreshCw, Home, Phone, Copy, Check, Download } from "lucide-react"
+import { ArrowLeft, Share2, RefreshCw, Home, Phone, Copy, Check, ChevronLeft } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
@@ -120,8 +120,14 @@ export default function ResultadoTeste() {
   const [result, setResult] = useState<TestResult | null>(null)
   const [textCopied, setTextCopied] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
-  const [includeImage, setIncludeImage] = useState(true)
   const [shareDialogOpen, setShareDialogOpen] = useState(false)
+
+  // Share modal states
+  const [shareStep, setShareStep] = useState(1) // 1: platform, 2: preview, 3: confirm
+  const [selectedPlatform, setSelectedPlatform] = useState<string>("")
+  const [includeImage, setIncludeImage] = useState(true)
+  const [generatedImageUrl, setGeneratedImageUrl] = useState<string>("")
+  const [isGeneratingImage, setIsGeneratingImage] = useState(false)
 
   useEffect(() => {
     const score = searchParams.get("score")
@@ -146,21 +152,45 @@ export default function ResultadoTeste() {
     }
   }, [searchParams, result])
 
-  const handleShare = async (platform: string) => {
+  const generateShareImage = async () => {
+    if (!result) return
+
+    setIsGeneratingImage(true)
+
+    // Simulate image generation - in real implementation, this would create a canvas
+    // with the brain illustration, logo, test result, and website URL
+    setTimeout(() => {
+      // For now, we'll use the brain illustration as placeholder
+      setGeneratedImageUrl("/brain-illustration.png")
+      setIsGeneratingImage(false)
+    }, 2000)
+  }
+
+  const handlePlatformSelect = (platform: string) => {
+    setSelectedPlatform(platform)
+    setShareStep(2)
+
+    // Generate image if include image is checked
+    if (includeImage && !generatedImageUrl) {
+      generateShareImage()
+    }
+  }
+
+  const handleShare = async () => {
     if (!result) return
 
     const shareText = getShareText(result.interpretation.level, result.testType)
 
-    if (platform === "whatsapp") {
+    if (selectedPlatform === "whatsapp") {
       window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, "_blank")
-    } else if (platform === "twitter") {
+    } else if (selectedPlatform === "twitter") {
       window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`, "_blank")
-    } else if (platform === "facebook") {
+    } else if (selectedPlatform === "facebook") {
       window.open(
         `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.origin + "/teste-tea-adulto")}&quote=${encodeURIComponent(shareText)}`,
         "_blank",
       )
-    } else if (platform === "instagram") {
+    } else if (selectedPlatform === "instagram") {
       // For Instagram, we'll copy the text and show instructions
       try {
         await navigator.clipboard.writeText(shareText)
@@ -171,6 +201,8 @@ export default function ResultadoTeste() {
     }
 
     setShareDialogOpen(false)
+    setShareStep(1)
+    setSelectedPlatform("")
   }
 
   const handleCopyResultText = async () => {
@@ -190,13 +222,11 @@ ${resultContent.content}`
     }
   }
 
-  const generateShareImage = () => {
-    // This would generate an image with the test result
-    // For now, we'll just download the brain mascot image
-    const link = document.createElement("a")
-    link.href = "/brain-mascot.png"
-    link.download = `resultado-${result?.testType}-autismo.png`
-    link.click()
+  const resetShareModal = () => {
+    setShareStep(1)
+    setSelectedPlatform("")
+    setGeneratedImageUrl("")
+    setIncludeImage(true)
   }
 
   if (isLoading || !result) {
@@ -297,7 +327,7 @@ ${resultContent.content}`
                 }
               >
                 <Phone className="h-4 w-4 mr-2" />
-                Marcar uma consulta
+                Agende sua consulta
               </Button>
 
               <Link href={otherTestUrl} className="block">
@@ -307,7 +337,7 @@ ${resultContent.content}`
                   className="w-full text-emerald-700 border-emerald-200 hover:bg-emerald-50 py-3 bg-transparent"
                 >
                   <RefreshCw className="h-4 w-4 mr-2" />
-                  Fazer o teste {otherTestType}
+                  Fazer outro teste
                 </Button>
               </Link>
             </div>
@@ -325,7 +355,13 @@ ${resultContent.content}`
                 </Button>
               </Link>
 
-              <Dialog open={shareDialogOpen} onOpenChange={setShareDialogOpen}>
+              <Dialog
+                open={shareDialogOpen}
+                onOpenChange={(open) => {
+                  setShareDialogOpen(open)
+                  if (!open) resetShareModal()
+                }}
+              >
                 <DialogTrigger asChild>
                   <Button
                     variant="outline"
@@ -336,78 +372,145 @@ ${resultContent.content}`
                     Compartilhe seu resultado
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="sm:max-w-md">
+                <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto">
                   <DialogHeader>
-                    <DialogTitle className="text-emerald-800">Compartilhar resultado</DialogTitle>
+                    <DialogTitle className="text-emerald-800 flex items-center">
+                      {shareStep > 1 && (
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => setShareStep(shareStep - 1)}
+                          className="mr-2 p-1"
+                        >
+                          <ChevronLeft className="h-4 w-4" />
+                        </Button>
+                      )}
+                      Compartilhar resultado
+                    </DialogTitle>
                   </DialogHeader>
-                  <div className="space-y-4">
-                    {/* Include Image Option */}
-                    <div className="flex items-center space-x-2 p-3 bg-emerald-50 rounded-lg">
-                      <Checkbox
-                        id="include-image"
-                        checked={includeImage}
-                        onCheckedChange={(checked) => setIncludeImage(checked as boolean)}
-                      />
-                      <label htmlFor="include-image" className="text-sm text-emerald-700 cursor-pointer">
-                        {"✅ Incluir imagem no compartilhamento"}
-                      </label>
-                    </div>
 
-                    {includeImage && (
-                      <div className="p-3 bg-gray-50 rounded-lg">
-                        <p className="text-xs text-gray-600 mb-2">
-                          A imagem será anexada automaticamente nos canais que permitem (WhatsApp, Instagram, Facebook)
-                        </p>
+                  {/* Step 1: Platform Selection */}
+                  {shareStep === 1 && (
+                    <div className="space-y-4">
+                      <p className="text-emerald-700 text-center">Escolha onde deseja compartilhar seu resultado:</p>
+                      <div className="grid grid-cols-2 gap-3">
                         <Button
                           variant="outline"
-                          size="sm"
-                          onClick={generateShareImage}
-                          className="w-full bg-transparent"
+                          className="text-green-600 border-green-200 hover:bg-green-50 bg-transparent py-6"
+                          onClick={() => handlePlatformSelect("whatsapp")}
                         >
-                          <Download className="h-4 w-4 mr-2" />
-                          Baixar imagem
+                          WhatsApp
+                        </Button>
+                        <Button
+                          variant="outline"
+                          className="text-blue-600 border-blue-200 hover:bg-blue-50 bg-transparent py-6"
+                          onClick={() => handlePlatformSelect("twitter")}
+                        >
+                          Twitter
+                        </Button>
+                        <Button
+                          variant="outline"
+                          className="text-blue-800 border-blue-200 hover:bg-blue-50 bg-transparent py-6"
+                          onClick={() => handlePlatformSelect("facebook")}
+                        >
+                          Facebook
+                        </Button>
+                        <Button
+                          variant="outline"
+                          className="text-pink-600 border-pink-200 hover:bg-pink-50 bg-transparent py-6"
+                          onClick={() => handlePlatformSelect("instagram")}
+                        >
+                          Instagram
                         </Button>
                       </div>
-                    )}
+                    </div>
+                  )}
 
-                    {/* Share Buttons */}
-                    <div className="grid grid-cols-2 gap-3">
+                  {/* Step 2: Preview */}
+                  {shareStep === 2 && (
+                    <div className="space-y-6">
+                      <p className="text-emerald-700 text-center font-medium">
+                        Prévia do conteúdo a ser compartilhado:
+                      </p>
+
+                      {/* Message Preview */}
+                      <Card className="bg-gray-50">
+                        <CardContent className="p-4">
+                          <p className="text-sm text-gray-700 whitespace-pre-line">
+                            {getShareText(result.interpretation.level, result.testType)}
+                          </p>
+                        </CardContent>
+                      </Card>
+
+                      {/* Include Image Option */}
+                      <div className="flex items-center space-x-2 p-3 bg-emerald-50 rounded-lg">
+                        <Checkbox
+                          id="include-image"
+                          checked={includeImage}
+                          onCheckedChange={(checked) => {
+                            setIncludeImage(checked as boolean)
+                            if (checked && !generatedImageUrl) {
+                              generateShareImage()
+                            }
+                          }}
+                        />
+                        <label htmlFor="include-image" className="text-sm text-emerald-700 cursor-pointer">
+                          Incluir imagem no compartilhamento
+                        </label>
+                      </div>
+
+                      {/* Image Preview */}
+                      {includeImage && (
+                        <div className="space-y-3">
+                          {isGeneratingImage ? (
+                            <div className="bg-gray-100 rounded-lg p-8 text-center">
+                              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-600 mx-auto mb-2"></div>
+                              <p className="text-sm text-gray-600">Gerando imagem...</p>
+                            </div>
+                          ) : generatedImageUrl ? (
+                            <div className="bg-white rounded-lg p-4 border">
+                              <div className="relative bg-gradient-to-br from-emerald-50 to-orange-50 rounded-lg p-6 text-center">
+                                <Image
+                                  src="/brain-illustration.png"
+                                  alt="Ilustração do cérebro"
+                                  width={120}
+                                  height={120}
+                                  className="mx-auto mb-4"
+                                />
+                                <h3 className="text-lg font-bold text-emerald-800 mb-2">Teste {result.testType}</h3>
+                                <p className="text-sm text-emerald-700 mb-4">
+                                  {resultContent.title.replace("Seu resultado: ", "")}
+                                </p>
+                                <div className="flex items-center justify-center space-x-2 mb-2">
+                                  <Image
+                                    src="/logo-share.png"
+                                    alt="Logo Luiza Schulman"
+                                    width={80}
+                                    height={30}
+                                    className="h-6 w-auto"
+                                  />
+                                </div>
+                                <p className="text-xs text-emerald-600">neuroschulman.com.br</p>
+                              </div>
+                            </div>
+                          ) : null}
+                        </div>
+                      )}
+
+                      {/* Confirm Button */}
                       <Button
-                        variant="outline"
-                        className="text-green-600 border-green-200 hover:bg-green-50 bg-transparent"
-                        onClick={() => handleShare("whatsapp")}
+                        onClick={handleShare}
+                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3"
+                        disabled={includeImage && isGeneratingImage}
                       >
-                        WhatsApp
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="text-blue-600 border-blue-200 hover:bg-blue-50 bg-transparent"
-                        onClick={() => handleShare("twitter")}
-                      >
-                        Twitter/X
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="text-blue-800 border-blue-200 hover:bg-blue-50 bg-transparent"
-                        onClick={() => handleShare("facebook")}
-                      >
-                        Facebook
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="text-pink-600 border-pink-200 hover:bg-pink-50 bg-transparent"
-                        onClick={() => handleShare("instagram")}
-                      >
-                        Instagram
+                        Confirmar e compartilhar
                       </Button>
                     </div>
-                  </div>
+                  )}
                 </DialogContent>
               </Dialog>
             </div>
           </div>
-
-          {/* Share Options - Removed the old card section */}
 
           {/* Disclaimer */}
           <Card className="mt-6 bg-gray-50 border-gray-200">

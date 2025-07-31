@@ -1,300 +1,154 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Label } from "@/components/ui/label"
+import { Card, CardContent } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
-import { ArrowLeft, AlertTriangle, Phone, Home } from "lucide-react"
+import { Alert, AlertDescription } from "@/components/ui/alert"
+import { ArrowLeft, Phone, Home, AlertTriangle } from "lucide-react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-import { saveTDAHResult } from "@/lib/test-storage"
 
 const questions = [
-  // Parte A - Critério A (6 perguntas)
-  {
-    id: 1,
-    text: "Com que frequência você deixa um projeto pela metade depois de já ter feito as partes mais difíceis?",
-    part: "A",
-    scoringCriteria: ["De vez em quando", "Quase sempre", "Sempre"],
-  },
-  {
-    id: 2,
-    text: "Com que frequência você tem dificuldade para fazer um trabalho que exige organização?",
-    part: "A",
-    scoringCriteria: ["De vez em quando", "Quase sempre", "Sempre"],
-  },
-  {
-    id: 3,
-    text: "Com que frequência você tem dificuldade para lembrar de compromissos ou obrigações?",
-    part: "A",
-    scoringCriteria: ["De vez em quando", "Quase sempre", "Sempre"],
-  },
-  {
-    id: 4,
-    text: "Quando você precisa fazer algo que exige muita concentração, com que frequência você evita ou adia o início?",
-    part: "A",
-    scoringCriteria: ["Quase sempre", "Sempre"],
-  },
-  {
-    id: 5,
-    text: "Com que frequência você fica se mexendo na cadeira ou balançando as mãos ou os pés quando precisa ficar sentado(a) por muito tempo?",
-    part: "A",
-    scoringCriteria: ["Quase sempre", "Sempre"],
-  },
-  {
-    id: 6,
-    text: 'Com que frequência você se sente ativo(a) demais e necessitando fazer coisas, como se estivesse "com um motor ligado"?',
-    part: "A",
-    scoringCriteria: ["Quase sempre", "Sempre"],
-  },
-  // Parte B - Sintomas adicionais (12 perguntas)
-  {
-    id: 7,
-    text: "Com que frequência você comete erros bobos por falta de atenção quando tem de trabalhar num projeto chato ou difícil?",
-    part: "B",
-    scoringCriteria: ["Quase sempre", "Sempre"],
-  },
-  {
-    id: 8,
-    text: "Com que frequência você tem dificuldade para manter a atenção quando está fazendo um trabalho chato ou repetitivo?",
-    part: "B",
-    scoringCriteria: ["Quase sempre", "Sempre"],
-  },
-  {
-    id: 9,
-    text: "Com que frequência você tem dificuldade para se concentrar no que as pessoas dizem, mesmo quando elas estão falando diretamente com você?",
-    part: "B",
-    scoringCriteria: ["Quase sempre", "Sempre"],
-  },
-  {
-    id: 10,
-    text: "Com que frequência você coloca as coisas fora do lugar ou tem dificuldade de encontrar as coisas em casa ou no trabalho?",
-    part: "B",
-    scoringCriteria: ["Quase sempre", "Sempre"],
-  },
-  {
-    id: 11,
-    text: "Com que frequência você se distrai com atividades ou barulho à sua volta?",
-    part: "B",
-    scoringCriteria: ["Quase sempre", "Sempre"],
-  },
-  {
-    id: 12,
-    text: "Com que frequência você se sente inquieto(a) ou agitado(a)?",
-    part: "B",
-    scoringCriteria: ["Quase sempre", "Sempre"],
-  },
-  {
-    id: 13,
-    text: "Com que frequência você tem dificuldade para sossegar e relaxar quando tem tempo livre para você?",
-    part: "B",
-    scoringCriteria: ["Quase sempre", "Sempre"],
-  },
-  {
-    id: 14,
-    text: "Com que frequência você se pega falando demais em situações sociais?",
-    part: "B",
-    scoringCriteria: ["Quase sempre", "Sempre"],
-  },
-  {
-    id: 15,
-    text: "Com que frequência você se levanta da cadeira em reuniões ou em outras situações onde deveria ficar sentado(a)?",
-    part: "B",
-    scoringCriteria: ["Quase sempre", "Sempre"],
-  },
-  {
-    id: 16,
-    text: "Quando você está conversando, com que frequência você se pega terminando as frases das pessoas antes delas?",
-    part: "B",
-    scoringCriteria: ["Quase sempre", "Sempre"],
-  },
-  {
-    id: 17,
-    text: "Com que frequência você tem dificuldade para esperar nas situações onde cada um tem a sua vez?",
-    part: "B",
-    scoringCriteria: ["Quase sempre", "Sempre"],
-  },
-  {
-    id: 18,
-    text: "Com que frequência você interrompe os outros quando eles estão ocupados?",
-    part: "B",
-    scoringCriteria: ["Quase sempre", "Sempre"],
-  },
+  "Com que frequência você tem dificuldades para terminar os detalhes finais de um projeto, uma vez que as partes desafiadoras foram feitas?",
+  "Com que frequência você tem dificuldade para fazer as coisas em ordem quando tem que fazer uma tarefa que requer organização?",
+  "Com que frequência você tem problemas para lembrar de compromissos ou obrigações?",
+  "Quando você tem uma tarefa que requer muito pensamento, com que frequência você evita ou adia o início?",
+  "Com que frequência você fica inquieto ou mexe com as mãos ou os pés quando tem que ficar sentado por muito tempo?",
+  "Com que frequência você se sente excessivamente ativo e compelido a fazer coisas, como se estivesse 'com o motor ligado'?",
+  "Com que frequência você comete erros por descuido quando tem que trabalhar em um projeto chato ou difícil?",
+  "Com que frequência você tem dificuldade para manter a atenção quando está fazendo trabalho chato ou repetitivo?",
+  "Com que frequência você tem dificuldade para se concentrar no que as pessoas dizem, mesmo quando elas estão falando diretamente com você?",
+  "Com que frequência você perde ou tem dificuldade para encontrar coisas em casa ou no trabalho?",
+  "Com que frequência você se distrai com atividade ou ruído ao seu redor?",
+  "Com que frequência você sai do seu lugar em reuniões ou outras situações nas quais você deveria permanecer sentado?",
+  "Com que frequência você se sente inquieto ou impaciente?",
+  "Com que frequência você tem dificuldade para relaxar quando tem tempo para si mesmo?",
+  "Com que frequência você se encontra falando demais quando está em situações sociais?",
+  "Quando você está em uma conversa, com que frequência você se encontra terminando as frases das pessoas antes delas terminarem?",
+  "Com que frequência você tem dificuldade para esperar sua vez em situações quando é necessário esperar?",
+  "Com que frequência você interrompe outros quando eles estão ocupados?",
 ]
 
-const responseOptions = [
-  { value: "nunca", label: "Nunca" },
-  { value: "quase-nunca", label: "Quase nunca" },
-  { value: "de-vez-em-quando", label: "De vez em quando" },
-  { value: "quase-sempre", label: "Quase sempre" },
-  { value: "sempre", label: "Sempre" },
+const options = [
+  { value: 0, label: "Nunca" },
+  { value: 1, label: "Quase nunca" },
+  { value: 2, label: "De vez em quando" },
+  { value: 3, label: "Quase sempre" },
+  { value: 4, label: "Sempre" },
 ]
 
-const impactContexts = [
-  { id: "trabalho", label: "Trabalho" },
-  { id: "social", label: "Vida social" },
-  { id: "estudos", label: "Estudos" },
-  { id: "relacionamento", label: "Relacionamento conjugal ou familiar" },
-  { id: "nenhum", label: "Nenhum" },
-]
-
-export default function TesteTDAHIniciar() {
+export default function TesteTDAH() {
   const router = useRouter()
   const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [answers, setAnswers] = useState<Record<number, string>>({})
-  const [impactAreas, setImpactAreas] = useState<string[]>([])
-  const [showImpactQuestion, setShowImpactQuestion] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [answers, setAnswers] = useState<number[]>(new Array(questions.length).fill(-1))
+  const [userData, setUserData] = useState<any>(null)
 
-  const progress = showImpactQuestion ? 100 : ((currentQuestion + 1) / questions.length) * 100
+  useEffect(() => {
+    // Get user data from localStorage
+    const storedData = localStorage.getItem("tdahTestData")
+    if (storedData) {
+      setUserData(JSON.parse(storedData))
+    } else {
+      router.push("/teste-tdah-adulto")
+    }
+  }, [router])
 
-  const handleAnswer = (questionId: number, answer: string) => {
-    const newAnswers = { ...answers, [questionId]: answer }
+  const handleAnswer = (value: number) => {
+    const newAnswers = [...answers]
+    newAnswers[currentQuestion] = value
     setAnswers(newAnswers)
 
-    // Auto-advance to next question
-    if (currentQuestion < questions.length - 1) {
-      setTimeout(() => {
+    // Auto-advance to next question after a short delay
+    setTimeout(() => {
+      if (currentQuestion < questions.length - 1) {
         setCurrentQuestion(currentQuestion + 1)
-      }, 300)
-    } else {
-      // Move to impact question
-      setTimeout(() => {
-        setShowImpactQuestion(true)
-      }, 300)
-    }
+      } else {
+        // Calculate scores and redirect to results
+        const partAScore = newAnswers.slice(0, 6).reduce((sum, answer) => sum + (answer >= 2 ? 1 : 0), 0)
+        const partBScore = newAnswers.slice(6).reduce((sum, answer) => sum + (answer >= 2 ? 1 : 0), 0)
+
+        let resultType = "negativo"
+        let resultMessage = "Não apresenta traços significativos de TDAH"
+
+        if (partAScore >= 4 && partBScore >= 4) {
+          resultType = "alto"
+          resultMessage = "Alta probabilidade de traços compatíveis com TDAH"
+        } else if (partAScore >= 4 || partBScore >= 4) {
+          resultType = "moderado"
+          resultMessage = "Presença moderada de traços compatíveis com TDAH"
+        } else if (partAScore >= 2 || partBScore >= 2) {
+          resultType = "leve"
+          resultMessage = "Leve presença de traços compatíveis com TDAH"
+        }
+
+        // Store result
+        const result = {
+          ...userData,
+          partAScore,
+          partBScore,
+          answers: newAnswers,
+          resultType,
+          resultMessage,
+          totalQuestions: questions.length,
+          answeredQuestions: newAnswers.filter((a) => a !== -1).length,
+          completedAt: new Date().toISOString(),
+        }
+
+        localStorage.setItem("tdahTestResult", JSON.stringify(result))
+        router.push("/teste-tdah-adulto/resultado")
+      }
+    }, 300)
   }
 
   const handlePrevious = () => {
-    if (showImpactQuestion) {
-      setShowImpactQuestion(false)
-      setCurrentQuestion(questions.length - 1)
-    } else if (currentQuestion > 0) {
+    if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1)
     }
   }
 
-  const handleImpactChange = (contextId: string, checked: boolean) => {
-    if (contextId === "nenhum") {
-      if (checked) {
-        setImpactAreas(["nenhum"])
-      } else {
-        setImpactAreas([])
-      }
-    } else {
-      setImpactAreas((prev) => {
-        const filtered = prev.filter((id) => id !== "nenhum")
-        if (checked) {
-          return [...filtered, contextId]
-        } else {
-          return filtered.filter((id) => id !== contextId)
-        }
-      })
-    }
-  }
+  const progress = ((currentQuestion + 1) / questions.length) * 100
 
-  const calculateResults = () => {
-    // Calcular pontuação Parte A
-    let partAScore = 0
-    questions.slice(0, 6).forEach((question) => {
-      const answer = answers[question.id]
-      if (
-        answer &&
-        question.scoringCriteria.some((criteria) => answer.includes(criteria.toLowerCase().replace(/\s+/g, "-")))
-      ) {
-        partAScore++
-      }
-    })
-
-    // Calcular pontuação Parte B
-    let partBScore = 0
-    questions.slice(6).forEach((question) => {
-      const answer = answers[question.id]
-      if (
-        answer &&
-        question.scoringCriteria.some((criteria) => answer.includes(criteria.toLowerCase().replace(/\s+/g, "-")))
-      ) {
-        partBScore++
-      }
-    })
-
-    // Verificar contextos de impacto
-    const validImpactAreas = impactAreas.filter((area) => area !== "nenhum")
-    const hasSignificantImpact = validImpactAreas.length >= 2
-
-    // Determinar resultado final
-    let resultType: string
-    let resultMessage: string
-
-    if (!hasSignificantImpact || partAScore < 4) {
-      resultType = "negativo"
-      resultMessage = "Não apresenta traços significativos de TDAH"
-    } else {
-      if (partBScore <= 4) {
-        resultType = "leve"
-        resultMessage = "Leve presença de traços compatíveis com TDAH"
-      } else if (partBScore <= 8) {
-        resultType = "moderado"
-        resultMessage = "Presença moderada de traços compatíveis com TDAH"
-      } else {
-        resultType = "alto"
-        resultMessage = "Alta probabilidade de traços compatíveis com TDAH"
-      }
-    }
-
-    return {
-      partAScore,
-      partBScore,
-      impactAreas: validImpactAreas,
-      resultType,
-      resultMessage,
-      totalQuestions: questions.length,
-      answeredQuestions: Object.keys(answers).length,
-    }
-  }
-
-  const handleSubmit = async () => {
-    setIsSubmitting(true)
-
-    const results = calculateResults()
-
-    // Salvar resultado
-    saveTDAHResult({
-      answers,
-      impactAreas,
-      ...results,
-      completedAt: new Date().toISOString(),
-    })
-
-    // Redirecionar para página de resultado
-    router.push("/teste-tdah-adulto/resultado")
-  }
-
-  if (showImpactQuestion) {
+  if (!userData) {
     return (
-      <div className="min-h-screen" style={{ background: "linear-gradient(to bottom right, #f4f2ef, #f0fdfa)" }}>
-        {/* Fixed Top Bar */}
-        <div className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200 py-2">
-          <div className="container mx-auto px-4">
-            <div className="flex justify-center space-x-6">
+      <div
+        className="min-h-screen flex items-center justify-center"
+        style={{ background: "linear-gradient(to bottom right, #f4f2ef, #f0fdfa)" }}
+      >
+        <div className="text-center">
+          <p className="text-emerald-700">Carregando teste...</p>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom right, #f4f2ef, #f0fdfa)" }}>
+      {/* Fixed Top Bar */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-emerald-100 shadow-sm">
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <Image src="/logo-final.png" alt="Luiza Schulman" width={120} height={40} className="h-8 w-auto" />
+            </div>
+            <div className="flex items-center space-x-2 text-sm">
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-emerald-700 hover:text-emerald-800"
                 onClick={() =>
                   window.open("https://wa.me/5541984599063?text=Olá, gostaria de agendar uma consulta.", "_blank")
                 }
+                className="text-emerald-700 hover:text-emerald-800 hover:bg-emerald-50"
               >
                 <Phone className="h-4 w-4 mr-1" />
                 Marcar consulta
               </Button>
+              <span className="text-gray-300">|</span>
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-emerald-700 hover:text-emerald-800"
                 onClick={() => router.push("/")}
+                className="text-emerald-700 hover:text-emerald-800 hover:bg-emerald-50"
               >
                 <Home className="h-4 w-4 mr-1" />
                 Voltar ao menu principal
@@ -302,193 +156,92 @@ export default function TesteTDAHIniciar() {
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Header */}
-        <header className="sticky top-12 z-40 bg-white/95 backdrop-blur-sm border-b" style={{ borderColor: "#f4f2ef" }}>
-          <div className="container mx-auto px-4 py-2">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <Image
-                  src="/logo-final.png"
-                  alt="Luiza Schulman - Neuropsicologia"
-                  width={150}
-                  height={40}
-                  className="h-10 w-auto"
-                />
-              </div>
-            </div>
-          </div>
-        </header>
+      {/* Main Content */}
+      <div className="pt-20 pb-8">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto">
+            {/* Important Notice */}
+            <Alert className="mb-6 border-orange-200 bg-orange-50">
+              <AlertTriangle className="h-4 w-4 text-orange-600" />
+              <AlertDescription className="text-orange-800">
+                <strong>Importante:</strong> Para um diagnóstico de TDAH, os sintomas devem estar presentes desde antes
+                dos 12 anos de idade.
+              </AlertDescription>
+            </Alert>
 
-        <main className="container mx-auto px-4 py-8">
-          <div className="max-w-3xl mx-auto">
             {/* Progress */}
             <div className="mb-8">
               <div className="flex justify-between items-center mb-2">
-                <span className="text-emerald-700 font-medium">Contextos de Impacto</span>
-                <span className="text-emerald-600 text-sm">100% concluído</span>
+                <span className="text-sm text-emerald-600">
+                  Pergunta {currentQuestion + 1} de {questions.length}
+                </span>
+                <span className="text-sm text-emerald-600">{Math.round(progress)}%</span>
               </div>
-              <Progress value={100} className="h-2" />
+              <Progress value={progress} className="h-2" />
             </div>
 
-            <Card className="bg-white shadow-lg">
-              <CardHeader>
-                <CardTitle className="text-emerald-800 text-xl leading-relaxed">
-                  Em quais contextos os comportamentos descritos nas questões anteriores impactam negativamente sua
-                  vida?
-                </CardTitle>
-                <p className="text-emerald-600 text-sm">(marque todos os que se aplicam)</p>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {impactContexts.map((context) => (
-                  <div key={context.id} className="flex items-center space-x-2">
-                    <Checkbox
-                      id={context.id}
-                      checked={impactAreas.includes(context.id)}
-                      onCheckedChange={(checked) => handleImpactChange(context.id, checked as boolean)}
-                    />
-                    <Label htmlFor={context.id} className="text-emerald-700 cursor-pointer">
-                      {context.label}
-                    </Label>
-                  </div>
-                ))}
+            {/* Question Card */}
+            <Card className="bg-white shadow-lg mb-6">
+              <CardContent className="p-8">
+                <h2 className="text-xl font-semibold text-emerald-800 mb-8 leading-relaxed">
+                  {questions[currentQuestion]}
+                </h2>
 
-                <div className="pt-6">
-                  <Button
-                    onClick={handleSubmit}
-                    disabled={isSubmitting || impactAreas.length === 0}
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3"
-                  >
-                    {isSubmitting ? "Processando..." : "Ver Resultado"}
-                  </Button>
+                <div className="space-y-3">
+                  {options.map((option, index) => (
+                    <Card
+                      key={index}
+                      className={`cursor-pointer transition-all duration-200 hover:shadow-md border-2 ${
+                        answers[currentQuestion] === option.value
+                          ? "border-emerald-500 bg-emerald-50"
+                          : "border-gray-200 hover:border-emerald-300"
+                      }`}
+                      onClick={() => handleAnswer(option.value)}
+                    >
+                      <CardContent className="p-4">
+                        <div className="flex items-center">
+                          <div
+                            className={`w-4 h-4 rounded-full border-2 mr-3 ${
+                              answers[currentQuestion] === option.value
+                                ? "border-emerald-500 bg-emerald-500"
+                                : "border-gray-300"
+                            }`}
+                          >
+                            {answers[currentQuestion] === option.value && (
+                              <div className="w-full h-full rounded-full bg-white scale-50"></div>
+                            )}
+                          </div>
+                          <span className="text-emerald-700 font-medium">{option.label}</span>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
                 </div>
               </CardContent>
             </Card>
 
-            {/* Back Button */}
-            <div className="mt-6 flex justify-start">
-              <Button variant="ghost" onClick={handlePrevious} className="text-emerald-600 hover:text-emerald-700">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Voltar
-              </Button>
-            </div>
-          </div>
-        </main>
-      </div>
-    )
-  }
-
-  const currentQuestionData = questions[currentQuestion]
-  const currentAnswer = answers[currentQuestionData?.id]
-
-  return (
-    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom right, #f4f2ef, #f0fdfa)" }}>
-      {/* Fixed Top Bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200 py-2">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-center space-x-6">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-emerald-700 hover:text-emerald-800"
-              onClick={() =>
-                window.open("https://wa.me/5541984599063?text=Olá, gostaria de agendar uma consulta.", "_blank")
-              }
-            >
-              <Phone className="h-4 w-4 mr-1" />
-              Marcar consulta
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-emerald-700 hover:text-emerald-800"
-              onClick={() => router.push("/")}
-            >
-              <Home className="h-4 w-4 mr-1" />
-              Voltar ao menu principal
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      {/* Warning Banner */}
-      <div className="bg-orange-50 border-b border-orange-200 py-3 mt-12">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center text-orange-700">
-            <AlertTriangle className="h-5 w-5 mr-2" />
-            <span className="font-medium">
-              ⚠️ Estes sintomas devem estar presentes desde antes dos 12 anos de idade.
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Header */}
-      <header className="sticky top-12 z-40 bg-white/95 backdrop-blur-sm border-b" style={{ borderColor: "#f4f2ef" }}>
-        <div className="container mx-auto px-4 py-2">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <Image
-                src="/logo-final.png"
-                alt="Luiza Schulman - Neuropsicologia"
-                width={150}
-                height={40}
-                className="h-10 w-auto"
-              />
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <main className="container mx-auto px-4 py-8">
-        <div className="max-w-3xl mx-auto">
-          {/* Progress */}
-          <div className="mb-8">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-emerald-700 font-medium">
-                Pergunta {currentQuestion + 1} de {questions.length}
-              </span>
-              <span className="text-emerald-600 text-sm">
-                {currentQuestionData.part === "A" ? "Parte A" : "Parte B"} - {Math.round(progress)}% concluído
-              </span>
-            </div>
-            <Progress value={progress} className="h-2" />
-          </div>
-
-          {/* Question Card */}
-          <Card className="bg-white shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-emerald-800 text-xl leading-relaxed">{currentQuestionData.text}</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {responseOptions.map((option) => (
+            {/* Navigation */}
+            <div className="flex justify-between items-center">
+              {currentQuestion > 0 ? (
                 <Button
-                  key={option.value}
-                  variant={currentAnswer === option.value ? "default" : "outline"}
-                  className={`w-full p-4 h-auto text-left justify-start ${
-                    currentAnswer === option.value
-                      ? "bg-emerald-600 hover:bg-emerald-700 text-white"
-                      : "text-emerald-700 border-emerald-200 hover:bg-emerald-50"
-                  }`}
-                  onClick={() => handleAnswer(currentQuestionData.id, option.value)}
+                  variant="ghost"
+                  onClick={handlePrevious}
+                  className="text-emerald-700 hover:text-emerald-800 hover:bg-emerald-50"
                 >
-                  {option.label}
+                  <ArrowLeft className="h-4 w-4 mr-2" />
+                  Voltar
                 </Button>
-              ))}
-            </CardContent>
-          </Card>
+              ) : (
+                <div></div>
+              )}
 
-          {/* Back Button */}
-          {currentQuestion > 0 && (
-            <div className="mt-6 flex justify-start">
-              <Button variant="ghost" onClick={handlePrevious} className="text-emerald-600 hover:text-emerald-700">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Voltar
-              </Button>
+              <div className="text-sm text-gray-500">Clique em uma resposta para continuar</div>
             </div>
-          )}
+          </div>
         </div>
-      </main>
+      </div>
     </div>
   )
 }
