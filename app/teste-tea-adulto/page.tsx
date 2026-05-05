@@ -56,7 +56,7 @@ export default function TesteTeaAdulto() {
               <CardContent className="text-center">
                 <div className="flex items-center justify-center mb-6">
                   <Clock className="h-5 w-5 text-emerald-600 mr-2" />
-                  <span className="text-emerald-700">Leva cerca de 2 minutos </span>
+                  <span className="text-emerald-700">Leva cerca de 2 minutos para ser respondido</span>
                 </div>
                 <Link href="/teste-tea-adulto/curto/iniciar">
                   <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3">
@@ -75,7 +75,7 @@ export default function TesteTeaAdulto() {
               <CardContent className="text-center">
                 <div className="flex items-center justify-center mb-6">
                   <Clock className="h-5 w-5 text-emerald-600 mr-2" />
-                  <span className="text-emerald-700">Leva cerca de 10 minutos</span>
+                  <span className="text-emerald-700">Leva cerca de 10 minutos para ser respondido</span>
                 </div>
                 <Link href="/teste-tea-adulto/longo/iniciar">
                   <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3">
@@ -86,8 +86,8 @@ export default function TesteTeaAdulto() {
             </Card>
           </div>
 
-          {/* Collapsible Information and Privacy Notice */}
-          <div className="mt-12 max-w-3xl mx-auto space-y-4">
+          {/* Collapsible Information */}
+          <div className="mt-12 max-w-3xl mx-auto">
             <Collapsible open={isOpen} onOpenChange={setIsOpen}>
               <CollapsibleTrigger asChild>
                 <Card className="cursor-pointer hover:shadow-md transition-shadow bg-white border-emerald-200">
@@ -160,14 +160,6 @@ export default function TesteTeaAdulto() {
                 </Card>
               </CollapsibleContent>
             </Collapsible>
-
-            {/* Privacy Notice */}
-            <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-              <p className="text-sm text-green-700">
-                🔒 <strong>Privacidade:</strong> Este teste é completamente anônimo. Não coletamos nem armazenamos
-                informações pessoais.
-              </p>
-            </div>
           </div>
         </div>
       </main>
