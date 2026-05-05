@@ -13,7 +13,7 @@ const config: Config = {
   theme: {
   	extend: {
   		fontFamily: {
-  			sans: ["'Stack Sans Text'", '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+  			sans: ["'Rethink Sans'", '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
   		},
   		colors: {
   			background: 'hsl(var(--background))',
