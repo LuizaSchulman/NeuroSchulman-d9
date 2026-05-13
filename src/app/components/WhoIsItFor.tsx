@@ -9,12 +9,12 @@ export function WhoIsItFor() {
           <div className="max-w-[832px]">
             <div className="flex flex-col gap-6">
               <h2
-                className="text-[#1E0C01] font-normal leading-[1.15] tracking-[-0.03em]"
+                className="text-[#1E0C01] font-light leading-[1.15] tracking-[-0.03em]"
                 style={{ fontSize: 'clamp(32px, 5vw, 64px)' }}
               >
                 Para quem a avaliação neuropsicológica é indicada?
               </h2>
-              <p className="hidden md:block text-[#39261B] text-xl font-semibold leading-[1.5] tracking-[-0.03em]">
+              <p className="hidden md:block text-[#39261B] text-xl font-medium leading-[1.5] tracking-[-0.03em]">
                 Entenda como a avaliação pode auxiliar diferentes fases da vida
               </p>
             </div>

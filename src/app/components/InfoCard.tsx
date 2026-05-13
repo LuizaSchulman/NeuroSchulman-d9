@@ -16,10 +16,10 @@ export function InfoCard({ title, description, variant = 'default', hasOutline =
         ${isHighlight ? 'shadow-[1px_3px_0_#39261B]' : ''}
       `}
     >
-      <h3 className="text-[#1E0C01] text-base font-extrabold tracking-tight leading-[1.15]">
+      <h3 className="text-[#1E0C01] text-base font-bold tracking-tight leading-[1.15]">
         {title}
       </h3>
-      <p className="text-[#1E0C01] text-base font-medium leading-[1.6] tracking-tight">
+      <p className="text-[#1E0C01] text-base font-normal leading-[1.6] tracking-tight">
         {description}
       </p>
     </div>

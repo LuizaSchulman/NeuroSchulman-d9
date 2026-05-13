@@ -25,7 +25,7 @@ export function Hero() {
           {/* Location */}
           <div className="flex items-center gap-1">
             <MapPin size={16} className="text-[#F8F8F7]" />
-            <p className="text-[#E2E2E2] text-sm font-semibold uppercase tracking-[0.42px]">
+            <p className="text-[#E2E2E2] text-[14px] font-normal uppercase tracking-[0.42px]">
               Curitiba - PR
             </p>
           </div>
@@ -35,9 +35,9 @@ export function Hero() {
             <h1
               className="text-[#F8F8F7] leading-[1.15] tracking-[-0.03em] w-full"
               style={{
-                fontSize: 'clamp(40px, 8vw, 72px)',
-                fontFamily: 'Area Inktrap, sans-serif',
-                fontWeight: 400,
+                fontSize: 'clamp(42px, 8vw, 74px)',
+                fontFamily: 'Google Sans Flex, sans-serif',
+                fontWeight: 300,
                 textWrap: 'balance',
               }}
             >
@@ -45,7 +45,7 @@ export function Hero() {
             </h1>
 
             <p
-              className="text-[#E2E2E2] text-xl font-semibold leading-[1.5] tracking-[-0.03em] w-full"
+              className="text-[#E2E2E2] text-[20px] font-normal leading-[1.5] tracking-[0.01em] w-full"
               style={{ textWrap: 'balance' }}
             >
               Investigação especializada das funções cognitivas, emocionais e
@@ -59,7 +59,7 @@ export function Hero() {
           href="https://api.whatsapp.com/send/?phone=5541984599063&text=Ol%C3%A1%21+Gostaria+de+agendar+uma+consulta+para+avalia%C3%A7%C3%A3o+neuropsicol%C3%B3gica.&type=phone_number"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full md:w-auto px-6 py-4 bg-[#0F5789] text-[#F8F8F7] text-base font-extrabold tracking-tight rounded-full hover:bg-[#1D7ABB] transition-colors duration-300 text-center"
+          className="w-full md:w-auto px-6 py-4 bg-[#0F5789] text-[#F8F8F7] text-[16px] font-normal tracking-tight rounded-full hover:bg-[#1D7ABB] transition-colors duration-300 text-center"
         >
           Agendar consulta
         </a>
@@ -69,27 +69,27 @@ export function Hero() {
       <div className="absolute bottom-0 left-0 right-0 z-10 border-t border-[#E9E9E9]/20">
         <div className="hidden md:block max-w-[1760px] mx-auto px-6 py-6 md:px-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            <div className="flex flex-col gap-3 max-w-[258px]">
-              <h3 className="text-[#F8F8F7] text-base font-extrabold tracking-tight">
+            <div className="flex flex-col gap-auto max-w-[258px]">
+              <h3 className="text-[#F8F8F7] text-[16px] font-bold tracking-tight">
                 Escuta cuidadosa
               </h3>
-              <p className="text-[#F8F8F7] text-base font-medium leading-[1.6] tracking-tight">
+              <p className="text-[#F8F8F7] text-[16px] font-normal leading-[1.6] tracking-tight">
                 Atendimento adaptado, acolhedor e inclusivo
               </p>
             </div>
-            <div className="flex flex-col gap-3 max-w-[258px]">
-              <h3 className="text-[#F8F8F7] text-base font-extrabold tracking-tight">
+            <div className="flex flex-col gap-2 max-w-[258px]">
+              <h3 className="text-[#F8F8F7] text-[16px] font-bold tracking-tight">
                 Base científica
               </h3>
-              <p className="text-[#F8F8F7] text-base font-medium leading-[1.6] tracking-tight">
+              <p className="text-[#F8F8F7] text-[16px] font-normal leading-[1.6] tracking-tight">
                 Instrumentos padronizados e validados
               </p>
             </div>
-            <div className="flex flex-col gap-3 max-w-[258px]">
-              <h3 className="text-[#F8F8F7] text-base font-extrabold tracking-tight">
+            <div className="flex flex-col gap-2 max-w-[258px]">
+              <h3 className="text-[#F8F8F7] text-[16px] font-bold tracking-tight">
                 Laudo completo
               </h3>
-              <p className="text-[#F8F8F7] text-base font-medium leading-[1.6] tracking-tight">
+              <p className="text-[#F8F8F7] text-[16px] font-normal leading-[1.6] tracking-tight">
                 Relatório detalhado e acessível ao final da avaliação
               </p>
             </div>

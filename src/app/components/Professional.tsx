@@ -10,12 +10,12 @@ export function Professional() {
             {/* Header */}
             <div className="flex flex-col gap-6">
               <h2
-                className="text-[#1E0C01] font-normal leading-[1.15] tracking-[-0.03em]"
-                style={{ fontSize: 'clamp(32px, 5vw, 64px)' }}
+                className="text-[#1E0C01] font-light leading-[1.15] tracking-[-0.03em]"
+                style={{ fontSize: 'clamp(34px, 5vw, 66px)' }}
               >
                 Quem vai te atender
               </h2>
-              <p className="hidden md:block text-[#39261B] text-xl font-semibold leading-[1.5] tracking-[-0.03em] max-w-[518px]">
+              <p className="hidden md:block text-[#39261B] text-[22px] font-medium leading-[1.5] tracking-[-0.03em] max-w-[518px]">
                 Conheça quem vai estar com você no processo
               </p>
             </div>
@@ -25,17 +25,17 @@ export function Professional() {
               {/* Professional Card */}
               <div className="p-4 bg-[#F8F8F7] border border-[#39261B] shadow-[1px_3px_0_#39261B] rounded">
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-[#1E0C01] text-xl font-extrabold leading-[1.3] tracking-tight">
+                  <h3 className="text-[#1E0C01] text-[20px] font-bold leading-[1.3] tracking-tight">
                     Psicóloga Luiza Schulman
                   </h3>
-                  <p className="text-[#1E0C01] text-base font-medium tracking-tight">
+                  <p className="text-[#1E0C01] text-[16px] font-normal tracking-tight">
                     CRP: 08/37426
                   </p>
                 </div>
               </div>
 
               {/* Bio */}
-              <div className="flex flex-col gap-4 text-[#1E0C01] text-base font-medium leading-[1.6] tracking-tight">
+              <div className="flex flex-col gap-4 text-[#1E0C01] text-base font-normal leading-[1.6] tracking-tight">
                 <p>
                   Psicóloga formada pela PUC-PR, Luiza tem especialização em
                   Neuropsicologia pela Sapiens. Atua com avaliação

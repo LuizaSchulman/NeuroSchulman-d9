@@ -3,7 +3,7 @@ import svgPaths from "./svg-107mhkpnee";
 function Frame2() {
   return (
     <div className="content-stretch flex flex-col items-center relative shrink-0 w-full">
-      <p className="font-['Area_Inktrap:Regular',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[64px] text-center tracking-[-1.92px] w-full">Teste de triagem para autismo em adultos</p>
+      <p className="font-light leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[66px] text-center tracking-[-1.92px] w-full">Teste de triagem para autismo em adultos</p>
     </div>
   );
 }
@@ -20,7 +20,7 @@ function Frame8() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0">
       <Frame6 />
-      <p className="font-['Area_Inktrap:SemiBold',sans-serif] leading-[1.5] min-w-full not-italic relative shrink-0 text-[#39261b] text-[20px] text-center tracking-[-0.6px] w-[min-content]">Identifique possíveis traços do espectro autista com um teste rápido, online e gratuito. Selecione o questionário que deseja responder.</p>
+      <p className="font-medium leading-[1.5] min-w-full not-italic relative shrink-0 text-[#39261b] text-[22px] text-center tracking-[-0.6px] w-[min-content]">Identifique possíveis traços do espectro autista com um teste rápido, online e gratuito. Selecione o questionário que deseja responder.</p>
     </div>
   );
 }
@@ -36,7 +36,7 @@ function Frame19() {
           </svg>
         </div>
       </div>
-      <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.4] not-italic relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.16px] whitespace-nowrap">Duração estimada de 2 minutos</p>
+      <p className="font-normal leading-[1.4] not-italic relative shrink-0 text-[#1e0c01] text-[18px] tracking-[-0.16px] whitespace-nowrap">Duração estimada de 2 minutos</p>
     </div>
   );
 }
@@ -47,7 +47,7 @@ function Frame20() {
       <div className="bg-[#09456f] relative rounded-[64px] self-stretch shrink-0 w-[117px]" data-name="Indice">
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex gap-[10px] items-center justify-center p-[10px] relative size-full">
-            <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[16px] text-center text-white tracking-[-0.48px] whitespace-nowrap">Versão curta</p>
+            <p className="font-bold leading-[1.15] not-italic relative shrink-0 text-[18px] text-center text-white tracking-[-0.48px] whitespace-nowrap">Versão curta</p>
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@ function Frame20() {
 function Frame3() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[24px] tracking-[-0.72px] w-full">AQ-10</p>
+      <p className="font-bold leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[24px] tracking-[-0.72px] w-full">AQ-10</p>
     </div>
   );
 }
@@ -68,7 +68,7 @@ function Frame21() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
       <Frame3 />
-      <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.4] not-italic relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.16px] w-full">Versão reduzida, validada para uso como triagem rápida em contextos clínicos e de pesquisa.</p>
+      <p className="font-normal leading-[1.4] not-italic relative shrink-0 text-[#1e0c01] text-[18px] tracking-[-0.16px] w-full">Versão reduzida, validada para uso como triagem rápida em contextos clínicos e de pesquisa.</p>
     </div>
   );
 }
@@ -88,7 +88,7 @@ function Frame11() {
       <div className="bg-[#1e0c01] relative rounded-[38px] shrink-0 w-full" data-name="Button">
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
-            <p className="font-['Area_Inktrap:Bold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[16px] text-center text-white tracking-[-0.32px] whitespace-nowrap">Iniciar teste</p>
+            <p className="font-semibold leading-[1.15] not-italic relative shrink-0 text-[18px] text-center text-white tracking-[-0.32px] whitespace-nowrap">Iniciar teste</p>
           </div>
         </div>
       </div>
@@ -107,7 +107,7 @@ function Frame24() {
           </svg>
         </div>
       </div>
-      <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.4] not-italic relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.16px] whitespace-nowrap">Duração estimada de 10 minutos</p>
+      <p className="font-normal leading-[1.4] not-italic relative shrink-0 text-[#1e0c01] text-[18px] tracking-[-0.16px] whitespace-nowrap">Duração estimada de 10 minutos</p>
     </div>
   );
 }
@@ -118,7 +118,7 @@ function Frame23() {
       <div className="bg-[#09456f] relative rounded-[64px] self-stretch shrink-0" data-name="Indice">
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex gap-[10px] items-center justify-center p-[10px] relative size-full">
-            <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[16px] text-center text-white tracking-[-0.48px] whitespace-nowrap">Versão completa</p>
+            <p className="font-bold leading-[1.15] not-italic relative shrink-0 text-[18px] text-center text-white tracking-[-0.48px] whitespace-nowrap">Versão completa</p>
           </div>
         </div>
       </div>
@@ -130,7 +130,7 @@ function Frame23() {
 function Frame4() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[24px] tracking-[-0.72px] w-full">AQ-50</p>
+      <p className="font-bold leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[24px] tracking-[-0.72px] w-full">AQ-50</p>
     </div>
   );
 }
@@ -139,7 +139,7 @@ function Frame25() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
       <Frame4 />
-      <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.4] not-italic relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.16px] w-full">Versão original, composta por 50 afirmações sobre preferências, comportamentos e formas de pensar.</p>
+      <p className="font-normal leading-[1.4] not-italic relative shrink-0 text-[#1e0c01] text-[18px] tracking-[-0.16px] w-full">Versão original, composta por 50 afirmações sobre preferências, comportamentos e formas de pensar.</p>
     </div>
   );
 }
@@ -159,7 +159,7 @@ function Frame13() {
       <div className="bg-[#1e0c01] relative rounded-[38px] shrink-0 w-full" data-name="Button">
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
-            <p className="font-['Area_Inktrap:Bold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[16px] text-center text-white tracking-[-0.32px] whitespace-nowrap">Iniciar teste</p>
+            <p className="font-semibold leading-[1.15] not-italic relative shrink-0 text-[18px] text-center text-white tracking-[-0.32px] whitespace-nowrap">Iniciar teste</p>
           </div>
         </div>
       </div>
@@ -191,7 +191,7 @@ function Frame10() {
 function Frame5() {
   return (
     <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
-      <p className="flex-[1_0_0] font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[16px] tracking-[-0.48px]">O que são os testes AQ-10 e AQ-50?</p>
+      <p className="flex-[1_0_0] font-bold leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[18px] tracking-[-0.48px]">O que são os testes AQ-10 e AQ-50?</p>
       <button className="block cursor-pointer overflow-clip relative shrink-0 size-[24px]" data-name="chevron-small-up">
         <div className="absolute bottom-[34.38%] left-1/4 right-1/4 top-[34.38%]" data-name="Vector">
           <div className="absolute inset-[2.26%_3.39%_5.64%_3.39%]">
@@ -209,11 +209,11 @@ function Frame26() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start justify-center relative shrink-0 w-full">
       <div className="bg-[#39261b] content-stretch flex gap-[10px] items-center justify-center p-[10px] relative rounded-[64px] shrink-0 w-[152px]" data-name="Indice">
-        <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[16px] text-center text-white tracking-[-0.48px] whitespace-nowrap">Aviso importante</p>
+        <p className="font-bold leading-[1.15] not-italic relative shrink-0 text-[18px] text-center text-white tracking-[-0.48px] whitespace-nowrap">Aviso importante</p>
       </div>
-      <div className="font-['Area_Inktrap:SemiBold_Italic',sans-serif] italic leading-[0] min-w-full not-italic relative shrink-0 text-[#39261b] text-[16px] tracking-[-0.48px] w-[min-content]">
-        <p className="font-['Area_Inktrap:SemiBold',sans-serif] leading-[1.6] mb-[8px]">Estes testes têm caráter exclusivamente informativo e não substituem uma avaliação clínica completa. Um escore elevado pode indicar a necessidade de investigação mais aprofundada, mas não configura, por si só, um diagnóstico de autismo.</p>
-        <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.6]">Para uma avaliação precisa, é fundamental consultar um profissional qualificado, como um neuropsicólogo ou psiquiatra, que poderá integrar os resultados desses instrumentos com dados clínicos, observações comportamentais e outras escalas padronizadas.</p>
+      <div className="font-medium italic leading-[0] min-w-full not-italic relative shrink-0 text-[#39261b] text-[18px] tracking-[-0.48px] w-[min-content]">
+        <p className="font-medium leading-[1.6] mb-[8px]">Estes testes têm caráter exclusivamente informativo e não substituem uma avaliação clínica completa. Um escore elevado pode indicar a necessidade de investigação mais aprofundada, mas não configura, por si só, um diagnóstico de autismo.</p>
+        <p className="font-bold leading-[1.6]">Para uma avaliação precisa, é fundamental consultar um profissional qualificado, como um neuropsicólogo ou psiquiatra, que poderá integrar os resultados desses instrumentos com dados clínicos, observações comportamentais e outras escalas padronizadas.</p>
       </div>
     </div>
   );
@@ -226,7 +226,7 @@ function Frame22() {
       <div className="content-stretch flex flex-col gap-[12px] items-end py-[16px] relative shrink-0 w-full" data-name="FAQ item">
         <div aria-hidden="true" className="absolute border-[#39261b] border-b border-solid inset-0 pointer-events-none" />
         <Frame5 />
-        <div className="font-['Area_Inktrap:Medium',sans-serif] leading-[0] not-italic relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.16px] w-full whitespace-pre-wrap">
+        <div className="font-normal leading-[0] not-italic relative shrink-0 text-[#1e0c01] text-[18px] tracking-[-0.16px] w-full whitespace-pre-wrap">
           <p className="leading-[1.6] mb-[16px]">{`O AQ-10 e o  AQ-50 são instrumentos de triagem desenvolvidos por pesquisadores da  Universidade de Cambridge para avaliar a presença de traços do espectro  autista em adultos sem deficit intelectual. O AQ-50 é a versão original, composta por 50 afirmações sobre preferências, comportamentos e formas  de pensar, desenvolvida por Baron-Cohen et al. (2001).`}</p>
           <a className="[text-decoration-skip-ink:none] block cursor-pointer decoration-solid leading-[1.6] mb-[16px] underline" href="https://pubmed.ncbi.nlm.nih.gov/11439754/" target="_blank">
             Estudo original: Journal of Autism and Developmental Disorders
@@ -284,7 +284,7 @@ function Frame() {
 
 function Frame18() {
   return (
-    <div className="content-stretch flex flex-col font-['Area_Inktrap:Regular',sans-serif] gap-[8px] items-start leading-[normal] not-italic relative shrink-0 text-[#e2e2e2] text-[14px] tracking-[-0.14px] w-full">
+    <div className="content-stretch flex flex-col font-light gap-[8px] items-start leading-[normal] not-italic relative shrink-0 text-[#e2e2e2] text-[16px] tracking-[-0.14px] w-full">
       <p className="opacity-70 relative shrink-0 w-full">Clínica de Neuropsicologia</p>
       <p className="opacity-70 relative shrink-0 w-full">CRP: 08/37426</p>
     </div>
@@ -327,13 +327,13 @@ function Frame17() {
 function Frame15() {
   return (
     <div className="col-3 content-stretch flex flex-col gap-[16px] items-start justify-self-stretch leading-[normal] not-italic relative row-1 self-start shrink-0">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] relative shrink-0 text-[#f8f8f7] text-[16px] tracking-[-0.16px] w-full">Páginas</p>
-      <p className="font-['Area_Inktrap:Regular',sans-serif] opacity-70 relative shrink-0 text-[#e2e2e2] text-[14px] tracking-[-0.14px] w-full">Início</p>
-      <p className="font-['Area_Inktrap:Regular',sans-serif] opacity-70 relative shrink-0 text-[#e2e2e2] text-[14px] tracking-[-0.14px] w-full">Para quem é indicado</p>
-      <p className="font-['Area_Inktrap:Regular',sans-serif] opacity-70 relative shrink-0 text-[#e2e2e2] text-[14px] tracking-[-0.14px] w-full">Sobre a avaliação</p>
-      <p className="font-['Area_Inktrap:Regular',sans-serif] opacity-70 relative shrink-0 text-[#e2e2e2] text-[14px] tracking-[-0.14px] w-full">Quem vai te atender</p>
-      <p className="font-['Area_Inktrap:Regular',sans-serif] opacity-70 relative shrink-0 text-[#e2e2e2] text-[14px] tracking-[-0.14px] w-full">Teste gratuito</p>
-      <p className="font-['Area_Inktrap:Regular',sans-serif] opacity-70 relative shrink-0 text-[#e2e2e2] text-[14px] tracking-[-0.14px] w-full">Dúvidas frequentes</p>
+      <p className="font-bold relative shrink-0 text-[#f8f8f7] text-[18px] tracking-[-0.16px] w-full">Páginas</p>
+      <p className="font-light opacity-70 relative shrink-0 text-[#e2e2e2] text-[16px] tracking-[-0.14px] w-full">Início</p>
+      <p className="font-light opacity-70 relative shrink-0 text-[#e2e2e2] text-[16px] tracking-[-0.14px] w-full">Para quem é indicado</p>
+      <p className="font-light opacity-70 relative shrink-0 text-[#e2e2e2] text-[16px] tracking-[-0.14px] w-full">Sobre a avaliação</p>
+      <p className="font-light opacity-70 relative shrink-0 text-[#e2e2e2] text-[16px] tracking-[-0.14px] w-full">Quem vai te atender</p>
+      <p className="font-light opacity-70 relative shrink-0 text-[#e2e2e2] text-[16px] tracking-[-0.14px] w-full">Teste gratuito</p>
+      <p className="font-light opacity-70 relative shrink-0 text-[#e2e2e2] text-[16px] tracking-[-0.14px] w-full">Dúvidas frequentes</p>
     </div>
   );
 }
@@ -385,7 +385,7 @@ function Frame1() {
 function Frame27() {
   return (
     <div className="content-stretch flex h-[32px] items-center justify-center relative shrink-0">
-      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#1e0c01] text-[14px] tracking-[-0.42px] whitespace-nowrap">Início</p>
+      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.42px] whitespace-nowrap">Início</p>
     </div>
   );
 }
@@ -393,7 +393,7 @@ function Frame27() {
 function Frame28() {
   return (
     <div className="content-stretch flex h-[32px] items-center justify-center relative shrink-0">
-      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#1e0c01] text-[14px] tracking-[-0.42px] whitespace-nowrap">Para quem é indicado</p>
+      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.42px] whitespace-nowrap">Para quem é indicado</p>
     </div>
   );
 }
@@ -401,7 +401,7 @@ function Frame28() {
 function Frame29() {
   return (
     <div className="content-stretch flex h-[32px] items-center justify-center relative shrink-0">
-      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#1e0c01] text-[14px] tracking-[-0.42px] whitespace-nowrap">Sobre a avaliação</p>
+      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.42px] whitespace-nowrap">Sobre a avaliação</p>
     </div>
   );
 }
@@ -409,7 +409,7 @@ function Frame29() {
 function Frame30() {
   return (
     <div className="content-stretch flex h-[32px] items-center justify-center relative shrink-0">
-      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#1e0c01] text-[14px] tracking-[-0.42px] whitespace-nowrap">Quem vai te atender</p>
+      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.42px] whitespace-nowrap">Quem vai te atender</p>
     </div>
   );
 }
@@ -417,7 +417,7 @@ function Frame30() {
 function Frame32() {
   return (
     <div className="content-stretch flex h-[32px] items-center justify-center relative shrink-0">
-      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#1e0c01] text-[14px] tracking-[-0.42px] whitespace-nowrap">Teste gratuito</p>
+      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.42px] whitespace-nowrap">Teste gratuito</p>
     </div>
   );
 }
@@ -425,7 +425,7 @@ function Frame32() {
 function Frame31() {
   return (
     <div className="content-stretch flex h-[32px] items-center justify-center relative shrink-0">
-      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#1e0c01] text-[14px] tracking-[-0.42px] whitespace-nowrap">Dúvidas Frequentes</p>
+      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.42px] whitespace-nowrap">Dúvidas Frequentes</p>
     </div>
   );
 }
@@ -433,7 +433,7 @@ function Frame31() {
 function Frame33() {
   return (
     <div className="content-stretch flex h-[32px] items-center justify-center relative shrink-0">
-      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#1e0c01] text-[14px] tracking-[-0.42px] whitespace-nowrap">Contato</p>
+      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.42px] whitespace-nowrap">Contato</p>
     </div>
   );
 }
@@ -449,7 +449,7 @@ function NavLinks() {
       <Frame31 />
       <Frame33 />
       <div className="bg-[#0f5789] content-stretch flex items-center justify-center px-[24px] py-[16px] relative rounded-[38px] shrink-0" data-name="Button">
-        <p className="font-['Area_Inktrap:Bold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#f8f8f7] text-[14px] text-center tracking-[-0.28px] whitespace-nowrap">Agendar consulta</p>
+        <p className="font-semibold leading-[1.15] not-italic relative shrink-0 text-[#f8f8f7] text-[16px] text-center tracking-[-0.28px] whitespace-nowrap">Agendar consulta</p>
       </div>
     </div>
   );

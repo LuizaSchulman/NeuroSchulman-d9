@@ -11,7 +11,7 @@ import { Footer } from '../components/Footer';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white font-['Area_Inktrap',sans-serif] antialiased">
+    <div className="min-h-screen bg-white font-['Google_Sans_Flex',sans-serif] antialiased">
       <Navbar />
       <main>
         <Hero />
