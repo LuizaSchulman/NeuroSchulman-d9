@@ -1,5 +1,4 @@
 import { Instagram } from 'lucide-react';
-import logoLight from '../../imports/Logo_light.svg';
 
 export function Footer() {
   return (
@@ -10,7 +9,7 @@ export function Footer() {
           <div className="md:col-span-2 flex flex-col gap-4">
             <div className="h-8">
               <img
-                src={logoLight.src}
+                src="/Logo_light.svg"
                 alt="Luiza Schulman"
                 className="h-full w-auto"
               />

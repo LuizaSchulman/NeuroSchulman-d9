@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import logoDark from '../../imports/Logo_dark.svg';
-import logoLight from '../../imports/Logo_light.svg';
 
 const navLinks = [
   { href: '/', label: 'Início' },
@@ -61,7 +59,7 @@ export function Navbar() {
           {/* Logo */}
           <div className="h-8">
             <img
-              src={isScrolled ? logoDark.src : logoLight.src}
+              src={isScrolled ? "/Logo_dark.svg" : "/Logo_light.svg"}
               alt="Luiza Schulman"
               className="h-full w-auto"
             />
@@ -106,7 +104,7 @@ export function Navbar() {
             <div className="flex items-center justify-between">
               <div className="h-8">
                 <img
-                  src={logoDark.src}
+                  src="/Logo_dark.svg"
                   alt="Luiza Schulman"
                   className="h-full w-auto"
                 />
