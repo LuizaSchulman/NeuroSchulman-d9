@@ -65,7 +65,7 @@ export function FAQ() {
         <div className="flex flex-col gap-10 md:gap-16">
           {/* Header */}
           <h2
-            className="text-[#1E0C01] font-normal leading-[1.15] tracking-[-0.03em] text-left md:text-center"
+            className="text-[#1E0C01] font-light leading-[1.15] tracking-[-0.03em] text-left md:text-center"
             style={{ fontSize: 'clamp(32px, 5vw, 64px)' }}
           >
             Dúvidas frequentes

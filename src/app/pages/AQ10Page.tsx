@@ -39,7 +39,7 @@ export default function AQ10Page() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-['Area_Inktrap',sans-serif] antialiased">
+    <div className="min-h-screen bg-white font-['Google_Sans_Flex',sans-serif] antialiased">
       <Navbar />
       <main className="bg-[#F8F8F7] pt-20">
         <div className="max-w-[1140px] mx-auto px-6 pt-10 pb-16 md:px-20 md:pt-20 md:pb-40">

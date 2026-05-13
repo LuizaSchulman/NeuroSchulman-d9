@@ -6,19 +6,19 @@ export function WhatWeInvestigate() {
           {/* Left Column - Title */}
           <div className="flex flex-col gap-6">
             <h2
-              className="text-[#F8F8F7] font-normal leading-[1.15] tracking-[-0.03em]"
+              className="text-[#F8F8F7] font-light leading-[1.15] tracking-[-0.03em]"
               style={{ fontSize: 'clamp(32px, 5vw, 64px)' }}
             >
               O que a avaliação neuropsicológica investiga?
             </h2>
-            <p className="hidden md:block text-[#E2E2E2] text-xl font-semibold leading-[1.5] tracking-[-0.03em] max-w-[518px]">
+            <p className="hidden md:block text-[#E2E2E2] text-xl font-normal leading-[1.5] tracking-[-0.03em] max-w-[518px]">
               Compreenda quais aspectos cognitivos, emocionais e comportamentais
               podem ser avaliados no processo
             </p>
           </div>
 
           {/* Right Column - Description */}
-          <div className="flex flex-col gap-4 text-[#F8F8F7] text-base font-medium leading-[1.6] tracking-tight">
+          <div className="flex flex-col gap-4 text-[#DCD7D1] text-base font-normal leading-[1.8] tracking-tight">
             <p>
               A avaliação neuropsicológica investiga o funcionamento cognitivo,
               emocional e comportamental do indivíduo, ajudando no mapeamento e

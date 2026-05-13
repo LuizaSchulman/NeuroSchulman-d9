@@ -33,23 +33,23 @@ export function AboutEvaluation() {
             {/* Left Column - Title */}
             <div className="flex flex-col gap-6">
               <h2
-                className="text-[#F8F8F7] font-normal leading-[1.15] tracking-[-0.03em]"
+                className="text-[#F8F8F7] font-light leading-[1.15] tracking-[-0.03em]"
                 style={{ fontSize: 'clamp(32px, 5vw, 64px)' }}
               >
                 Sobre a avaliação neuropsicológica
               </h2>
-              <p className="hidden md:block text-[#E2E2E2] text-xl font-semibold leading-[1.5] tracking-[-0.03em] max-w-[518px]">
+              <p className="hidden md:block text-[#E2E2E2] text-xl font-normal leading-[1.5] tracking-[-0.03em] max-w-[518px]">
                 Entenda como funciona o processo e como ele auxilia no seu dia a
                 dia
               </p>
             </div>
 
             {/* Right Column - Description */}
-            <div className="flex flex-col gap-4 text-[#F8F8F7] text-base font-medium leading-[1.6] tracking-tight justify-center">
+            <div className="flex flex-col gap-4 text-[#DCD7D1] text-base font-normal leading-[1.8] tracking-tight justify-center">
               <p>
                 O processo costuma acontecer entre 5 e 10 sessões, de acordo com a complexidade e as necessidades de cada caso. Ao final da avaliação, é entregue um laudo neuropsicológico que contribui para a investigação clínica, mas não corresponde isoladamente a um diagnóstico.
               </p>
-              
+
             </div>
           </div>
 

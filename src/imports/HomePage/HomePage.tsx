@@ -12,7 +12,7 @@ function Frame12() {
           </svg>
         </div>
       </div>
-      <p className="font-['Area_Inktrap:SemiBold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#e2e2e2] text-[14px] text-center tracking-[0.42px] uppercase whitespace-nowrap">Curitiba - PR</p>
+      <p className="font-medium leading-[1.15] not-italic relative shrink-0 text-[#e2e2e2] text-[16px] text-center tracking-[0.42px] uppercase whitespace-nowrap">Curitiba - PR</p>
     </div>
   );
 }
@@ -20,12 +20,12 @@ function Frame12() {
 function Frame2() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center not-italic relative shrink-0 text-center">
-      <p className="font-['Area_Inktrap:Bold',sans-serif] leading-[0] min-w-full relative shrink-0 text-[#f8f8f7] text-[0px] tracking-[-2.16px] w-[min-content]">
-        <span className="font-['Area_Inktrap:Regular',sans-serif] leading-[1.15] text-[72px]">Avaliação neuropsicológica</span>
-        <span className="leading-[1.15] text-[72px]">{` `}</span>
-        <span className="font-['Area_Inktrap:Regular',sans-serif] leading-[1.15] text-[72px]">em Curitiba</span>
+      <p className="font-semibold leading-[0] min-w-full relative shrink-0 text-[#f8f8f7] text-[0px] tracking-[-2.16px] w-[min-content]">
+        <span className="font-light leading-[1.15] text-[74px]">Avaliação neuropsicológica</span>
+        <span className="leading-[1.15] text-[74px]">{` `}</span>
+        <span className="font-light leading-[1.15] text-[74px]">em Curitiba</span>
       </p>
-      <p className="font-['Area_Inktrap:SemiBold',sans-serif] leading-[1.5] relative shrink-0 text-[#e2e2e2] text-[20px] tracking-[-0.6px] w-[932px]">Investigação especializada das funções cognitivas, emocionais e comportamentais em adolescentes, adultos e idosos.</p>
+      <p className="font-medium leading-[1.5] relative shrink-0 text-[#e2e2e2] text-[22px] tracking-[-0.6px] w-[932px]">Investigação especializada das funções cognitivas, emocionais e comportamentais em adolescentes, adultos e idosos.</p>
     </div>
   );
 }
@@ -44,7 +44,7 @@ function Frame3() {
     <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[40px] items-center left-1/2 top-[320px] w-[960px]">
       <Frame13 />
       <div className="bg-[#0f5789] content-stretch flex items-center justify-center px-[24px] py-[16px] relative rounded-[38px] shrink-0" data-name="Button">
-        <p className="font-['Area_Inktrap:Bold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#f8f8f7] text-[16px] text-center tracking-[-0.32px] whitespace-nowrap">Agendar consulta</p>
+        <p className="font-semibold leading-[1.15] not-italic relative shrink-0 text-[#f8f8f7] text-[18px] text-center tracking-[-0.32px] whitespace-nowrap">Agendar consulta</p>
       </div>
     </div>
   );
@@ -52,9 +52,9 @@ function Frame3() {
 
 function Frame7() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#f8f8f7] text-[16px] w-full">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Escuta cuidadosa</p>
-      <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">Atendimento adaptado, acolhedor e inclusivo</p>
+    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#f8f8f7] text-[18px] w-full">
+      <p className="font-bold leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Escuta cuidadosa</p>
+      <p className="font-normal leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">Atendimento adaptado, acolhedor e inclusivo</p>
     </div>
   );
 }
@@ -69,9 +69,9 @@ function Frame26() {
 
 function Frame8() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#f8f8f7] text-[16px] w-full">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Base científica</p>
-      <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">Instrumentos padronizados e validados</p>
+    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#f8f8f7] text-[18px] w-full">
+      <p className="font-bold leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Base científica</p>
+      <p className="font-normal leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">Instrumentos padronizados e validados</p>
     </div>
   );
 }
@@ -86,9 +86,9 @@ function Frame27() {
 
 function Frame9() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#f8f8f7] text-[16px] w-full">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Laudo completo</p>
-      <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">Relatório detalhado e acessível ao final da avaliação</p>
+    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#f8f8f7] text-[18px] w-full">
+      <p className="font-bold leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Laudo completo</p>
+      <p className="font-normal leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">Relatório detalhado e acessível ao final da avaliação</p>
     </div>
   );
 }
@@ -139,8 +139,8 @@ function Component2HeroSection() {
 function Frame5() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start not-italic relative shrink-0 w-full">
-      <p className="font-['Area_Inktrap:Regular',sans-serif] leading-[1.15] relative shrink-0 text-[#f8f8f7] text-[64px] tracking-[-1.92px] w-[692px]">O que a avaliação neuropsicológica investiga?</p>
-      <p className="font-['Area_Inktrap:SemiBold',sans-serif] leading-[1.5] relative shrink-0 text-[#e2e2e2] text-[20px] tracking-[-0.6px] w-[518px]">Compreenda quais aspectos cognitivos, emocionais e comportamentais podem ser avaliados no processo</p>
+      <p className="font-light leading-[1.15] relative shrink-0 text-[#f8f8f7] text-[66px] tracking-[-1.92px] w-[692px]">O que a avaliação neuropsicológica investiga?</p>
+      <p className="font-medium leading-[1.5] relative shrink-0 text-[#e2e2e2] text-[22px] tracking-[-0.6px] w-[518px]">Compreenda quais aspectos cognitivos, emocionais e comportamentais podem ser avaliados no processo</p>
     </div>
   );
 }
@@ -156,7 +156,7 @@ function Frame73() {
 function Frame74() {
   return (
     <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px relative">
-      <div className="font-['Area_Inktrap:Medium',sans-serif] leading-[0] not-italic relative shrink-0 text-[#f8f8f7] text-[16px] text-justify tracking-[-0.16px] w-full whitespace-pre-wrap">
+      <div className="font-normal leading-[0] not-italic relative shrink-0 text-[#f8f8f7] text-[18px] text-justify tracking-[-0.16px] w-full whitespace-pre-wrap">
         <p className="leading-[1.6] mb-[16px]">{`A avaliação neuropsicológica investiga o funcionamento cognitivo, emocional e comportamental do indivíduo, ajudando no mapeamento e na compreensão  de dificuldades, potencialidades e padrões que impactam a rotina, aprendizagem, trabalho e qualidade de vida.`}</p>
         <p className="leading-[1.6] mb-[16px]">Durante o processo, funções como atenção, concentração, memória, linguagem, raciocínio lógico, aprendizagem, planejamento e organização são analisadas de forma integrada. A interpretação desses dados possibilita uma compreensão mais ampla do perfil cognitivo e das necessidades individuais de cada pessoa.</p>
         <p className="leading-[1.6]">Os resultados obtidos contribuem para compreensão diagnóstica, direcionamentos terapêuticos, estratégias de reabilitação neuropsicológica e tomada de decisões clínicas, acadêmicas e profissionais de forma mais segura e individualizada.</p>
@@ -177,8 +177,8 @@ function Component3OQueInvestiga() {
 function Frame6() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start not-italic relative shrink-0 w-full">
-      <p className="font-['Area_Inktrap:Regular',sans-serif] leading-[1.15] relative shrink-0 text-[#1e0c01] text-[64px] tracking-[-1.92px] w-full">Para quem a avaliação neuropsicológica é indicada?</p>
-      <p className="font-['Area_Inktrap:SemiBold',sans-serif] leading-[1.5] relative shrink-0 text-[#39261b] text-[20px] tracking-[-0.6px] w-full">Entenda como a avaliação pode auxiliar diferentes fases da vida</p>
+      <p className="font-light leading-[1.15] relative shrink-0 text-[#1e0c01] text-[66px] tracking-[-1.92px] w-full">Para quem a avaliação neuropsicológica é indicada?</p>
+      <p className="font-medium leading-[1.5] relative shrink-0 text-[#39261b] text-[22px] tracking-[-0.6px] w-full">Entenda como a avaliação pode auxiliar diferentes fases da vida</p>
     </div>
   );
 }
@@ -193,9 +193,9 @@ function Frame75() {
 
 function Frame11() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#1e0c01] text-[16px] w-full">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Crianças e Adolescentes</p>
-      <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">A avaliação ajuda a compreender dificuldades de atenção, aprendizagem, comportamento, organização e relações sociais. Também auxilia na investigação de questões como TDAH, TEA, ansiedade, altas habilidades e dificuldades escolares.</p>
+    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#1e0c01] text-[18px] w-full">
+      <p className="font-bold leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Crianças e Adolescentes</p>
+      <p className="font-normal leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">A avaliação ajuda a compreender dificuldades de atenção, aprendizagem, comportamento, organização e relações sociais. Também auxilia na investigação de questões como TDAH, TEA, ansiedade, altas habilidades e dificuldades escolares.</p>
     </div>
   );
 }
@@ -210,9 +210,9 @@ function Frame29() {
 
 function Frame14() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#1e0c01] text-[16px] w-full">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Adultos</p>
-      <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">Indicada para compreender dificuldades cognitivas e emocionais que impactam rotina, trabalho, estudos e relações. A avaliação auxilia na investigação de atenção, memória, exaustão mental, ansiedade, TDAH, TEA e altas habilidades.</p>
+    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#1e0c01] text-[18px] w-full">
+      <p className="font-bold leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Adultos</p>
+      <p className="font-normal leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">Indicada para compreender dificuldades cognitivas e emocionais que impactam rotina, trabalho, estudos e relações. A avaliação auxilia na investigação de atenção, memória, exaustão mental, ansiedade, TDAH, TEA e altas habilidades.</p>
     </div>
   );
 }
@@ -227,9 +227,9 @@ function Frame30() {
 
 function Frame15() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#1e0c01] text-[16px] w-full">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Idosos</p>
-      <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">A avaliação auxilia na investigação de alterações cognitivas relacionadas ao envelhecimento, memória, atenção e possíveis quadros neurodegenerativos, contribuindo para acompanhamento clínico e qualidade de vida.</p>
+    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#1e0c01] text-[18px] w-full">
+      <p className="font-bold leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Idosos</p>
+      <p className="font-normal leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">A avaliação auxilia na investigação de alterações cognitivas relacionadas ao envelhecimento, memória, atenção e possíveis quadros neurodegenerativos, contribuindo para acompanhamento clínico e qualidade de vida.</p>
     </div>
   );
 }
@@ -279,17 +279,17 @@ function Component4ParaQuemEIndicado() {
 function Frame17() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start not-italic relative shrink-0 w-[832px]">
-      <p className="font-['Area_Inktrap:Regular',sans-serif] leading-[1.15] min-w-full relative shrink-0 text-[#f8f8f7] text-[64px] tracking-[-1.92px] w-[min-content]">Sobre a avaliação neuropsicológica</p>
-      <p className="font-['Area_Inktrap:SemiBold',sans-serif] leading-[1.5] relative shrink-0 text-[#e2e2e2] text-[20px] tracking-[-0.6px] w-[518px]">Entenda como funciona o processo e como ele auxilia no seu dia a dia</p>
+      <p className="font-light leading-[1.15] min-w-full relative shrink-0 text-[#f8f8f7] text-[66px] tracking-[-1.92px] w-[min-content]">Sobre a avaliação neuropsicológica</p>
+      <p className="font-medium leading-[1.5] relative shrink-0 text-[#e2e2e2] text-[22px] tracking-[-0.6px] w-[518px]">Entenda como funciona o processo e como ele auxilia no seu dia a dia</p>
     </div>
   );
 }
 
 function Frame19() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#f8f8f7] text-[16px] w-full">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Entrevista inicial</p>
-      <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">Uma conversa para te conhecer melhor, entender suas queixas e reunir informações importantes sobre sua saúde, rotina e história de vida.</p>
+    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#f8f8f7] text-[18px] w-full">
+      <p className="font-bold leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Entrevista inicial</p>
+      <p className="font-normal leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">Uma conversa para te conhecer melhor, entender suas queixas e reunir informações importantes sobre sua saúde, rotina e história de vida.</p>
     </div>
   );
 }
@@ -298,7 +298,7 @@ function Frame32() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
       <div className="bg-[#f8f8f7] content-stretch flex gap-[10px] items-center justify-center p-[10px] relative rounded-[64px] shrink-0 size-[32px]" data-name="Indice">
-        <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[18px] text-center tracking-[-0.54px] whitespace-nowrap">1</p>
+        <p className="font-bold leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[20px] text-center tracking-[-0.54px] whitespace-nowrap">1</p>
       </div>
       <Frame19 />
     </div>
@@ -307,9 +307,9 @@ function Frame32() {
 
 function Frame20() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#f8f8f7] text-[16px] w-full">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Aplicação de testes</p>
-      <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">São utilizados instrumentos padronizados para avaliar funções como memória, atenção, linguagem, percepção, entre outras.</p>
+    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#f8f8f7] text-[18px] w-full">
+      <p className="font-bold leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Aplicação de testes</p>
+      <p className="font-normal leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">São utilizados instrumentos padronizados para avaliar funções como memória, atenção, linguagem, percepção, entre outras.</p>
     </div>
   );
 }
@@ -318,7 +318,7 @@ function Frame33() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
       <div className="bg-[#f8f8f7] content-stretch flex gap-[10px] items-center justify-center p-[10px] relative rounded-[64px] shrink-0 size-[32px]" data-name="Indice">
-        <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[18px] text-center tracking-[-0.54px] whitespace-nowrap">2</p>
+        <p className="font-bold leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[20px] text-center tracking-[-0.54px] whitespace-nowrap">2</p>
       </div>
       <Frame20 />
     </div>
@@ -327,9 +327,9 @@ function Frame33() {
 
 function Frame21() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#f8f8f7] text-[16px] w-full">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Devolutiva</p>
-      <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">São apresentados os resultados e o perfil cognitivo e emocional. A partir disso são discutidas hipóteses diagnósticas e encaminhamentos.</p>
+    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#f8f8f7] text-[18px] w-full">
+      <p className="font-bold leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Devolutiva</p>
+      <p className="font-normal leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">São apresentados os resultados e o perfil cognitivo e emocional. A partir disso são discutidas hipóteses diagnósticas e encaminhamentos.</p>
     </div>
   );
 }
@@ -338,7 +338,7 @@ function Frame34() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
       <div className="bg-[#f8f8f7] content-stretch flex gap-[10px] items-center justify-center p-[10px] relative rounded-[64px] shrink-0 size-[32px]" data-name="Indice">
-        <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[18px] text-center tracking-[-0.54px] whitespace-nowrap">3</p>
+        <p className="font-bold leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[20px] text-center tracking-[-0.54px] whitespace-nowrap">3</p>
       </div>
       <Frame21 />
     </div>
@@ -347,9 +347,9 @@ function Frame34() {
 
 function Frame22() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#f8f8f7] text-[16px] w-full">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Entrega do laudo</p>
-      <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">Você recebe um documento completo e acessível, com os resultados, interpretações e recomendações referentes à sua avaliação.</p>
+    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#f8f8f7] text-[18px] w-full">
+      <p className="font-bold leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Entrega do laudo</p>
+      <p className="font-normal leading-[1.4] relative shrink-0 tracking-[-0.16px] w-full">Você recebe um documento completo e acessível, com os resultados, interpretações e recomendações referentes à sua avaliação.</p>
     </div>
   );
 }
@@ -358,7 +358,7 @@ function Frame35() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
       <div className="bg-[#f8f8f7] content-stretch flex gap-[10px] items-center justify-center p-[10px] relative rounded-[64px] shrink-0 size-[32px]" data-name="Indice">
-        <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[18px] text-center tracking-[-0.54px] whitespace-nowrap">4</p>
+        <p className="font-bold leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[20px] text-center tracking-[-0.54px] whitespace-nowrap">4</p>
       </div>
       <Frame22 />
     </div>
@@ -416,8 +416,8 @@ function Component5SobreAAvaliacao() {
 function Frame23() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start not-italic relative shrink-0 w-[652px]">
-      <p className="font-['Area_Inktrap:Regular',sans-serif] leading-[1.15] min-w-full relative shrink-0 text-[#1e0c01] text-[64px] tracking-[-1.92px] w-[min-content]">Quem vai te atender</p>
-      <p className="font-['Area_Inktrap:SemiBold',sans-serif] leading-[1.5] relative shrink-0 text-[#39261b] text-[20px] tracking-[-0.6px] w-[518px]">Conheça quem vai estar com você no processo</p>
+      <p className="font-light leading-[1.15] min-w-full relative shrink-0 text-[#1e0c01] text-[66px] tracking-[-1.92px] w-[min-content]">Quem vai te atender</p>
+      <p className="font-medium leading-[1.5] relative shrink-0 text-[#39261b] text-[22px] tracking-[-0.6px] w-[518px]">Conheça quem vai estar com você no processo</p>
     </div>
   );
 }
@@ -425,8 +425,8 @@ function Frame23() {
 function Frame36() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start leading-[1.3] not-italic relative shrink-0 text-[#1e0c01] w-full">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] relative shrink-0 text-[20px] tracking-[-0.6px] whitespace-nowrap">Psicóloga Luiza Schulman</p>
-      <p className="font-['Area_Inktrap:Medium',sans-serif] min-w-full relative shrink-0 text-[16px] tracking-[-0.48px] w-[min-content]">CRP: 08/37426</p>
+      <p className="font-bold relative shrink-0 text-[22px] tracking-[-0.6px] whitespace-nowrap">Psicóloga Luiza Schulman</p>
+      <p className="font-normal min-w-full relative shrink-0 text-[18px] tracking-[-0.48px] w-[min-content]">CRP: 08/37426</p>
     </div>
   );
 }
@@ -446,7 +446,7 @@ function Frame83() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
       <Frame25 />
-      <div className="font-['Area_Inktrap:Medium',sans-serif] leading-[0] not-italic relative shrink-0 text-[#1e0c01] text-[16px] text-justify tracking-[-0.16px] w-full">
+      <div className="font-normal leading-[0] not-italic relative shrink-0 text-[#1e0c01] text-[18px] text-justify tracking-[-0.16px] w-full">
         <p className="leading-[1.6] mb-[16px]">Psicóloga formada pela PUC-PR, Luiza tem especialização em Neuropsicologia pela Sapiens. Atua com avaliação neuropsicológica de adolescentes, adultos e idosos, contribuindo para que você entenda como o cérebro funciona em diferentes aspectos do dia a dia, desde atenção e memória até as emoções, comportamento e raciocínio.</p>
         <p className="leading-[1.6]">Pratica uma escuta atenta e cuidadosa, e acredita que as avaliações devem respeitar o ritmo de cada pessoa, buscando traduzir e explicar, com embasamento científico, aquilo que é sentido.</p>
       </div>
@@ -481,7 +481,7 @@ function Component6QuemVaiTeAtender() {
 function Frame40() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
-      <p className="font-['Area_Inktrap:Regular',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#f8f8f7] text-[64px] text-center tracking-[-1.92px] w-full">Teste gratuito de rastreio para autismo em adultos</p>
+      <p className="font-light leading-[1.15] not-italic relative shrink-0 text-[#f8f8f7] text-[66px] text-center tracking-[-1.92px] w-full">Teste gratuito de rastreio para autismo em adultos</p>
     </div>
   );
 }
@@ -490,7 +490,7 @@ function Frame39() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center justify-center relative shrink-0 w-[736px]">
       <Frame40 />
-      <p className="font-['Area_Inktrap:SemiBold',sans-serif] leading-[1.5] not-italic relative shrink-0 text-[#e2e2e2] text-[20px] text-center tracking-[-0.6px] w-[518px]">Identifique possíveis traços do espectro autista com um teste rápido, online e gratuito</p>
+      <p className="font-medium leading-[1.5] not-italic relative shrink-0 text-[#e2e2e2] text-[22px] text-center tracking-[-0.6px] w-[518px]">Identifique possíveis traços do espectro autista com um teste rápido, online e gratuito</p>
     </div>
   );
 }
@@ -500,7 +500,7 @@ function Frame38() {
     <div className="content-stretch flex flex-col gap-[40px] items-center relative shrink-0">
       <Frame39 />
       <div className="bg-[#0f5789] content-stretch flex items-center justify-center px-[24px] py-[16px] relative rounded-[38px] shrink-0" data-name="Button">
-        <p className="font-['Area_Inktrap:Bold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#f8f8f7] text-[16px] text-center tracking-[-0.32px] whitespace-nowrap">Fazer o teste</p>
+        <p className="font-semibold leading-[1.15] not-italic relative shrink-0 text-[#f8f8f7] text-[18px] text-center tracking-[-0.32px] whitespace-nowrap">Fazer o teste</p>
       </div>
     </div>
   );
@@ -510,7 +510,7 @@ function Frame41() {
   return (
     <div className="content-stretch flex items-center justify-center py-[12px] relative rounded-[4px] shrink-0 w-full">
       <div aria-hidden="true" className="absolute border border-[#dedcdc] border-solid inset-0 pointer-events-none rounded-[4px]" />
-      <p className="font-['Area_Inktrap:SemiBold_Italic',sans-serif] italic leading-[1.5] relative shrink-0 text-[#e2e2e2] text-[16px] text-center tracking-[-0.48px] w-[362px]">*Este é um teste de triagem e não substitui uma avaliação clínica profissional.</p>
+      <p className="font-medium italic leading-[1.5] relative shrink-0 text-[#e2e2e2] text-[18px] text-center tracking-[-0.48px] w-[362px]">*Este é um teste de triagem e não substitui uma avaliação clínica profissional.</p>
     </div>
   );
 }
@@ -535,7 +535,7 @@ function Component7TesteGratuito() {
 function Frame43() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0">
-      <p className="font-['Area_Inktrap:Regular',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[64px] tracking-[-1.92px] whitespace-nowrap">Dúvidas frequentes</p>
+      <p className="font-light leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[66px] tracking-[-1.92px] whitespace-nowrap">Dúvidas frequentes</p>
     </div>
   );
 }
@@ -543,7 +543,7 @@ function Frame43() {
 function Frame45() {
   return (
     <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
-      <p className="flex-[1_0_0] font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[16px] tracking-[-0.48px]">O que é uma avaliação neuropsicológica?</p>
+      <p className="flex-[1_0_0] font-bold leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[18px] tracking-[-0.48px]">O que é uma avaliação neuropsicológica?</p>
       <button className="block cursor-pointer overflow-clip relative shrink-0 size-[24px]" data-name="chevron-small-up">
         <div className="absolute bottom-[34.38%] left-1/4 right-1/4 top-[34.38%]" data-name="Vector">
           <div className="absolute inset-[2.26%_3.39%_5.64%_3.39%]">
@@ -560,7 +560,7 @@ function Frame45() {
 function Frame46() {
   return (
     <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
-      <p className="flex-[1_0_0] font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[16px] tracking-[-0.48px]">Para quem a avaliação é indicada?</p>
+      <p className="flex-[1_0_0] font-bold leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[18px] tracking-[-0.48px]">Para quem a avaliação é indicada?</p>
       <button className="block cursor-pointer overflow-clip relative shrink-0 size-[24px]" data-name="chevron-small-up">
         <div className="absolute bottom-[34.38%] left-1/4 right-1/4 top-[34.38%]" data-name="Vector">
           <div className="absolute inset-[2.26%_3.39%_5.64%_3.39%]">
@@ -577,7 +577,7 @@ function Frame46() {
 function Frame47() {
   return (
     <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
-      <p className="flex-[1_0_0] font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[16px] tracking-[-0.48px]">Quais profissionais solicitam esse tipo de avaliação?</p>
+      <p className="flex-[1_0_0] font-bold leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[18px] tracking-[-0.48px]">Quais profissionais solicitam esse tipo de avaliação?</p>
       <button className="block cursor-pointer overflow-clip relative shrink-0 size-[24px]" data-name="chevron-small-up">
         <div className="absolute bottom-[34.38%] left-1/4 right-1/4 top-[34.38%]" data-name="Vector">
           <div className="absolute inset-[2.26%_3.39%_5.64%_3.39%]">
@@ -594,7 +594,7 @@ function Frame47() {
 function Frame48() {
   return (
     <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
-      <p className="flex-[1_0_0] font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[16px] tracking-[-0.48px]">Como é o processo de avaliação?</p>
+      <p className="flex-[1_0_0] font-bold leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[18px] tracking-[-0.48px]">Como é o processo de avaliação?</p>
       <button className="block cursor-pointer overflow-clip relative shrink-0 size-[24px]" data-name="chevron-small-up">
         <div className="absolute bottom-[34.38%] left-1/4 right-1/4 top-[34.38%]" data-name="Vector">
           <div className="absolute inset-[2.26%_3.39%_5.64%_3.39%]">
@@ -611,7 +611,7 @@ function Frame48() {
 function Frame49() {
   return (
     <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
-      <p className="flex-[1_0_0] font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[16px] tracking-[-0.48px]">Quantas sessões são necessárias?</p>
+      <p className="flex-[1_0_0] font-bold leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[18px] tracking-[-0.48px]">Quantas sessões são necessárias?</p>
       <button className="block cursor-pointer overflow-clip relative shrink-0 size-[24px]" data-name="chevron-small-up">
         <div className="absolute bottom-[34.38%] left-1/4 right-1/4 top-[34.38%]" data-name="Vector">
           <div className="absolute inset-[2.26%_3.39%_5.64%_3.39%]">
@@ -628,7 +628,7 @@ function Frame49() {
 function Frame50() {
   return (
     <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
-      <p className="flex-[1_0_0] font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[16px] tracking-[-0.48px]">A avaliação inclui diagnóstico?</p>
+      <p className="flex-[1_0_0] font-bold leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[18px] tracking-[-0.48px]">A avaliação inclui diagnóstico?</p>
       <button className="block cursor-pointer overflow-clip relative shrink-0 size-[24px]" data-name="chevron-small-up">
         <div className="absolute bottom-[34.38%] left-1/4 right-1/4 top-[34.38%]" data-name="Vector">
           <div className="absolute inset-[2.26%_3.39%_5.64%_3.39%]">
@@ -645,7 +645,7 @@ function Frame50() {
 function Frame51() {
   return (
     <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
-      <p className="flex-[1_0_0] font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[16px] tracking-[-0.48px]">A avaliação serve para fins jurídicos ou periciais?</p>
+      <p className="flex-[1_0_0] font-bold leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[18px] tracking-[-0.48px]">A avaliação serve para fins jurídicos ou periciais?</p>
       <button className="block cursor-pointer overflow-clip relative shrink-0 size-[24px]" data-name="chevron-small-up">
         <div className="absolute bottom-[34.38%] left-1/4 right-1/4 top-[34.38%]" data-name="Vector">
           <div className="absolute inset-[2.26%_3.39%_5.64%_3.39%]">
@@ -662,7 +662,7 @@ function Frame51() {
 function Frame52() {
   return (
     <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
-      <p className="flex-[1_0_0] font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[16px] tracking-[-0.48px]">Como recebo os resultados?</p>
+      <p className="flex-[1_0_0] font-bold leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[18px] tracking-[-0.48px]">Como recebo os resultados?</p>
       <button className="block cursor-pointer overflow-clip relative shrink-0 size-[24px]" data-name="chevron-small-up">
         <div className="absolute bottom-[34.38%] left-1/4 right-1/4 top-[34.38%]" data-name="Vector">
           <div className="absolute inset-[2.26%_3.39%_5.64%_3.39%]">
@@ -679,7 +679,7 @@ function Frame52() {
 function Frame53() {
   return (
     <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
-      <p className="flex-[1_0_0] font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[16px] tracking-[-0.48px]">A avaliação é coberta por plano de saúde?</p>
+      <p className="flex-[1_0_0] font-bold leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[18px] tracking-[-0.48px]">A avaliação é coberta por plano de saúde?</p>
       <button className="block cursor-pointer overflow-clip relative shrink-0 size-[24px]" data-name="chevron-small-up">
         <div className="absolute bottom-[34.38%] left-1/4 right-1/4 top-[34.38%]" data-name="Vector">
           <div className="absolute inset-[2.26%_3.39%_5.64%_3.39%]">
@@ -696,7 +696,7 @@ function Frame53() {
 function Frame54() {
   return (
     <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
-      <p className="flex-[1_0_0] font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[16px] tracking-[-0.48px]">Preciso de encaminhamento médico para fazer a avaliação?</p>
+      <p className="flex-[1_0_0] font-bold leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[18px] tracking-[-0.48px]">Preciso de encaminhamento médico para fazer a avaliação?</p>
       <button className="block cursor-pointer overflow-clip relative shrink-0 size-[24px]" data-name="chevron-small-up">
         <div className="absolute bottom-[34.38%] left-1/4 right-1/4 top-[34.38%]" data-name="Vector">
           <div className="absolute inset-[2.26%_3.39%_5.64%_3.39%]">
@@ -713,7 +713,7 @@ function Frame54() {
 function Frame55() {
   return (
     <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
-      <p className="flex-[1_0_0] font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[16px] tracking-[-0.48px]">O que preciso levar para a minha primeira consulta?</p>
+      <p className="flex-[1_0_0] font-bold leading-[1.6] min-w-px not-italic relative text-[#1e0c01] text-[18px] tracking-[-0.48px]">O que preciso levar para a minha primeira consulta?</p>
       <button className="block cursor-pointer overflow-clip relative shrink-0 size-[24px]" data-name="chevron-small-up">
         <div className="absolute bottom-[34.38%] left-1/4 right-1/4 top-[34.38%]" data-name="Vector">
           <div className="absolute inset-[2.26%_3.39%_5.64%_3.39%]">
@@ -733,57 +733,57 @@ function Frame44() {
       <div className="content-stretch flex flex-col gap-[12px] items-end py-[16px] relative shrink-0 w-full" data-name="FAQ item">
         <div aria-hidden="true" className="absolute border-[#39261b] border-b border-solid inset-0 pointer-events-none" />
         <Frame45 />
-        <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.16px] w-full">É um processo clínico que utiliza testes, entrevistas e observações para investigar o funcionamento do cérebro. Avaliamos funções cognitivas como atenção, memória, linguagem, raciocínio, funções executivas, habilidades motoras, percepção, entre outras.</p>
+        <p className="font-normal leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[18px] tracking-[-0.16px] w-full">É um processo clínico que utiliza testes, entrevistas e observações para investigar o funcionamento do cérebro. Avaliamos funções cognitivas como atenção, memória, linguagem, raciocínio, funções executivas, habilidades motoras, percepção, entre outras.</p>
       </div>
       <div className="content-stretch flex flex-col gap-[12px] items-end py-[16px] relative shrink-0 w-full" data-name="FAQ item">
         <div aria-hidden="true" className="absolute border-[#39261b] border-b border-solid inset-0 pointer-events-none" />
         <Frame46 />
-        <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.16px] w-full whitespace-pre-wrap">{`A avaliação neuropsicológica é indicada para pessoas de todas as idades que apresentam dificuldades cognitivas, comportamentais ou emocionais que impactam seu funcionamento no dia a dia. Ela é especialmente recomendada em casos de suspeita de TDAH, transtornos de aprendizagem, autismo, alterações de memória, sequelas neurológicas (como AVC ou  traumatismo craniano) e quadros psiquiátricos em que se deseja compreender melhor o perfil cognitivo do paciente.`}</p>
+        <p className="font-normal leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[18px] tracking-[-0.16px] w-full whitespace-pre-wrap">{`A avaliação neuropsicológica é indicada para pessoas de todas as idades que apresentam dificuldades cognitivas, comportamentais ou emocionais que impactam seu funcionamento no dia a dia. Ela é especialmente recomendada em casos de suspeita de TDAH, transtornos de aprendizagem, autismo, alterações de memória, sequelas neurológicas (como AVC ou  traumatismo craniano) e quadros psiquiátricos em que se deseja compreender melhor o perfil cognitivo do paciente.`}</p>
       </div>
       <div className="content-stretch flex flex-col gap-[12px] items-end py-[16px] relative shrink-0 w-full" data-name="FAQ item">
         <div aria-hidden="true" className="absolute border-[#39261b] border-b border-solid inset-0 pointer-events-none" />
         <Frame47 />
-        <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.16px] w-full">A avaliação pode ser solicitada por neurologistas, psiquiatras, psicólogos, fonoaudiólogos, geriatras, entre outros. Mas você também pode procurar diretamente, caso perceba alguma mudança ou dificuldade.</p>
+        <p className="font-normal leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[18px] tracking-[-0.16px] w-full">A avaliação pode ser solicitada por neurologistas, psiquiatras, psicólogos, fonoaudiólogos, geriatras, entre outros. Mas você também pode procurar diretamente, caso perceba alguma mudança ou dificuldade.</p>
       </div>
       <div className="content-stretch flex flex-col gap-[12px] items-end py-[16px] relative shrink-0 w-full" data-name="FAQ item">
         <div aria-hidden="true" className="absolute border-[#39261b] border-b border-solid inset-0 pointer-events-none" />
         <Frame48 />
-        <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.16px] w-full whitespace-pre-wrap">{`O processo começa com uma conversa inicial, em que o neuropsicólogo escuta a história do paciente e entende suas queixas e necessidades. Em seguida, são aplicados testes e atividades que se parecem com jogos,  desafios ou quebra-cabeças — alguns envolvem memória, atenção,  linguagem, raciocínio ou habilidades motoras. Essas tarefas ajudam o neuropsicólogo a entender como o cérebro da pessoa está funcionando, quais são seus pontos fortes e onde há mais dificuldade. Ao final, os resultados são organizados em um relatório e discutidos com o paciente,  trazendo orientações claras e personalizadas.`}</p>
+        <p className="font-normal leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[18px] tracking-[-0.16px] w-full whitespace-pre-wrap">{`O processo começa com uma conversa inicial, em que o neuropsicólogo escuta a história do paciente e entende suas queixas e necessidades. Em seguida, são aplicados testes e atividades que se parecem com jogos,  desafios ou quebra-cabeças — alguns envolvem memória, atenção,  linguagem, raciocínio ou habilidades motoras. Essas tarefas ajudam o neuropsicólogo a entender como o cérebro da pessoa está funcionando, quais são seus pontos fortes e onde há mais dificuldade. Ao final, os resultados são organizados em um relatório e discutidos com o paciente,  trazendo orientações claras e personalizadas.`}</p>
       </div>
       <div className="content-stretch flex flex-col gap-[12px] items-end py-[16px] relative shrink-0 w-full" data-name="FAQ item">
         <div aria-hidden="true" className="absolute border-[#39261b] border-b border-solid inset-0 pointer-events-none" />
         <Frame49 />
-        <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.16px] w-full">Isso varia conforme a demanda e o ritmo de cada pessoa. Em geral, o processo envolve uma entrevista inicial e de 3 a 5 sessões de avaliação. Às vezes pode ser necessário mais tempo — nosso foco é fazer uma avaliação cuidadosa e completa. Se identificarmos a necessidade de sessões adicionais para garantir a qualidade do resultado, elas serão incluídas sem custo extra.</p>
+        <p className="font-normal leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[18px] tracking-[-0.16px] w-full">Isso varia conforme a demanda e o ritmo de cada pessoa. Em geral, o processo envolve uma entrevista inicial e de 3 a 5 sessões de avaliação. Às vezes pode ser necessário mais tempo — nosso foco é fazer uma avaliação cuidadosa e completa. Se identificarmos a necessidade de sessões adicionais para garantir a qualidade do resultado, elas serão incluídas sem custo extra.</p>
       </div>
       <div className="content-stretch flex flex-col gap-[12px] items-end py-[16px] relative shrink-0 w-full" data-name="FAQ item">
         <div aria-hidden="true" className="absolute border-[#39261b] border-b border-solid inset-0 pointer-events-none" />
         <Frame50 />
-        <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.16px] w-full whitespace-pre-wrap">{`O laudo pode contribuir com hipóteses diagnósticas, mas o diagnóstico definitivo deve ser feito por um médico. A avaliação neuropsicológica é uma ferramenta que oferece informações valiosas para o entendimento  clínico. Ao final do processo, ofereço dados detalhados sobre o  funcionamento cognitivo do paciente, que podem ajudar muito na  compreensão global do caso e na adaptação de condutas médicas e  terapêuticas.`}</p>
+        <p className="font-normal leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[18px] tracking-[-0.16px] w-full whitespace-pre-wrap">{`O laudo pode contribuir com hipóteses diagnósticas, mas o diagnóstico definitivo deve ser feito por um médico. A avaliação neuropsicológica é uma ferramenta que oferece informações valiosas para o entendimento  clínico. Ao final do processo, ofereço dados detalhados sobre o  funcionamento cognitivo do paciente, que podem ajudar muito na  compreensão global do caso e na adaptação de condutas médicas e  terapêuticas.`}</p>
       </div>
       <div className="content-stretch flex flex-col gap-[12px] items-end py-[16px] relative shrink-0 w-full" data-name="FAQ item">
         <div aria-hidden="true" className="absolute border-[#39261b] border-b border-solid inset-0 pointer-events-none" />
         <Frame51 />
-        <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.16px] w-full">Não. Este consultório realiza apenas avaliações clínicas, com foco terapêutico e de acompanhamento. Não oferecemos avaliações com finalidade pericial ou judicial.</p>
+        <p className="font-normal leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[18px] tracking-[-0.16px] w-full">Não. Este consultório realiza apenas avaliações clínicas, com foco terapêutico e de acompanhamento. Não oferecemos avaliações com finalidade pericial ou judicial.</p>
       </div>
       <div className="content-stretch flex flex-col gap-[12px] items-end py-[16px] relative shrink-0 w-full" data-name="FAQ item">
         <div aria-hidden="true" className="absolute border-[#39261b] border-b border-solid inset-0 pointer-events-none" />
         <Frame52 />
-        <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.16px] w-full whitespace-pre-wrap">{`Os resultados são entregues em um relatório escrito e apresentados  pessoalmente em uma sessão de devolutiva. Nessa conversa, explico cada parte do laudo com clareza, respondendo dúvidas e oferecendo orientações personalizadas. A devolutiva é um momento fundamental para que o paciente ou a família compreendam o que foi avaliado e como utilizar essas informações de forma prática.`}</p>
+        <p className="font-normal leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[18px] tracking-[-0.16px] w-full whitespace-pre-wrap">{`Os resultados são entregues em um relatório escrito e apresentados  pessoalmente em uma sessão de devolutiva. Nessa conversa, explico cada parte do laudo com clareza, respondendo dúvidas e oferecendo orientações personalizadas. A devolutiva é um momento fundamental para que o paciente ou a família compreendam o que foi avaliado e como utilizar essas informações de forma prática.`}</p>
       </div>
       <div className="content-stretch flex flex-col gap-[12px] items-end py-[16px] relative shrink-0 w-full" data-name="FAQ item">
         <div aria-hidden="true" className="absolute border-[#39261b] border-b border-solid inset-0 pointer-events-none" />
         <Frame53 />
-        <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.16px] w-full">Atualmente, o atendimento é particular. Se necessário, fornecemos recibo para reembolso via plano, conforme as regras de cada convênio.</p>
+        <p className="font-normal leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[18px] tracking-[-0.16px] w-full">Atualmente, o atendimento é particular. Se necessário, fornecemos recibo para reembolso via plano, conforme as regras de cada convênio.</p>
       </div>
       <div className="content-stretch flex flex-col gap-[12px] items-end py-[16px] relative shrink-0 w-full" data-name="FAQ item">
         <div aria-hidden="true" className="absolute border-[#39261b] border-b border-solid inset-0 pointer-events-none" />
         <Frame54 />
-        <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.16px] w-full whitespace-pre-wrap">{`Não. Você pode procurar diretamente, mesmo sem encaminhamento. Se perceber alguma dificuldade de atenção, memória, comportamento, ou se tiver dúvidas sobre seu próprio funcionamento ou de alguém próximo,  estamos aqui para escutar e ajudar a investigar.`}</p>
+        <p className="font-normal leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[18px] tracking-[-0.16px] w-full whitespace-pre-wrap">{`Não. Você pode procurar diretamente, mesmo sem encaminhamento. Se perceber alguma dificuldade de atenção, memória, comportamento, ou se tiver dúvidas sobre seu próprio funcionamento ou de alguém próximo,  estamos aqui para escutar e ajudar a investigar.`}</p>
       </div>
       <div className="content-stretch flex flex-col gap-[12px] items-end py-[16px] relative shrink-0 w-full" data-name="FAQ item">
         <div aria-hidden="true" className="absolute border-[#39261b] border-b border-solid inset-0 pointer-events-none" />
         <Frame55 />
-        <p className="font-['Area_Inktrap:Medium',sans-serif] leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[16px] tracking-[-0.16px] w-full">Se houver encaminhamento médico, relatórios anteriores, exames ou anotações escolares (no caso de adolescentes), traga esses documentos. Eles ajudam a compor um panorama mais completo. Também é útil trazer anotações com dúvidas ou observações sobre o que você está vivenciando.</p>
+        <p className="font-normal leading-[1.6] not-italic relative shrink-0 text-[#1e0c01] text-[18px] tracking-[-0.16px] w-full">Se houver encaminhamento médico, relatórios anteriores, exames ou anotações escolares (no caso de adolescentes), traga esses documentos. Eles ajudam a compor um panorama mais completo. Também é útil trazer anotações com dúvidas ou observações sobre o que você está vivenciando.</p>
       </div>
     </div>
   );
@@ -812,7 +812,7 @@ function Component8Faq() {
 function Frame58() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0">
-      <p className="font-['Area_Inktrap:Regular',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[64px] tracking-[-1.92px] whitespace-nowrap">Contato</p>
+      <p className="font-light leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[66px] tracking-[-1.92px] whitespace-nowrap">Contato</p>
     </div>
   );
 }
@@ -829,16 +829,16 @@ function Frame56() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0">
       <Frame57 />
-      <p className="font-['Area_Inktrap:SemiBold',sans-serif] leading-[1.5] min-w-full not-italic relative shrink-0 text-[#39261b] text-[20px] text-center tracking-[-0.6px] w-[min-content]">Entre em contato para tirar suas dúvidas ou agendar sua avaliação</p>
+      <p className="font-medium leading-[1.5] min-w-full not-italic relative shrink-0 text-[#39261b] text-[22px] text-center tracking-[-0.6px] w-[min-content]">Entre em contato para tirar suas dúvidas ou agendar sua avaliação</p>
     </div>
   );
 }
 
 function Frame61() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#1e0c01] text-[16px] w-full">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Endereço</p>
-      <div className="font-['Area_Inktrap:Medium',sans-serif] leading-[0] relative shrink-0 tracking-[-0.16px] w-full">
+    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#1e0c01] text-[18px] w-full">
+      <p className="font-bold leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Endereço</p>
+      <div className="font-normal leading-[0] relative shrink-0 tracking-[-0.16px] w-full">
         <p className="leading-[1.4] mb-0">Urban Office</p>
         <p className="leading-[1.4]">Av. João Gualberto, 1342, sala 1903 - Alto da Glória - Curitiba, PR</p>
       </div>
@@ -870,7 +870,7 @@ function Frame62() {
         <div aria-hidden="true" className="absolute border border-[#1e0c01] border-solid inset-0 pointer-events-none rounded-[38px]" />
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
-            <p className="font-['Area_Inktrap:Bold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[16px] text-center tracking-[-0.32px] whitespace-nowrap">Ver no Google Maps</p>
+            <p className="font-semibold leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[18px] text-center tracking-[-0.32px] whitespace-nowrap">Ver no Google Maps</p>
           </div>
         </div>
       </div>
@@ -880,17 +880,17 @@ function Frame62() {
 
 function Frame64() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#1e0c01] text-[16px] w-full">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Horário de atendimento</p>
-      <div className="font-['Area_Inktrap:Medium',sans-serif] leading-[0] relative shrink-0 tracking-[-0.16px] w-full whitespace-pre-wrap">
+    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#1e0c01] text-[18px] w-full">
+      <p className="font-bold leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Horário de atendimento</p>
+      <div className="font-normal leading-[0] relative shrink-0 tracking-[-0.16px] w-full whitespace-pre-wrap">
         <p className="mb-0">
           <span className="[text-decoration-skip-ink:none] decoration-solid leading-[1.4] underline">{`Atendimento presencial `}</span>
-          <span className="decoration-solid font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.4] not-italic underline">{`apenas com horário agendado. `}</span>
+          <span className="decoration-solid font-bold leading-[1.4] not-italic underline">{`apenas com horário agendado. `}</span>
           <span className="leading-[1.4]">
             <br aria-hidden="true" />
             <br aria-hidden="true" />
           </span>
-          <span className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.4] not-italic">Horário comercial</span>
+          <span className="font-bold leading-[1.4] not-italic">Horário comercial</span>
         </p>
         <p className="leading-[1.4] mb-0">Seg a sex das 9h às 17h</p>
         <p className="leading-[1.4]">Sáb das 9h às 14h</p>
@@ -918,9 +918,9 @@ function Frame63() {
 
 function Frame66() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#1e0c01] text-[16px] w-full">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Contato</p>
-      <div className="font-['Area_Inktrap:Medium',sans-serif] leading-[0] relative shrink-0 tracking-[-0.16px] w-full">
+    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 text-[#1e0c01] text-[18px] w-full">
+      <p className="font-bold leading-[1.15] relative shrink-0 tracking-[-0.48px] w-full">Contato</p>
+      <div className="font-normal leading-[0] relative shrink-0 tracking-[-0.16px] w-full">
         <p className="leading-[1.4] mb-0">WhatsApp: (41) 98459-9063</p>
         <p className="leading-[1.4]">E-mail: schulman.neuro@gmail.com</p>
       </div>
@@ -951,7 +951,7 @@ function Frame67() {
       <div className="bg-[#1e0c01] relative rounded-[38px] shrink-0 w-full" data-name="Button">
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
-            <p className="font-['Area_Inktrap:Bold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[16px] text-center text-white tracking-[-0.32px] whitespace-nowrap">Enviar mensagem no WhatsApp</p>
+            <p className="font-semibold leading-[1.15] not-italic relative shrink-0 text-[18px] text-center text-white tracking-[-0.32px] whitespace-nowrap">Enviar mensagem no WhatsApp</p>
           </div>
         </div>
       </div>
@@ -959,7 +959,7 @@ function Frame67() {
         <div aria-hidden="true" className="absolute border border-[#1e0c01] border-solid inset-0 pointer-events-none rounded-[38px]" />
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
-            <p className="font-['Area_Inktrap:Bold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[16px] text-center tracking-[-0.32px] whitespace-nowrap">Enviar e-mail</p>
+            <p className="font-semibold leading-[1.15] not-italic relative shrink-0 text-[#1e0c01] text-[18px] text-center tracking-[-0.32px] whitespace-nowrap">Enviar e-mail</p>
           </div>
         </div>
       </div>
@@ -1036,7 +1036,7 @@ function Frame() {
 
 function Frame72() {
   return (
-    <div className="content-stretch flex flex-col font-['Area_Inktrap:Regular',sans-serif] gap-[8px] items-start leading-[normal] not-italic relative shrink-0 text-[#e2e2e2] text-[14px] tracking-[-0.14px] w-full">
+    <div className="content-stretch flex flex-col font-light gap-[8px] items-start leading-[normal] not-italic relative shrink-0 text-[#e2e2e2] text-[16px] tracking-[-0.14px] w-full">
       <p className="opacity-70 relative shrink-0 w-full">Clínica de Neuropsicologia</p>
       <p className="opacity-70 relative shrink-0 w-full">CRP: 08/37426</p>
     </div>
@@ -1079,13 +1079,13 @@ function Frame71() {
 function Frame69() {
   return (
     <div className="col-3 content-stretch flex flex-col gap-[16px] items-start justify-self-stretch leading-[normal] not-italic relative row-1 self-start shrink-0">
-      <p className="font-['Area_Inktrap:ExtraBold',sans-serif] relative shrink-0 text-[#f8f8f7] text-[16px] tracking-[-0.16px] w-full">Páginas</p>
-      <p className="font-['Area_Inktrap:Regular',sans-serif] opacity-70 relative shrink-0 text-[#e2e2e2] text-[14px] tracking-[-0.14px] w-full">Início</p>
-      <p className="font-['Area_Inktrap:Regular',sans-serif] opacity-70 relative shrink-0 text-[#e2e2e2] text-[14px] tracking-[-0.14px] w-full">Para quem é indicado</p>
-      <p className="font-['Area_Inktrap:Regular',sans-serif] opacity-70 relative shrink-0 text-[#e2e2e2] text-[14px] tracking-[-0.14px] w-full">Sobre a avaliação</p>
-      <p className="font-['Area_Inktrap:Regular',sans-serif] opacity-70 relative shrink-0 text-[#e2e2e2] text-[14px] tracking-[-0.14px] w-full">Quem vai te atender</p>
-      <p className="font-['Area_Inktrap:Regular',sans-serif] opacity-70 relative shrink-0 text-[#e2e2e2] text-[14px] tracking-[-0.14px] w-full">Teste gratuito</p>
-      <p className="font-['Area_Inktrap:Regular',sans-serif] opacity-70 relative shrink-0 text-[#e2e2e2] text-[14px] tracking-[-0.14px] w-full">Dúvidas frequentes</p>
+      <p className="font-bold relative shrink-0 text-[#f8f8f7] text-[18px] tracking-[-0.16px] w-full">Páginas</p>
+      <p className="font-light opacity-70 relative shrink-0 text-[#e2e2e2] text-[16px] tracking-[-0.14px] w-full">Início</p>
+      <p className="font-light opacity-70 relative shrink-0 text-[#e2e2e2] text-[16px] tracking-[-0.14px] w-full">Para quem é indicado</p>
+      <p className="font-light opacity-70 relative shrink-0 text-[#e2e2e2] text-[16px] tracking-[-0.14px] w-full">Sobre a avaliação</p>
+      <p className="font-light opacity-70 relative shrink-0 text-[#e2e2e2] text-[16px] tracking-[-0.14px] w-full">Quem vai te atender</p>
+      <p className="font-light opacity-70 relative shrink-0 text-[#e2e2e2] text-[16px] tracking-[-0.14px] w-full">Teste gratuito</p>
+      <p className="font-light opacity-70 relative shrink-0 text-[#e2e2e2] text-[16px] tracking-[-0.14px] w-full">Dúvidas frequentes</p>
     </div>
   );
 }
@@ -1122,7 +1122,7 @@ function Frame1() {
 function Frame76() {
   return (
     <div className="content-stretch flex h-[32px] items-center justify-center relative shrink-0">
-      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[14px] text-white tracking-[-0.42px] whitespace-nowrap">Início</p>
+      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[16px] text-white tracking-[-0.42px] whitespace-nowrap">Início</p>
     </div>
   );
 }
@@ -1130,7 +1130,7 @@ function Frame76() {
 function Frame77() {
   return (
     <button className="content-stretch cursor-pointer flex h-[32px] items-center justify-center relative shrink-0">
-      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#f2f2f2] text-[14px] text-left tracking-[-0.42px] whitespace-nowrap">Para quem é indicado</p>
+      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#f2f2f2] text-[16px] text-left tracking-[-0.42px] whitespace-nowrap">Para quem é indicado</p>
     </button>
   );
 }
@@ -1138,7 +1138,7 @@ function Frame77() {
 function Frame78() {
   return (
     <div className="content-stretch flex h-[32px] items-center justify-center relative shrink-0">
-      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#f2f2f2] text-[14px] tracking-[-0.42px] whitespace-nowrap">Sobre a avaliação</p>
+      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#f2f2f2] text-[16px] tracking-[-0.42px] whitespace-nowrap">Sobre a avaliação</p>
     </div>
   );
 }
@@ -1146,7 +1146,7 @@ function Frame78() {
 function Frame79() {
   return (
     <div className="content-stretch flex h-[32px] items-center justify-center relative shrink-0">
-      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#f2f2f2] text-[14px] tracking-[-0.42px] whitespace-nowrap">Quem vai te atender</p>
+      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#f2f2f2] text-[16px] tracking-[-0.42px] whitespace-nowrap">Quem vai te atender</p>
     </div>
   );
 }
@@ -1154,7 +1154,7 @@ function Frame79() {
 function Frame80() {
   return (
     <div className="content-stretch flex h-[32px] items-center justify-center relative shrink-0">
-      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#f2f2f2] text-[14px] tracking-[-0.42px] whitespace-nowrap">Teste gratuito</p>
+      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#f2f2f2] text-[16px] tracking-[-0.42px] whitespace-nowrap">Teste gratuito</p>
     </div>
   );
 }
@@ -1162,7 +1162,7 @@ function Frame80() {
 function Frame81() {
   return (
     <div className="content-stretch flex h-[32px] items-center justify-center relative shrink-0">
-      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#f2f2f2] text-[14px] tracking-[-0.42px] whitespace-nowrap">Dúvidas Frequentes</p>
+      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#f2f2f2] text-[16px] tracking-[-0.42px] whitespace-nowrap">Dúvidas Frequentes</p>
     </div>
   );
 }
@@ -1170,7 +1170,7 @@ function Frame81() {
 function Frame82() {
   return (
     <div className="content-stretch flex h-[32px] items-center justify-center relative shrink-0">
-      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#f2f2f2] text-[14px] tracking-[-0.42px] whitespace-nowrap">Contato</p>
+      <p className="font-['Geist:Regular',sans-serif] font-normal leading-[0.95] relative shrink-0 text-[#f2f2f2] text-[16px] tracking-[-0.42px] whitespace-nowrap">Contato</p>
     </div>
   );
 }
@@ -1186,7 +1186,7 @@ function NavLinks() {
       <Frame81 />
       <Frame82 />
       <div className="bg-[#0f5789] content-stretch flex items-center justify-center px-[24px] py-[16px] relative rounded-[38px] shrink-0" data-name="Button">
-        <p className="font-['Area_Inktrap:Bold',sans-serif] leading-[1.15] not-italic relative shrink-0 text-[#f8f8f7] text-[14px] text-center tracking-[-0.28px] whitespace-nowrap">Agendar consulta</p>
+        <p className="font-semibold leading-[1.15] not-italic relative shrink-0 text-[#f8f8f7] text-[16px] text-center tracking-[-0.28px] whitespace-nowrap">Agendar consulta</p>
       </div>
     </div>
   );

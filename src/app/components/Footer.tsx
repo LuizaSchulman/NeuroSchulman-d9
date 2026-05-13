@@ -14,13 +14,13 @@ export function Footer() {
                 className="h-full w-auto"
               />
             </div>
-            <div className="flex flex-col gap-2 text-[#E2E2E2] text-sm tracking-tight opacity-70">
+            <div className="flex flex-col gap-2 text-[#E2E2E2] font-normal text-[16px] tracking-tight opacity-70">
               <p>Clínica de Neuropsicologia</p>
               <p>CRP: 08/37426</p>
             </div>
             <div className="mt-2">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/luiza.schulman"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-8 h-8 bg-[#F8F8F7] border border-[#E5E7EB] rounded p-1 hover:bg-[#E2E2E2] transition-colors"
@@ -32,10 +32,10 @@ export function Footer() {
 
           {/* Navigation Links */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-[#F8F8F7] text-base font-extrabold tracking-tight">
+            <h3 className="text-[#F8F8F7] text-[18px] font-medium tracking-tight">
               Páginas
             </h3>
-            <nav className="flex flex-col gap-2 text-[#E2E2E2] text-sm tracking-tight opacity-70">
+            <nav className="flex flex-col gap-2 text-[#E2E2E2] text-[16px] font-normal tracking-tight opacity-70">
               <a href="#inicio" className="hover:opacity-100 transition-opacity">
                 Início
               </a>
@@ -54,12 +54,11 @@ export function Footer() {
               >
                 Quem vai te atender
               </a>
-              <a href="#teste" className="hover:opacity-100 transition-opacity">
-                Teste gratuito
-              </a>
               <a href="#faq" className="hover:opacity-100 transition-opacity">
                 Dúvidas frequentes
               </a>
+              <a href="#contato" className="hover:opacity-100 transition-opacity">
+                Contato              </a>
             </nav>
           </div>
         </div>

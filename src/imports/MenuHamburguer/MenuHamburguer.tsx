@@ -40,7 +40,7 @@ export default function MenuHamburguer({ className }: { className?: string }) {
           </div>
         </button>
       </div>
-      <div className="content-stretch flex flex-[1_0_0] flex-col font-['Area_Inktrap:Medium',sans-serif] gap-[40px] items-start justify-center leading-[normal] min-h-px not-italic relative text-[#1e0c01] text-[16px] text-center tracking-[-0.16px] w-full">
+      <div className="content-stretch flex flex-[1_0_0] flex-col font-normal gap-[40px] items-start justify-center leading-[normal] min-h-px not-italic relative text-[#1e0c01] text-[18px] text-center tracking-[-0.16px] w-full">
         <p className="opacity-70 relative shrink-0 w-full">Início</p>
         <p className="opacity-70 relative shrink-0 w-full">Para quem é indicado</p>
         <p className="opacity-70 relative shrink-0 w-full">Sobre a avaliação</p>
