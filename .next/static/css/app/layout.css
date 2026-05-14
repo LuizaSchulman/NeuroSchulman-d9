@@ -1452,9 +1452,6 @@ html, body {
   .bg-\[\#A8A8A8\] {
     background-color: #A8A8A8;
   }
-  .bg-\[\#DCD7D1\] {
-    background-color: #DCD7D1;
-  }
   .bg-\[\#F8F8F7\] {
     background-color: #F8F8F7;
   }
@@ -1749,9 +1746,6 @@ html, body {
   .align-middle {
     vertical-align: middle;
   }
-  .font-\[\'Area_Inktrap\'\,sans-serif\] {
-    font-family: 'Area Inktrap',sans-serif;
-  }
   .font-\[\'Geist\:Regular\'\,sans-serif\] {
     font-family: 'Geist:Regular',sans-serif;
   }
@@ -1882,10 +1876,6 @@ html, body {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
-  .tracking-\[-0\.01em\] {
-    --tw-tracking: -0.01em;
-    letter-spacing: -0.01em;
-  }
   .tracking-\[-0\.03em\] {
     --tw-tracking: -0.03em;
     letter-spacing: -0.03em;
@@ -1925,10 +1915,6 @@ html, body {
   .tracking-\[-0\.72px\] {
     --tw-tracking: -0.72px;
     letter-spacing: -0.72px;
-  }
-  .tracking-\[-0em\] {
-    --tw-tracking: -0em;
-    letter-spacing: -0em;
   }
   .tracking-\[-1\.92px\] {
     --tw-tracking: -1.92px;

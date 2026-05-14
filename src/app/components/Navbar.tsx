@@ -163,7 +163,7 @@ export function Navbar() {
             </div>
 
             {/* Mobile Menu Links */}
-            <div className="flex flex-col flex-1 gap-1 items-start justify-center w-full text-[#1E0C01] text-[18px] font-medium tracking-tight text-center px-6 pt-10 pb-16 -mt-10">
+            <div className="flex flex-col flex-1 gap-1 items-start justify-center w-full text-[#1E0C01] text-[18px] font-normal tracking-tight text-center px-6 pt-10 pb-16 -mt-10">
               {navLinks.map((link, index) => (
                 <a
                   key={link.href}
@@ -184,7 +184,7 @@ export function Navbar() {
                 href="https://api.whatsapp.com/send/?phone=5541984599063&text=Ol%C3%A1%21+Gostaria+de+agendar+uma+consulta+para+avalia%C3%A7%C3%A3o+neuropsicol%C3%B3gica.&type=phone_number"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full px-6 py-4 mt-4 bg-[#0F5789] text-[#F8F8F7] text-[18px] font-bold tracking-tight rounded-full hover:bg-[#1D7ABB] transition-colors duration-300 inline-flex items-center justify-center"
+                className="w-full px-6 py-4 mt-4 bg-[#0F5789] text-[#F8F8F7] text-[18px] font-medium tracking-tight rounded-full hover:bg-[#1D7ABB] transition-colors duration-300 inline-flex items-center justify-center"
                 onClick={handleLinkClick}
                 style={{
                   opacity: isAnimatingIn ? 1 : 0,
