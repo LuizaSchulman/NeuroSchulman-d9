@@ -1,6 +1,6 @@
 export function WhatWeInvestigate() {
   return (
-    <section className="bg-[#1E0C01] px-6 py-10 md:px-20 md:py-40">
+    <section id="o-que-investiga" className="bg-[#1E0C01] px-6 py-10 md:px-20 md:py-40">
       <div className="max-w-[1760px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24">
           {/* Left Column - Title */}
