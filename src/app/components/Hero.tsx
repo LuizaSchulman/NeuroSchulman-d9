@@ -69,7 +69,7 @@ export function Hero() {
       <div className="absolute bottom-0 left-0 right-0 z-10 border-t border-[#E9E9E9]/20">
         <div className="hidden md:block max-w-[1760px] mx-auto px-6 py-6 md:px-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            <div className="flex flex-col gap-auto max-w-[258px]">
+            <div className="flex flex-col gap-2 max-w-[258px] mx-auto w-full">
               <h3 className="text-[#F8F8F7] text-[16px] font-bold tracking-tight">
                 Escuta cuidadosa
               </h3>
@@ -77,7 +77,7 @@ export function Hero() {
                 Atendimento adaptado, acolhedor e inclusivo
               </p>
             </div>
-            <div className="flex flex-col gap-2 max-w-[258px]">
+            <div className="flex flex-col gap-2 max-w-[258px] mx-auto w-full">
               <h3 className="text-[#F8F8F7] text-[16px] font-bold tracking-tight">
                 Base científica
               </h3>
@@ -85,7 +85,7 @@ export function Hero() {
                 Instrumentos padronizados e validados
               </p>
             </div>
-            <div className="flex flex-col gap-2 max-w-[258px]">
+            <div className="flex flex-col gap-2 max-w-[258px] mx-auto w-full">
               <h3 className="text-[#F8F8F7] text-[16px] font-bold tracking-tight">
                 Laudo completo
               </h3>
