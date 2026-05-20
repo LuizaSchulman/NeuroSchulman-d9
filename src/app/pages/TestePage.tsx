@@ -102,16 +102,16 @@ export default function TestePage() {
               <div className="border-b border-[#39261B] py-4">
                 <button
                   onClick={() => setIsFAQOpen(!isFAQOpen)}
-                  className="w-full flex items-center justify-between gap-2 text-left"
+                  className="faq-trigger w-full flex items-center justify-between gap-2 text-left"
+                  data-faq="O que são os testes AQ-10 e AQ-50?"
                 >
                   <h3 className="flex-1 text-[#1E0C01] text-base font-extrabold leading-[1.6] tracking-tight">
                     O que são os testes AQ-10 e AQ-50?
                   </h3>
                   <ChevronDown
                     size={24}
-                    className={`text-[#39261B] transition-transform duration-300 flex-shrink-0 ${
-                      isFAQOpen ? 'rotate-180' : ''
-                    }`}
+                    className={`text-[#39261B] transition-transform duration-300 flex-shrink-0 ${isFAQOpen ? 'rotate-180' : ''
+                      }`}
                   />
                 </button>
                 {isFAQOpen && (

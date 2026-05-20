@@ -6,15 +6,16 @@ const SITE_URL = 'https://neuroschulman.com.br';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Schulman Neuropsicologia | Avaliação Neuropsicológica em Curitiba',
+    default: 'Schulman Neuropsicologia | Avaliação e Reabilitação Neuropsicológica em Curitiba',
     template: '%s | Schulman Neuropsicologia',
   },
   description:
-    'Avaliação neuropsicológica especializada em Curitiba. Investigação de funções cognitivas, emocionais e comportamentais em adolescentes, adultos e idosos. Psicóloga Luiza Schulman — CRP 08/37426.',
+    'Avaliação e reabilitação neuropsicológica especializada em Curitiba. Investigação de funções cognitivas, emocionais e comportamentais em adolescentes, adultos e idosos. Psicóloga Luiza Schulman — CRP 08/37426.',
   keywords: [
     'avaliação neuropsicológica',
     'neuropsicologia Curitiba',
     'avaliação neuropsicológica Curitiba',
+    'reabilitação neuropsicológica Curitiba',
     'neuropsicóloga Curitiba',
     'teste TDAH Curitiba',
     'avaliação TEA adulto',
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
     url: SITE_URL,
     siteName: 'Schulman Neuropsicologia',
-    title: 'Schulman Neuropsicologia | Avaliação Neuropsicológica em Curitiba',
+    title: 'Schulman Neuropsicologia | Avaliação e Reabilitação Neuropsicológica em Curitiba',
     description:
       'Investigação especializada das funções cognitivas, emocionais e comportamentais. Atendimento com escuta cuidadosa, base científica e laudo completo. Agende sua consulta.',
     images: [
@@ -101,10 +102,10 @@ const localBusinessSchema = {
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '08:00',
-    closes: '18:00',
+    opens: '09:00',
+    closes: '17:00',
   },
-  sameAs: ['https://www.instagram.com/neuroschulman'],
+  sameAs: ['https://www.instagram.com/luiza.schulman'],
   founder: {
     '@type': 'Person',
     name: 'Luiza Schulman',
@@ -281,7 +282,7 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        
+
         {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link rel="stylesheet" href="https://use.typekit.net/nhk6bpv.css" />
         <Script

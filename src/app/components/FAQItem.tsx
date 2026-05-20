@@ -13,7 +13,8 @@ export function FAQItem({ question, answer }: FAQItemProps) {
     <div className="border-b border-[#39261B] py-4">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between gap-2 text-left"
+        className="faq-trigger w-full flex items-center justify-between gap-2 text-left"
+        data-faq={question}
       >
         <h3 className="flex-1 text-[#1E0C01] text-base font-medium leading-[1.6] tracking-tight">
           {question}

@@ -2813,6 +2813,13 @@ html, body {
       }
     }
   }
+  .hover\:text-\[\#F8F8F7\] {
+    &:hover {
+      @media (hover: hover) {
+        color: #F8F8F7;
+      }
+    }
+  }
   .hover\:text-accent-foreground {
     &:hover {
       @media (hover: hover) {

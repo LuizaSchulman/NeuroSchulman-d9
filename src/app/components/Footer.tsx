@@ -35,30 +35,31 @@ export function Footer() {
             <h3 className="text-[#F8F8F7] text-[18px] font-medium tracking-tight">
               Páginas
             </h3>
-            <nav className="flex flex-col gap-2 text-[#E2E2E2] text-[16px] font-normal tracking-tight opacity-70">
-              <a href="#inicio" className="hover:opacity-100 transition-opacity">
+            <nav className="flex flex-col gap-2 text-[16px] font-normal tracking-tight">
+              <a href="#inicio" className="text-[#E2E2E2] opacity-70 hover:text-[#F8F8F7] hover:opacity-100 transition-all duration-300">
                 Início
               </a>
               <a
                 href="#para-quem"
-                className="hover:opacity-100 transition-opacity"
+                className="text-[#E2E2E2] opacity-70 hover:text-[#F8F8F7] hover:opacity-100 transition-all duration-300"
               >
                 Para quem é indicado
               </a>
-              <a href="#sobre" className="hover:opacity-100 transition-opacity">
+              <a href="#sobre" className="text-[#E2E2E2] opacity-70 hover:text-[#F8F8F7] hover:opacity-100 transition-all duration-300">
                 Sobre a avaliação
               </a>
               <a
                 href="#profissional"
-                className="hover:opacity-100 transition-opacity"
+                className="text-[#E2E2E2] opacity-70 hover:text-[#F8F8F7] hover:opacity-100 transition-all duration-300"
               >
                 Quem vai te atender
               </a>
-              <a href="#faq" className="hover:opacity-100 transition-opacity">
+              <a href="#faq" className="text-[#E2E2E2] opacity-70 hover:text-[#F8F8F7] hover:opacity-100 transition-all duration-300">
                 Dúvidas frequentes
               </a>
-              <a href="#contato" className="hover:opacity-100 transition-opacity">
-                Contato              </a>
+              <a href="#contato" className="text-[#E2E2E2] opacity-70 hover:text-[#F8F8F7] hover:opacity-100 transition-all duration-300">
+                Contato
+              </a>
             </nav>
           </div>
         </div>
