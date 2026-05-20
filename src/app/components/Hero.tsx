@@ -22,13 +22,6 @@ export function Hero() {
       <div className="relative z-10 w-full md:w-[960px] mx-auto flex flex-col items-start md:items-center gap-6 md:gap-12 text-left md:text-center px-6 md:px-0">
         {/* Location + Main Content Wrapper */}
         <div className="flex flex-col items-start md:items-center gap-4 md:gap-2 w-full">
-          {/* Location */}
-          <div className="flex items-center gap-1">
-            <MapPin size={16} className="text-[#F8F8F7]" />
-            <p className="text-[#E2E2E2] text-[14px] font-normal uppercase tracking-[0.42px]">
-              Curitiba - PR
-            </p>
-          </div>
 
           {/* Main Content */}
           <div className="flex flex-col items-start md:items-center gap-4 md:gap-6 w-full">
@@ -41,7 +34,7 @@ export function Hero() {
                 textWrap: 'balance',
               }}
             >
-              Avaliação neuropsicológica em Curitiba
+              Avaliação e reabilitação neuropsicológica em Curitiba
             </h1>
 
             <p
