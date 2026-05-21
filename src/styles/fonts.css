@@ -43,7 +43,3 @@
   src: local('Google Sans Flex ExtraBold'), local('GoogleSansFlex-ExtraBold');
 }
 
-/* Set Google Sans Flex as default font */
-html, body {
-  font-family: 'Google Sans Flex', sans-serif;
-}

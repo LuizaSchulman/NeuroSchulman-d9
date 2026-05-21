@@ -1,36 +1,17 @@
 import '../styles/index.css';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
+import { googleSiteVerification, siteConfig } from '../lib/site';
 
-const SITE_URL = 'https://neuroschulman.com.br';
+const SITE_URL = siteConfig.url;
 
 export const metadata: Metadata = {
   title: {
-    default: 'Schulman Neuropsicologia | Avaliação e Reabilitação Neuropsicológica em Curitiba',
+    default: 'Schulman Neuropsicologia | Avaliacao e Reabilitacao Neuropsicologica em Curitiba',
     template: '%s | Schulman Neuropsicologia',
   },
-  description:
-    'Avaliação e reabilitação neuropsicológica especializada em Curitiba. Investigação de funções cognitivas, emocionais e comportamentais em adolescentes, adultos e idosos. Psicóloga Luiza Schulman — CRP 08/37426.',
-  keywords: [
-    'avaliação neuropsicológica',
-    'neuropsicologia Curitiba',
-    'avaliação neuropsicológica Curitiba',
-    'reabilitação neuropsicológica Curitiba',
-    'neuropsicóloga Curitiba',
-    'teste TDAH Curitiba',
-    'avaliação TEA adulto',
-    'avaliação cognitiva',
-    'laudo neuropsicológico',
-    'Luiza Schulman',
-    'psicóloga neuropsicóloga',
-    'avaliação de memória',
-    'avaliação de atenção',
-    'teste autismo adulto',
-    'rastreio autismo',
-    'TDAH adulto',
-    'altas habilidades',
-    'reabilitação neuropsicológica',
-  ],
+  description: `${siteConfig.description} Psicologa Luiza Schulman - CRP 08/37426.`,
+  keywords: [...siteConfig.keywords],
   authors: [{ name: 'Psicóloga Luiza Schulman', url: SITE_URL }],
   creator: 'Schulman Neuropsicologia',
   publisher: 'Schulman Neuropsicologia',
@@ -40,26 +21,23 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'pt_BR',
+    locale: siteConfig.locale,
     url: SITE_URL,
     siteName: 'Schulman Neuropsicologia',
-    title: 'Schulman Neuropsicologia | Avaliação e Reabilitação Neuropsicológica em Curitiba',
-    description:
-      'Investigação especializada das funções cognitivas, emocionais e comportamentais. Atendimento com escuta cuidadosa, base científica e laudo completo. Agende sua consulta.',
+    title: siteConfig.title,
+    description: siteConfig.shortDescription,
     images: [
       {
-        url: '/Logo_dark.svg',
-        width: 121,
-        height: 32,
-        alt: 'Schulman Neuropsicologia',
+        url: '/logo-dark.svg',
+        alt: siteConfig.name,
       },
     ],
   },
   twitter: {
-    card: 'summary',
-    title: 'Schulman Neuropsicologia | Avaliação Neuropsicológica em Curitiba',
-    description:
-      'Avaliação neuropsicológica especializada em Curitiba. Psicóloga Luiza Schulman — CRP 08/37426.',
+    card: 'summary_large_image',
+    title: 'Schulman Neuropsicologia | Avaliacao Neuropsicologica em Curitiba',
+    description: `${siteConfig.description} Psicologa Luiza Schulman - CRP 08/37426.`,
+    images: ['/logo-dark.svg'],
   },
   robots: {
     index: true,
@@ -74,8 +52,22 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
+  manifest: '/manifest.webmanifest',
   category: 'health',
+  verification: googleSiteVerification
+    ? {
+        google: googleSiteVerification,
+      }
+    : undefined,
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#F8F8F7',
 };
 
 // JSON-LD Structured Data for LocalBusiness
@@ -84,14 +76,14 @@ const localBusinessSchema = {
   '@type': 'HealthBusiness',
   name: 'Schulman Neuropsicologia',
   description:
-    'Avaliação neuropsicológica especializada em adolescentes, adultos e idosos em Curitiba. Psicóloga Luiza Schulman — CRP 08/37426.',
+    'Avaliacao neuropsicologica especializada em adolescentes, adultos e idosos em Curitiba. Psicologa Luiza Schulman - CRP 08/37426.',
   url: SITE_URL,
-  telephone: '+5541984599063',
+  telephone: siteConfig.phone,
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Curitiba',
-    addressRegion: 'PR',
-    addressCountry: 'BR',
+    addressLocality: siteConfig.city,
+    addressRegion: siteConfig.region,
+    addressCountry: siteConfig.country,
   },
   geo: {
     '@type': 'GeoCoordinates',
@@ -105,7 +97,7 @@ const localBusinessSchema = {
     opens: '09:00',
     closes: '17:00',
   },
-  sameAs: ['https://www.instagram.com/luiza.schulman'],
+  sameAs: [siteConfig.instagram],
   founder: {
     '@type': 'Person',
     name: 'Luiza Schulman',
@@ -232,9 +224,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" className="h-full">
-      <head>
-        {/* Google Tag Manager */}
+    <html lang="pt-BR" className="h-full" data-scroll-behavior="smooth">
+      <body className="h-full m-0 antialiased">
         <Script
           id="gtm-script"
           strategy="afterInteractive"
@@ -248,9 +239,6 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* End Google Tag Manager */}
-
-        {/* Google Analytics */}
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-ZS218B2VRE"
@@ -264,14 +252,10 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-
               gtag('config', 'G-ZS218B2VRE');
             `,
           }}
         />
-        {/* End Google Analytics */}
-      </head>
-      <body className="h-full m-0 antialiased">
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -283,18 +267,12 @@ export default function RootLayout({
         </noscript>
         {/* End Google Tag Manager (noscript) */}
 
-        {/* eslint-disable-next-line @next/next/no-css-tags */}
-        <link rel="stylesheet" href="https://use.typekit.net/nhk6bpv.css" />
-        <Script
-          id="local-business-schema"
+        <script
           type="application/ld+json"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
-        <Script
-          id="faq-schema"
+        <script
           type="application/ld+json"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
         {children}
