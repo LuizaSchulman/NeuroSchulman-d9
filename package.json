@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@base-ui/react": "^1.5.0",
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
     "@hookform/resolvers": "^5.2.2",
@@ -39,7 +40,7 @@
     "react-dom": "19.2.0",
     "react-hook-form": "7.55.0",
     "react-popper": "2.3.0",
-    "react-resizable-panels": "4.11.1",
+    "react-resizable-panels": "^4",
     "react-responsive-masonry": "2.7.1",
     "react-slick": "0.31.0",
     "recharts": "3.8.0",
