@@ -1,9 +1,8 @@
 "use client";
 
 import Link from 'next/link';
-import { Footer } from '../components/footer';
-import { Navbar } from '../components/navbar';
-import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 interface ResultState {
@@ -13,12 +12,56 @@ interface ResultState {
 }
 
 interface ResultPageProps {
-  result: ResultState;
+  result?: ResultState;
 }
 
-export default function ResultPage({ result }: ResultPageProps) {
+type SearchParamsReader = Pick<URLSearchParams, 'get'>;
+
+function parseResult(searchParams: SearchParamsReader): ResultState | null {
+  const typeValue = searchParams.get('tipo');
+  const score = Number(searchParams.get('pontuacao'));
+  const totalQuestions = Number(searchParams.get('total'));
+
+  if (!Number.isFinite(score) || !Number.isFinite(totalQuestions)) {
+    return null;
+  }
+
+  if (typeValue === 'aq-10' && totalQuestions === 10 && score >= 0 && score <= 10) {
+    return {
+      score,
+      testType: 'AQ-10',
+      totalQuestions,
+    };
+  }
+
+  if (typeValue === 'aq-50' && totalQuestions === 50 && score >= 0 && score <= 50) {
+    return {
+      score,
+      testType: 'AQ-50',
+      totalQuestions,
+    };
+  }
+
+  return null;
+}
+
+export function ResultPageView({ result }: ResultPageProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [isFAQOpen, setIsFAQOpen] = useState(false);
-  const { score, testType, totalQuestions } = result;
+  const resolvedResult = result ?? parseResult(searchParams);
+
+  useEffect(() => {
+    if (!result && !resolvedResult) {
+      router.replace('/teste-autismo');
+    }
+  }, [resolvedResult, result, router]);
+
+  if (!resolvedResult) {
+    return null;
+  }
+
+  const { score, testType, totalQuestions } = resolvedResult;
 
   // Determine interpretation based on test type
   const getInterpretation = () => {
@@ -78,9 +121,7 @@ export default function ResultPage({ result }: ResultPageProps) {
   const interpretation = getInterpretation();
 
   return (
-    <div className="min-h-screen bg-white antialiased">
-      <Navbar />
-      <main className="bg-[#F8F8F7] pt-20">
+    <div className="bg-[#F8F8F7] pt-20">
         <div className="max-w-[1140px] mx-auto px-6 pt-10 pb-16 md:px-20 md:pt-20 md:pb-40">
           <div className="flex flex-col gap-10 md:gap-16 items-center">
             {/* Header */}
@@ -242,8 +283,6 @@ export default function ResultPage({ result }: ResultPageProps) {
             </div>
           </div>
         </div>
-      </main>
-      <Footer />
     </div>
   );
 }

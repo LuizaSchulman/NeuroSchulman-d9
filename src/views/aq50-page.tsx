@@ -2,14 +2,12 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { Footer } from '../components/footer';
-import { Navbar } from '../components/navbar';
-import { aq50Questions, answerOptions, calculateAQ50Score, type AnswerOption } from '../data/aq50-questions';
+import { aq50Questions, answerOptions, calculateAQ50Score, type AnswerOption, type QuestionnaireAnswers } from '@/data/aq50-questions';
 
-export default function AQ50Page() {
+export function AQ50PageView() {
   const router = useRouter();
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, AnswerOption>>({});
+  const [answers, setAnswers] = useState<QuestionnaireAnswers>({});
 
   const question = aq50Questions[currentQuestion];
   const totalQuestions = aq50Questions.length;
@@ -44,9 +42,7 @@ export default function AQ50Page() {
   };
 
   return (
-    <div className="min-h-screen bg-white antialiased">
-      <Navbar />
-      <main className="bg-[#F8F8F7] pt-20">
+    <div className="bg-[#F8F8F7] pt-20">
         <div className="max-w-[1140px] mx-auto px-6 pt-10 pb-16 md:px-20 md:pt-20 md:pb-40">
           <div className="flex flex-col gap-10 md:gap-16 items-center">
             {/* Header */}
@@ -126,8 +122,6 @@ export default function AQ50Page() {
             </div>
           </div>
         </div>
-      </main>
-      <Footer />
     </div>
   );
 }

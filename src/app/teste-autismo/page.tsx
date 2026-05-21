@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import TestePage from '../../views/teste-page';
+import { TestePageView } from '@/views/teste-page';
 
 export const metadata: Metadata = {
   title: 'Teste de triagem para autismo em adultos',
@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function AutismScreeningLandingPage() {
-  return <TestePage />;
+  return <TestePageView />;
 }

@@ -2,17 +2,13 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Footer } from '../components/footer';
-import { Navbar } from '../components/navbar';
 import { Clock, ChevronDown } from 'lucide-react';
 
-export default function TestePage() {
+export function TestePageView() {
   const [isFAQOpen, setIsFAQOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white antialiased">
-      <Navbar />
-      <main className="bg-[#F8F8F7] pt-20">
+    <div className="bg-[#F8F8F7] pt-20">
         <div className="max-w-[1140px] mx-auto px-6 pt-10 pb-16 md:px-20 md:pt-20 md:pb-40">
           <div className="flex flex-col gap-10 md:gap-20">
             {/* Header */}
@@ -181,8 +177,6 @@ export default function TestePage() {
             </div>
           </div>
         </div>
-      </main>
-      <Footer />
     </div>
   );
 }

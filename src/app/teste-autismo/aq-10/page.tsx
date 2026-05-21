@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import AQ10Page from '../../../views/aq10-page';
+import { AQ10PageView } from '@/views/aq10-page';
 
 export const metadata: Metadata = {
   title: 'AQ-10',
@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function AutismScreeningAQ10Page() {
-  return <AQ10Page />;
+  return <AQ10PageView />;
 }
