@@ -34,7 +34,6 @@ export function Hero() {
               className="text-[#F8F8F7] leading-[1.15] tracking-[-0.03em] w-full"
               style={{
                 fontSize: 'clamp(42px, 8vw, 74px)',
-                fontFamily: 'Google Sans Flex, sans-serif',
                 fontWeight: 300,
                 textWrap: 'balance',
               }}

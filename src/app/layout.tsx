@@ -55,6 +55,14 @@ export const viewport: Viewport = {
 export default function Layout({ children }: LayoutProps<'/'>): React.JSX.Element {
   return (
     <html lang="pt-BR" data-scroll-behavior="smooth">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300;400;500;600;700;800&display=swap"
+        />
+      </head>
       <GoogleAnalytics gaId="G-ZS218B2VRE" />
       <GoogleTagManager gtmId="GTM-MJMQDRS7" />
       <body>
