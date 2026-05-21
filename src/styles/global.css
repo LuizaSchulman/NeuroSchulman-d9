@@ -1,158 +1,9 @@
-@import 'tailwindcss' source(none);
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @source '../**/*.{js,ts,jsx,tsx}';
 
 @custom-variant dark (&:is(.dark *));
-
-@keyframes enter {
-    from {
-        opacity: var(--tw-enter-opacity, 1);
-        transform: translate3d(var(--tw-enter-translate-x, 0), var(--tw-enter-translate-y, 0), 0)
-            scale3d(var(--tw-enter-scale, 1), var(--tw-enter-scale, 1), var(--tw-enter-scale, 1))
-            rotate(var(--tw-enter-rotate, 0));
-    }
-}
-
-@keyframes exit {
-    to {
-        opacity: var(--tw-exit-opacity, 1);
-        transform: translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0), 0)
-            scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1))
-            rotate(var(--tw-exit-rotate, 0));
-    }
-}
-
-@keyframes accordion-down {
-    from {
-        height: 0;
-    }
-
-    to {
-        height: var(--radix-accordion-content-height, auto);
-    }
-}
-
-@keyframes accordion-up {
-    from {
-        height: var(--radix-accordion-content-height, auto);
-    }
-
-    to {
-        height: 0;
-    }
-}
-
-@utility animate-in {
-    animation: enter var(--tw-animation-duration, var(--tw-duration, 0.15s)) var(--tw-ease, ease)
-        var(--tw-animation-delay, 0s) var(--tw-animation-iteration-count, 1)
-        var(--tw-animation-direction, normal) var(--tw-animation-fill-mode, none);
-}
-
-@utility animate-out {
-    animation: exit var(--tw-animation-duration, var(--tw-duration, 0.15s)) var(--tw-ease, ease)
-        var(--tw-animation-delay, 0s) var(--tw-animation-iteration-count, 1)
-        var(--tw-animation-direction, normal) var(--tw-animation-fill-mode, none);
-}
-
-@utility animate-accordion-down {
-    animation: accordion-down var(--tw-animation-duration, var(--tw-duration, 0.2s)) ease-out;
-}
-
-@utility animate-accordion-up {
-    animation: accordion-up var(--tw-animation-duration, var(--tw-duration, 0.2s)) ease-out;
-}
-
-@utility fade-in {
-    --tw-enter-opacity: 0;
-}
-
-@utility fade-in-0 {
-    --tw-enter-opacity: 0;
-}
-
-@utility fade-out {
-    --tw-exit-opacity: 0;
-}
-
-@utility fade-out-0 {
-    --tw-exit-opacity: 0;
-}
-
-@utility zoom-in-90 {
-    --tw-enter-scale: 0.9;
-}
-
-@utility zoom-in-95 {
-    --tw-enter-scale: 0.95;
-}
-
-@utility zoom-out-95 {
-    --tw-exit-scale: 0.95;
-}
-
-@utility slide-in-from-top {
-    --tw-enter-translate-y: -100%;
-}
-
-@utility slide-in-from-top-2 {
-    --tw-enter-translate-y: calc(var(--spacing) * -2);
-}
-
-@utility slide-in-from-bottom {
-    --tw-enter-translate-y: 100%;
-}
-
-@utility slide-in-from-bottom-2 {
-    --tw-enter-translate-y: calc(var(--spacing) * 2);
-}
-
-@utility slide-in-from-left {
-    --tw-enter-translate-x: -100%;
-}
-
-@utility slide-in-from-left-2 {
-    --tw-enter-translate-x: calc(var(--spacing) * -2);
-}
-
-@utility slide-in-from-left-52 {
-    --tw-enter-translate-x: calc(var(--spacing) * -52);
-}
-
-@utility slide-in-from-right {
-    --tw-enter-translate-x: 100%;
-}
-
-@utility slide-in-from-right-2 {
-    --tw-enter-translate-x: calc(var(--spacing) * 2);
-}
-
-@utility slide-in-from-right-52 {
-    --tw-enter-translate-x: calc(var(--spacing) * 52);
-}
-
-@utility slide-out-to-top {
-    --tw-exit-translate-y: -100%;
-}
-
-@utility slide-out-to-bottom {
-    --tw-exit-translate-y: 100%;
-}
-
-@utility slide-out-to-left {
-    --tw-exit-translate-x: -100%;
-}
-
-@utility slide-out-to-left-52 {
-    --tw-exit-translate-x: calc(var(--spacing) * -52);
-}
-
-@utility slide-out-to-right {
-    --tw-exit-translate-x: 100%;
-}
-
-@utility slide-out-to-right-52 {
-    --tw-exit-translate-x: calc(var(--spacing) * 52);
-}
 
 @layer base {
 	:root {
@@ -167,7 +18,7 @@
 	body {
 		@apply m-0 min-h-screen bg-white antialiased;
 		height: 100%;
-        font-family: 'Google Sans Flex', sans-serif;
+        font-family: var(--font-google-san-flex);
 		text-rendering: optimizeLegibility;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
@@ -183,6 +34,8 @@
 }
 
 :root {
+    --font-google-sans-flex: 'Google Sans Flex', sans-serif;
+    --font-google-san-flex: var(--font-google-sans-flex);
     --font-size: 16px;
     --background: #ffffff;
     --foreground: oklch(0.145 0 0);
