@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import professionalImage from '../imports/luiza-schulman-headshot.png';
+
+const professionalImageSrc = '/images/luiza-schulman-headshot.png';
 
 export function Professional() {
   return (
@@ -59,7 +60,7 @@ export function Professional() {
         {/* Right Column - Image covering full column */}
         <div className="hidden lg:block relative min-h-[600px]">
           <Image
-            src={professionalImage}
+            src={professionalImageSrc}
             alt="Psicologa Luiza Schulman"
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"

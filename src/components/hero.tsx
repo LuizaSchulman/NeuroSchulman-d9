@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
-import heroImage from '../imports/hero-image.png';
+
+const heroImageSrc = '/images/hero-image.png';
 
 export function Hero() {
   return (
@@ -11,7 +12,7 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src={heroImage}
+          src={heroImageSrc}
           alt="Consultorio de neuropsicologia em Curitiba"
           fill
           priority
