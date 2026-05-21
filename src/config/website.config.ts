@@ -1,4 +1,4 @@
-export const siteConfig = {
+export const websiteConfig = {
   name: 'Schulman Neuropsicologia',
   url: 'https://neuroschulman.com.br',
   title:
@@ -49,8 +49,3 @@ export const sitemapRoutes = [
     priority: 0.8,
   },
 ] as const;
-
-export const googleSiteVerification =
-  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ??
-  process.env.GOOGLE_SITE_VERIFICATION ??
-  undefined;

@@ -1,9 +1,11 @@
 import { MetadataRoute } from 'next';
-import { siteConfig, sitemapRoutes } from '../lib/site';
+import { sitemapRoutes, websiteConfig } from '@/config/website.config';
+
+export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return sitemapRoutes.map((route) => ({
-    url: `${siteConfig.url}${route.url}`,
+    url: `${websiteConfig.url}${route.url}`,
     lastModified: new Date(),
     changeFrequency: route.changeFrequency,
     priority: route.priority,
