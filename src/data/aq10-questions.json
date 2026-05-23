@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "text": "Eu frequentemente noto pequenos sons que outras pessoas não percebem.",
+    "scoringType": "agree"
+  },
+  {
+    "id": 2,
+    "text": "Eu geralmente foco mais no todo do que nos pequenos detalhes.",
+    "scoringType": "disagree"
+  },
+  {
+    "id": 3,
+    "text": "Acho fácil fazer mais de uma coisa ao mesmo tempo.",
+    "scoringType": "disagree"
+  },
+  {
+    "id": 4,
+    "text": "Se sou interrompido, consigo voltar rapidamente ao que estava fazendo.",
+    "scoringType": "disagree"
+  },
+  {
+    "id": 5,
+    "text": "Acho fácil \"ler nas entrelinhas\" quando alguém fala comigo.",
+    "scoringType": "disagree"
+  },
+  {
+    "id": 6,
+    "text": "Consigo perceber quando a pessoa que está me ouvindo está entediada.",
+    "scoringType": "disagree"
+  },
+  {
+    "id": 7,
+    "text": "Quando leio uma história, tenho dificuldade para entender as intenções dos personagens.",
+    "scoringType": "agree"
+  },
+  {
+    "id": 8,
+    "text": "Gosto de colecionar informações sobre categorias específicas de coisas.",
+    "scoringType": "agree"
+  },
+  {
+    "id": 9,
+    "text": "Acho fácil entender o que alguém está pensando ou sentindo apenas olhando para o rosto dela.",
+    "scoringType": "disagree"
+  },
+  {
+    "id": 10,
+    "text": "Tenho dificuldade para entender as intenções das pessoas.",
+    "scoringType": "agree"
+  }
+]
